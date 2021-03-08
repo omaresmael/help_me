@@ -29,7 +29,7 @@
                     <a href="{{route('schools.index')}}" class=" waves-effect">
                         <i class="ri-building-line"></i>
 {{--                        <span>@lang('translation.Chat')</span>--}}
-                        <span>المدارس</span>
+                        <span>الهيئات التعليميه</span>
                     </a>
                 </li>
 

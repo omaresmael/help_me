@@ -63,8 +63,8 @@ class StudentController extends Controller
         return view('student.edit', compact('student', 'schools'));
     } 
     /**
-     * get edit view for updating student
-     * @param \App\Http\Requests  $request
+     * updating student
+     * @param \App\Http\Requests\UpdateStudentRequest  $request
      * @param \App\models\Student $student
      * @return redirect
      */

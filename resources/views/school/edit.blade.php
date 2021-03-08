@@ -23,15 +23,17 @@
         </button>
         </div>
     @endif
-    @if(session()->has('errors'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session()->pull('errors')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+    @if(count($errors)>0)
+        @foreach($errors->all() as $error)
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{$error}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endforeach
     @endif
-    <form class="needs-validation" action="{{route('schools.store')}}" method="post" novalidate>
+    <form class="needs-validation" action="{{route('schools.update', $school->id)}}" method="post" novalidate>
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
@@ -40,11 +42,12 @@
                     <p class="card-title-desc">تسجيل مدرسة جديدة</p>
 
                         @csrf
+                        @method('PATCH')
                         <div class="row">
 {{--                            <div class="col-md-12">--}}
                                 <div class="form-group col-md-6">
                                     <label for="validationCustom01">اسم الهيئه التعليمة بالعربي</label>
-                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم الهيئه التعليمة" value="" required>
+                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم الهيئه التعليمة" value="{{$school->name}}" required>
 
                                     <div class="invalid-feedback">
                                         من فضلك أدخل الإسم
@@ -52,7 +55,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="validationCustom01">اسم الهيئه التعليمة بالإنجليزي</label>
-                                    <input type="text" name="name_english" class="form-control" id="validationCustom01" placeholder="School" value="" required>
+                                    <input type="text" name="name_english" class="form-control" id="validationCustom01" placeholder="School" value="{{$school->name_english}}" required>
 
                                     <div class="invalid-feedback">
                                         من فضلك أدخل الإسم
@@ -66,7 +69,7 @@
                             {{--                            <div class="col-md-12">--}}
                             <div class="form-group col-md-8">
                                 <label for="validationCustom01">العنوان</label>
-                                <input type="text" name="address" class="form-control" id="validationCustom01" placeholder="العنوان" value="" required>
+                                <input type="text" name="address" class="form-control" id="validationCustom01" placeholder="العنوان" value="{{$school->address}}" required>
 
                                 <div class="invalid-feedback">
                                     من فضلك أدخل العنوان
@@ -74,7 +77,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="validationCustom01">الحالة</label>
-                                <input type="text" name="state" class="form-control" id="validationCustom01" placeholder="الحالة" value="" required>
+                                <input type="text" name="state" class="form-control" id="validationCustom01" placeholder="الحالة" value="{{$school->state}}" required>
 
                                 <div class="invalid-feedback">
                                     من فضلك أدخل الحالة
@@ -88,7 +91,7 @@
                             {{--                            <div class="col-md-12">--}}
                             <div class="form-group col-md-4">
                                 <label for="validationCustom01">رقم التليفون</label>
-                                <input type="text" name="phone_number" class="form-control" id="validationCustom01" placeholder="01099999999" value="" required>
+                                <input type="text" name="phone_number" class="form-control" id="validationCustom01" placeholder="01099999999" value="{{$school->phone_number}}" required>
 
                                 <div class="invalid-feedback">
                                     من فضلك أدخل رقم التليفون
@@ -96,7 +99,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="validationCustom01">الفاكس</label>
-                                <input type="text" name="fax_number" class="form-control" id="validationCustom01" placeholder="رقم الفاكس" value="" required>
+                                <input type="text" name="fax_number" class="form-control" id="validationCustom01" placeholder="رقم الفاكس" value="{{$school->fax_number}}" required>
 
                                 <div class="invalid-feedback">
                                     من فضلك أدخل رفم الفاكس
@@ -104,7 +107,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="validationCustom01">الإيميل</label>
-                                <input type="email" name="email" class="form-control" id="validationCustom01" placeholder="example@gmail.cpm" value="" required>
+                                <input type="email" name="email" class="form-control" id="validationCustom01" placeholder="example@gmail.cpm" value="{{$school->email}}" required>
 
                                 <div class="invalid-feedback">
                                     من فضلك أدخل الإيميل
@@ -133,11 +136,44 @@
                         <p class="card-title-desc" style="display:inline-block">إسناد البرامج إلى الهيئه التعليمة </p>
                         <button class="btn btn-info" id="addProgram" style="float: left;position: relative; top: -22px;">إسناد برنامج آخر</button>
                     <div class="row " id="programContainer">
+                    @if(count($school->programs) > 0)
+                        @foreach($school->programs as $schoolProgram)
+                            <div class="form-group col-md-4 ">
+                            <label class="control-label">اختر برنامج</label>
+                            <select name="programs[]" class="form-control select2" required>
+                                <option value="{{$schoolProgram->id}}">{{$schoolProgram->name}} </option>
+                                @foreach($programsList as $program)
+                                    @if($program->id !=$schoolProgram->id)
+                                    <option value="{{$program->id}}">{{$program->name}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-0 col-md-4">
+                            <label>
+                                مدة البرنامج
+                            </label>
+                            <div> 
+                                <div class="input-daterange input-group" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-autoclose="true">
+                                    <input type="text" class="form-control start" placeholder="يبدأ من" name="start_at[]" value="{{$schoolProgram->pivot->start_at}}" required />
+                                    <input type="text" class="form-control end" placeholder="ينتهي عند" name="end_at[]" value="{{$schoolProgram->pivot->end_at}}" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label for="validationCustom01">سعر البرنامج</label>
+                                <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="{{$schoolProgram->pivot->program_price}}" required>
+                                <div class="invalid-feedback">
+                                    من فضلك أدخل السعر
+                                </div>
+                        </div>
+                        @endforeach
+                    @else
                         <div class="form-group col-md-4 ">
                             <label class="control-label">اختر برنامج</label>
                             <select name="programs[]" class="form-control select2" required>
                                 <option>Select</option>
-                                @foreach($programs as $program)
+                                @foreach($programsList as $program)
                                     <option value="{{$program->id}}">{{$program->name}}</option>
                                 @endforeach
                             </select>
@@ -155,34 +191,37 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="validationCustom01">سعر البرنامج</label>
-                            <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
+                                <label for="validationCustom01">سعر البرنامج</label>
+                                
+                                <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
 
-                            <div class="invalid-feedback">
-                                من فضلك أدخل السعر
-                            </div>
+                                <div class="invalid-feedback">
+                                    من فضلك أدخل السعر
+                                </div>
+                            
                         </div>
+                    @endif
                     </div>
-
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <button class="btn btn-primary mb-2" type="submit">حفظ الهيئه التعليمة</button>
+        <button class="btn btn-primary mb-2" type="submit">تحديث الهيئه التعليمة</button>
     </form>
 @endsection
 
 @section('script')
     <script>
+    $(function(){
         $('#addProgram').click(function(){
             //fix the select search method
             var html = '<div class="form-group col-md-4 ">\n' +
                 '                            <label class="control-label">اختر برنامج</label>\n' +
                 '                            <select name="programs[]" class="form-control select2" required>\n' +
                 '                                <option>Select</option>\n' +
-                '                                @foreach($programs as $program)\n' +
+                '                                @foreach($programsList as $program)\n' +
                 '                                    <option value="{{$program->id}}">{{$program->name}}</option>\n' +
                 '                                @endforeach\n' +
                 '                            </select>\n' +
@@ -209,6 +248,7 @@
                 '                        </div>';
             $('#programContainer').append(html);
         })
+    });
     </script>
     <script src="{{ URL::asset('/assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
 
