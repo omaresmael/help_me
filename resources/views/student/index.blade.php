@@ -11,7 +11,14 @@
         @slot('li_2') الطلاب @endslot
     @endcomponent
 
-
+    @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{session()->pull('message')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -26,7 +33,6 @@
                             <table id="tech-companies-1" class="table">
                                 <thead>
                                 <tr>
-
                                     <th data-priority="1">#</th>
                                     <th data-priority="3">اسم الطالب</th>
                                     <th data-priority="3">الرقم القومي </th>
@@ -35,30 +41,25 @@
                                     <th data-priority="3">الإيميل </th>
                                     <th data-priority="3">المدرسة</th>
                                     <th data-priority="3">البرنامج</th>
-
+                                    <th data-priority="1">عمليات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 @foreach($students as $i => $student)
                                     <tr>
-
-
-                                    <td>{{$i+1}}</td>
-                                    <td>{{$student->name}}</td>
-                                    <td>{{$student->national_number}}</td>
-                                    <td>{{$student->guardian_name}}</td>
-                                    <td>{{$student->guardian_national_number}}</td>
-                                    <td>{{$student->email}}</td>
-                                    <td>{{$student->school()->name}}</td>
-                                    <td>{{$student->program()[0]->name}}</td>
-
-
+                                        <td>{{$i+1}}</td>
+                                        <td>{{$student->name}}</td>
+                                        <td>{{$student->national_number}}</td>
+                                        <td>{{$student->guardian_name}}</td>
+                                        <td>{{$student->guardian_national_number}}</td>
+                                        <td>{{$student->email}}</td>
+                                        <td>{{$student->school()->name}}</td>
+                                        <td>{{$student->program()->name}}</td>
+                                        <td>
+                                            <a href="\students/{{$student->id}}/edit" class='btn btn-primary'>تعديل</a>
+                                        </td>
                                     </tr>
                                 @endforeach
-
-
-
                                 </tbody>
                             </table>
                         </div>
