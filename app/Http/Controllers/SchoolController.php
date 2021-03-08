@@ -64,20 +64,12 @@ class SchoolController extends Controller
 
     public function financialReport(School $school)
     {
+        $periods = $school->periods;
         $studentsNumber = $school->studentsNumber();
 
         $rowMoney = $school->getSchoolTotalRowMoney();
 
-
-
-        $periods = $school->periods;
-
-        $totalFines = 0;
-
-        foreach($periods as $period)
-        {
-            $totalFines += $period->pivot->initial_value - $period->pivot->deserved_value;
-        }
+        $totalFines = $school->getSchoolTotalFines();
 
         $totalDeservedValue = $school->periods()->sum('deserved_value');
 
@@ -91,6 +83,18 @@ class SchoolController extends Controller
         return view('report.financial',compact('school','periods','programsNumber','residual','rowMoney','totalDeservedValue','studentsNumber'));
 
     }
+    /**
+        get the schools finance reports
+     * number of students / number of programs / school row money / school
+     */
+    public function totalFinanceReport()
+    {
+        $schools = School::all();
+
+        return view('report.schools_finance',compact('schools'));
+
+    }
+
 
 
 

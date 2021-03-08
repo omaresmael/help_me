@@ -51,16 +51,17 @@
 
 
 
-{{--                <li>--}}
-{{--                    <a href="javascript: void(0);" class="has-arrow waves-effect">--}}
-{{--                        <i class="ri-mail-send-line"></i>--}}
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
 {{--                        <span>@lang('translation.Email')</span>--}}
-{{--                    </a>--}}
-{{--                    <ul class="sub-menu" aria-expanded="false">--}}
-{{--                        <li><a href="email-inbox">@lang('translation.Inbox')</a></li>--}}
+                        <span>التقارير</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('schools.finance')}}">الهيئات التعليمية</a></li>
 {{--                        <li><a href="email-read">@lang('translation.Read_Email')</a></li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
+                    </ul>
+                </li>
 
 {{--                <li>--}}
 {{--                    <a href="apps-kanban-board" class=" waves-effect">--}}
