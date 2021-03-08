@@ -24,7 +24,7 @@
             </div>
         @endforeach
     @endif
-    
+
     <form class="needs-validation" action="{{route('students.update',$student->id)}}" method="post" novalidate>
     <div class="row">
         <div class="col-xl-12">
@@ -140,9 +140,9 @@
                         </div>
 
                         <div class="form-group col-md-6 ">
-                            <label class="control-label" id='studentProgramId' programId="{{$student->program()->id}}">اختر برنامج</label>
-                            <select name="program_school_id" id="program"  class="form-control select2" required> 
-                                <option value="{{$student->program()->id}}">{{$student->program()->name}}</option>
+                            <label class="control-label" id='studentProgramId' programId="{{$student->program()[1]->id}}">اختر برنامج</label>
+                            <select name="program_school_id" id="program"  class="form-control select2" required>
+                                <option value="{{$student->program()[1]->id}}">{{$student->program()[1]->name}}</option>
                             </select>
                         </div>
 
@@ -168,7 +168,7 @@
 
             let url = "/associated/"+selected,
                 studentprogramId = $("#studentProgramId").attr('programId');
-            
+
             $.post( url, function( data ) {
                 $.each(data, function(key,valueObj){
                     if(key != studentprogramId)

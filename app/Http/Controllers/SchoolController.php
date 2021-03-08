@@ -68,6 +68,8 @@ class SchoolController extends Controller
 
         $rowMoney = $school->getSchoolTotalRowMoney();
 
+
+
         $periods = $school->periods;
 
         $totalFines = 0;

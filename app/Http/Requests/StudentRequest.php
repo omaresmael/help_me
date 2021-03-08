@@ -23,6 +23,15 @@ class StudentRequest extends FormRequest
      */
     public function rules()
     {
-        return ['name'=>'required','national_number'=>'required','guardian_name'=>'required','guardian_national_number'=>'required','email'=>'required','ministry_nomination'=>'required','school_nomination'=>'required','program_school_id'=>'required'];
+        return [
+            'name' => 'required|string|min:8',
+            'national_number' => 'required|digits_between:12,14|unique:students',
+            'guardian_name' => 'required|different:name|string|min:8',
+            'guardian_national_number' => 'required|different:national_number|digits_between:12,14',
+            'email' => 'required|regex:/^.+@.+$/i|unique:students',
+            'ministry_nomination' => 'sometimes|boolean',
+            'school_nomination' => 'sometimes|boolean',
+            'program_school_id' => 'required|numeric'
+        ];
     }
 }
