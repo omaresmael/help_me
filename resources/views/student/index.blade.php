@@ -51,7 +51,7 @@
                                     <td>{{$student->guardian_national_number}}</td>
                                     <td>{{$student->email}}</td>
                                     <td>{{$student->school()->name}}</td>
-                                    <td>{{$student->program()->name}}</td>
+                                    <td>{{$student->program()[0]->name}}</td>
 
 
                                     </tr>

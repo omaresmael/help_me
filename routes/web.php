@@ -31,6 +31,9 @@ Route::resource('periods', 'PeriodController');
 Route::resource('students', 'StudentController');
 Route::put('/absence/{student}','StudentController@updateAbsenceDays');
 
+//reports
+Route::get('financial_report/{school}','SchoolController@financialReport');
+
 
 
 Route::get('pages-404', 'NazoxController@index');

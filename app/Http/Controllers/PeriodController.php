@@ -27,6 +27,7 @@ class PeriodController extends Controller
     public function store(PeriodRequest $request)
     {
 
+
         $period = Period::create($request->all());
 
         $schoolsIds = $request->schools; // the schools that been assigned to this period
@@ -34,6 +35,8 @@ class PeriodController extends Controller
 
 
         $schools = School::whereIn('id',$schoolsIds)->get();
+
+
 
 
 

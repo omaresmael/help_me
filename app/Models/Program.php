@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -10,6 +11,7 @@ class Program extends Model
 {
 
     protected $fillable = ['name'];
+    protected $appends = ['working_days'];
 
     public function schools()
     {
@@ -28,7 +30,20 @@ class Program extends Model
         return $countStudents;
 
     }
-//$id = DB::table('program_school')->select('id')
-//->where('program_id',$this->id)->get();
-//return $id;
+
+    public function getWorkingDaysAttribute()
+    {
+
+        $program = $this->schools()->where('program_id',$this->id)->first();
+        $start_at = $program->pivot->start_at;
+        $end_at = $program->pivot->end_at;
+
+        $datetime1 = new DateTime($end_at);
+        $datetime2 = new DateTime($start_at);
+
+        $interval = $datetime1->diff($datetime2);
+        $days = $interval->format('%a');
+
+        return $days;
+    }
 }
