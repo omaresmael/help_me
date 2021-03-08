@@ -62,5 +62,41 @@ class SchoolController extends Controller
         return $names;
     }
 
+    public function financialReport(School $school)
+    {
+        $periods = $school->periods;
+        $studentsNumber = $school->studentsNumber();
+
+        $rowMoney = $school->getSchoolTotalRowMoney();
+
+        $totalFines = $school->getSchoolTotalFines();
+
+        $totalDeservedValue = $school->periods()->sum('deserved_value');
+
+        $totalInitialValue = $school->periods()->sum('initial_value');
+
+        $residual = $rowMoney - $totalInitialValue - $totalFines;
+
+        $programsNumber = $school->programs()->count();
+
+
+        return view('report.financial',compact('school','periods','programsNumber','residual','rowMoney','totalDeservedValue','studentsNumber'));
+
+    }
+    /**
+        get the schools finance reports
+     * number of students / number of programs / school row money / school
+     */
+    public function totalFinanceReport()
+    {
+        $schools = School::all();
+
+        return view('report.schools_finance',compact('schools'));
+
+    }
+
+
+
+
 
 }

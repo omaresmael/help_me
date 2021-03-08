@@ -50,7 +50,7 @@
                                         <td>{{$school->email}}</td>
                                         <td>{{$school->studentsNumber()}}</td>
                                         <td>
-                                            <button type="button" id="financial_button" class="btn btn-info">التقرير المالي</button>
+                                            <a href="/financial_report/{{$school->id}}"><button type="button" id="financial_button" class="btn btn-info">التقرير المالي</button></a>
                                         </td>
 
                                     </tr>
@@ -64,50 +64,14 @@
 
                     </div>
 
-{{--                    <div class="table-rep-plugin">--}}
-{{--                        <div class="table-responsive mb-0" data-pattern="priority-columns">--}}
-{{--                            <table id="tech-companies-1" class="table">--}}
-{{--                                <thead>--}}
-{{--                                <tr>--}}
 
-{{--                                    <th data-priority="1">#</th>--}}
-{{--                                    <th data-priority="3">اسم المدرسة</th>--}}
-{{--                                    <th data-priority="1">القيمة المبدئية</th>--}}
-{{--                                    <th data-priority="3">القيمة الستحقة</th>--}}
-
-
-{{--                                </tr>--}}
-{{--                                </thead>--}}
-{{--                                <tbody>--}}
-{{--                                @if($re)--}}
-{{--                                    <tr>--}}
-
-{{--                                        <td>{{$i+1}}</td>--}}
-{{--                                        <td>{{$school->name}}</td>--}}
-{{--                                        <td>{{$school->address}}</td>--}}
-{{--                                        <td>{{$school->state}}</td>--}}
-{{--                                        <td>{{$school->phone_number}}</td>--}}
-{{--                                        <td>{{$school->email}}</td>--}}
-{{--                                        <td>{{$school->studentsNumber()}}</td>--}}
-{{--                                        <td>--}}
-{{--                                            <button type="button" id="financial_button" class="btn btn-info">التقرير المالي</button>--}}
-{{--                                        </td>--}}
-
-{{--                                    </tr>--}}
-{{--                                @endforeach--}}
-
-
-
-{{--                                </tbody>--}}
-{{--                            </table>--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
 
                 </div>
             </div>
         </div> <!-- end col -->
     </div> <!-- end row -->
+
+
 
 @endsection
 @section('script')

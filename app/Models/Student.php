@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\Eloquent\Builder;
 
 use Illuminate\Database\Eloquent\Model;
@@ -29,8 +30,17 @@ class Student extends Model
 
     public function program()
     {
-        return Program::find($this->data->program_id);
+
+        $program =Program::find($this->data->program_id);
+        $working_days = $program->working_days;
+
+        $financeData = $program->schools()->where('program_id',$program->id)->first();
+
+
+        return [$financeData,$program];
     }
+
+
 
 
     public function addAbsenceDays($days)

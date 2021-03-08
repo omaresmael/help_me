@@ -8,19 +8,56 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
 
+    /**
+    TODO::
+     * refactor -> Use getSchoolTotalRowMoney In getSchoolRowMoney
+     **/
+
 
     protected $fillable = ['name','name_english','phone_number','fax_number','email','address','state'];
 
     public function periods()
     {
-        return $this->belongsToMany(Period::class);
+        return $this->belongsToMany(Period::class)->withPivot('initial_value','deserved_value');
     }
 
     public function programs()
     {
         return $this->belongsToMany(Program::class)->withPivot('program_price','program_day_price','start_at','end_at','id');
     }
-//get the money before the penalties and absence cost values
+
+    public function students()
+    {
+        return $this->hasManyThrough(Student::class, ProgramSchool::class);
+    }
+    //get the row money without periods
+    public function getSchoolTotalRowMoney()
+    {
+        $programs = $this->programs;
+        $totalRowMoney = 0;
+        foreach($programs as $program)
+        {
+            $programStudents = Student::where('program_school_id',$program->pivot->id)->get();
+            $numberOfStudents = $programStudents->count();
+            $totalRowMoney += $program->pivot->program_price * $numberOfStudents;
+        }
+        return $totalRowMoney;
+    }
+
+    /**
+     * Get the fines of the school due to the fines that been applied to each period
+     */
+    public function getSchoolTotalFines()
+    {
+        $totalFines = 0;
+        $periods = $this->periods;
+        foreach($periods as $period)
+        {
+            $totalFines += $period->pivot->initial_value - $period->pivot->deserved_value;
+        }
+        return $totalFines;
+    }
+//get the money before the penalties and absence cost values for one period
 
     public function getSchoolRowMoney(Period $period)
     {
@@ -84,12 +121,28 @@ class School extends Model
         }
 
     }
+    /*
+     * *** these functions are now redundant -> remove them when you uou replace them with students function
+     * Student functions
+     ** studentsNames
+     ** StudentsId
+     */
+    public function studentsNames()
+    {
+        $studentsNames = [];
+        $programs =$this->programs;
+        foreach ($programs as $i => $program)
+        {
+            array_push($studentsNames, Student::where('program_school_id',$program->pivot->id)->pluck('name')->all());
+        }
+        return $studentsNames;
+    }
 
     public function studentsId()
     {
         $studentsIds = [];
         $programs =$this->programs;
-        //d($programs);
+
         foreach ($programs as $i => $program)
         {
 
@@ -107,18 +160,17 @@ class School extends Model
 
         return $studentsIds;
     }
+
+
 //we need a geniraized form of this
     public function studentsNumber()
     {
-        $countStudents = 0;
-        $programs = $this->programs;
-        foreach($programs as $program)
-        {
-            $countStudents += Student::where('program_school_id',$program->pivot->id)->count();
-
-        }
-        return $countStudents;
-
+        return $this->students()->count();
     }
+
+
+
+
+
 
 }
