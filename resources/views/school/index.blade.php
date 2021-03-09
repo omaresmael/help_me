@@ -57,7 +57,7 @@
                                         <td>{{$school->email}}</td>
                                         <td>{{$school->studentsNumber()}}</td>
                                         <td>
-                                            <a href="/schools/{{$school->id}}/edit" class='btn btn-primary btn-sm'>تعديل</a>
+                                            <a href="/schools/{{$school->id}}/edit" class='btn btn-success btn-sm'>تعديل</a>
                                             <a href="/financial_report/{{$school->id}}" id="financial_button" class='btn btn-info btn-sm'>التقرير المالي</a>
                                         </td>
 
