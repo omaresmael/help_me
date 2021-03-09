@@ -38,8 +38,8 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">مدرسة جديدة</h4>
-                    <p class="card-title-desc">تسجيل مدرسة جديدة</p>
+                    <h4 class="card-title">هيئة تعليمية جديدة</h4>
+                    <p class="card-title-desc">تسجيل هيئة تعليمية جديدة</p>
 
                         @csrf
                         @method('PATCH')
@@ -153,7 +153,7 @@
                             <label>
                                 مدة البرنامج
                             </label>
-                            <div> 
+                            <div>
                                 <div class="input-daterange input-group" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-autoclose="true">
                                     <input type="text" class="form-control start" placeholder="يبدأ من" name="start_at[]" value="{{$schoolProgram->pivot->start_at}}" required />
                                     <input type="text" class="form-control end" placeholder="ينتهي عند" name="end_at[]" value="{{$schoolProgram->pivot->end_at}}" required />
@@ -192,13 +192,13 @@
 
                         <div class="form-group col-md-4">
                                 <label for="validationCustom01">سعر البرنامج</label>
-                                
+
                                 <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
 
                                 <div class="invalid-feedback">
                                     من فضلك أدخل السعر
                                 </div>
-                            
+
                         </div>
                     @endif
                     </div>

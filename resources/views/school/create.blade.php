@@ -36,8 +36,8 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">مدرسة جديدة</h4>
-                    <p class="card-title-desc">تسجيل مدرسة جديدة</p>
+                    <h4 class="card-title">هيئة تعليمية جديدة</h4>
+                    <p class="card-title-desc">تسجيل هيئة تعليمية جديدة</p>
 
                         @csrf
                         <div class="row">

@@ -30,7 +30,7 @@
                                     <th data-priority="1">#</th>
                                     <th data-priority="3">اسم الدفعة</th>
                                     <th data-priority="1">النسبة المالية</th>
-                                    <th data-priority="3">عدد المدارس</th>
+                                    <th data-priority="3">عدد الهيئات التعليمية</th>
 
                                 </tr>
                                 </thead>

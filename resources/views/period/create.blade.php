@@ -77,9 +77,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group mb-3">
-                                    <label class="control-label">أضف المدارس</label>
+                                    <label class="control-label">أضف الهيئات التعليمية</label>
 
-                                    <select class="select2 form-control select2-multiple" name="schools[]" multiple="multiple" data-placeholder="اختر المدارس">
+                                    <select class="select2 form-control select2-multiple" name="schools[]" multiple="multiple" data-placeholder="اختر الهيئات التعليمية">
                                         @foreach($schools as $i => $school)
                                             <option value="{{$school->id}}">{{$school->name}}</option>
 

@@ -123,12 +123,12 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">مدرسة الطالب وبرنامجه</h4>
+                        <h4 class="card-title">هيئة تعليمية الطالب وبرنامجه</h4>
                         <p class="card-title-desc" style="display:inline-block">اسناد الطاب إلى الهيئه التعليمة والبرنامج الخاص به </p>
 
                     <div class="row " id="programContainer">
                         <div class="form-group col-md-6 ">
-                            <label class="control-label">اختر مدرسة</label>
+                            <label class="control-label">اختر هيئة تعليمية</label>
                             <select name="school" class="form-control select2" id="school" required>
                                 <option value="{{$student->school()->id}}">{{$student->school()->name}}</option>
                                 @foreach($schools as $school)

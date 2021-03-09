@@ -35,7 +35,7 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body overflow-hidden">
-                                    <p class="text-truncate font-size-14 mb-2">عدد المدارس</p>
+                                    <p class="text-truncate font-size-14 mb-2">عدد الهيئات التعليمية</p>
                                     <h4 class="mb-0">{{$schools->count()}}</h4>
                                 </div>
                                 <div class="text-primary">
@@ -74,7 +74,7 @@
 {{--                            <button type="button" class="btn btn-sm btn-light">Monthly</button>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
-                    <h4 class="card-title mb-4">أفضل المدارس</h4>
+                    <h4 class="card-title mb-4">أفضل الهيئات التعليمية</h4>
                     <div>
                         <div id="line-column-chart" class="apex-charts" dir="ltr"></div>
                     </div>

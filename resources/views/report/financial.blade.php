@@ -18,7 +18,7 @@
 
                     <h4 class="card-title">الهيئات التعليميهالمتاحة</h4>
                     <p class="card-title-desc" style="display:inline-block">إحصائية الهيئات التعليميهالمتاحة </p>
-                    <a href="{{route('schools.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء مدرسة جديدة
+                    <a href="{{route('schools.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء هيئة تعليمية جديدة
                         </button></a>
                     <div class="table-rep-plugin">
                         <div class="table-responsive mb-0" data-pattern="priority-columns">
