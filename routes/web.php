@@ -33,6 +33,7 @@ Route::put('/absence/{student}','StudentController@updateAbsenceDays');
 
 //reports
 Route::get('financial_report/{school}','SchoolController@financialReport');
+Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');
 
 
 

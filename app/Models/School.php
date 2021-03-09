@@ -43,6 +43,20 @@ class School extends Model
         }
         return $totalRowMoney;
     }
+
+    /**
+     * Get the fines of the school due to the fines that been applied to each period
+     */
+    public function getSchoolTotalFines()
+    {
+        $totalFines = 0;
+        $periods = $this->periods;
+        foreach($periods as $period)
+        {
+            $totalFines += $period->pivot->initial_value - $period->pivot->deserved_value;
+        }
+        return $totalFines;
+    }
 //get the money before the penalties and absence cost values for one period
 
     public function getSchoolRowMoney(Period $period)
