@@ -57,7 +57,7 @@
 
                                         <td>{{$student->program()[1]->name}}</td>
                                         <td>
-                                            <a href="\students/{{$student->id}}/edit" class='btn btn-primary btn-sm'>تعديل</a>
+                                            <a href="\students/{{$student->id}}/edit" class='btn btn-success btn-sm'>تعديل</a>
                                         </td>
                                     </tr>
                                 @endforeach
