@@ -18,7 +18,8 @@
 
                     <h4 class="card-title">الهيئات المتاحة</h4>
                     <p class="card-title-desc" style="display:inline-block">إحصائية الهيئات التعليمية المتاحة </p>
-
+                    <button id="print"  style="float: left; top: -18px; position: relative;
+    margin-left: 3px;" type="button" class="btn btn-success">طباعة</button>
                     <div class="table-rep-plugin">
                         <div class="table-responsive mb-0" data-pattern="priority-columns">
                             <table id="tech-companies-1" class="table">
@@ -149,5 +150,23 @@
     <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js')}}"></script>
     <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
     <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js')}}"></script>
+
+    <script>
+        function printData()
+        {
+            $('.btn-toolbar').css('display','none');
+
+            $('#print').css('visible','hidden');
+
+            window.print();
+            setTimeout(() => {  $('.btn-toolbar').css('display','block');
+                $('.waves-effect').css('display','inline-block'); }, 500);
+
+        }
+
+        $('#print').on('click',function(){
+            printData();
+        })
+    </script>
 
 @endsection

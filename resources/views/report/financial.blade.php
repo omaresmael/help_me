@@ -16,13 +16,15 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">الهيئات التعليميهالمتاحة</h4>
-                    <p class="card-title-desc" style="display:inline-block">إحصائية الهيئات التعليميهالمتاحة </p>
+                    <h4 class="card-title">الهيئات التعليميه المتاحة</h4>
+                    <p class="card-title-desc" style="display:inline-block">إحصائية الهيئات التعليميه المتاحة </p>
                     <a href="{{route('schools.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء هيئة تعليمية جديدة
                         </button></a>
+
                     <div class="table-rep-plugin">
+
                         <div class="table-responsive mb-0" data-pattern="priority-columns">
-                            <table id="tech-companies-1" class="table">
+                            <table id="tech-companies-1" class="table"  >
                                 <thead>
                                 <tr>
 
@@ -45,6 +47,7 @@
 
                                     <th data-priority="3">المجموع الكلي</th>
                                     <th data-priority="3">المتبقي</th>
+
 
 
                                 </tr>
@@ -72,6 +75,7 @@
                                         @endforeach
                                         <td>{{$totalDeservedValue}}</td>
                                         <td>{{$residual}}</td>
+
 
 
 
@@ -174,5 +178,23 @@
     <script src="{{ URL::asset('/assets/libs/bootstrap-touchspin/bootstrap-touchspin.min.js')}}"></script>
     <script src="{{ URL::asset('/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
     <script src="{{ URL::asset('/assets/js/pages/form-advanced.init.js')}}"></script>
+
+    <script>
+        function printData()
+        {
+            $('.btn-toolbar').css('display','none');
+
+            $('#print').css('visible','hidden');
+
+            window.print();
+            setTimeout(() => {  $('.btn-toolbar').css('display','block');
+                $('.waves-effect').css('display','inline-block'); }, 500);
+
+        }
+
+        $('#print').on('click',function(){
+            printData();
+        })
+    </script>
 
 @endsection
