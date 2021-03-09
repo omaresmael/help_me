@@ -39,7 +39,7 @@
                                     <th data-priority="1">اسم ولي الأمر</th>
                                     <th data-priority="3">الرقم القومي لولي الأمر</th>
                                     <th data-priority="3">الإيميل </th>
-                                    <th data-priority="3">المدرسة</th>
+                                    <th data-priority="3">الهيئه التعليمة</th>
                                     <th data-priority="3">البرنامج</th>
                                     <th data-priority="1">عمليات</th>
                                 </tr>
@@ -57,7 +57,7 @@
 
                                         <td>{{$student->program()[1]->name}}</td>
                                         <td>
-                                            <a href="\students/{{$student->id}}/edit" class='btn btn-primary'>تعديل</a>
+                                            <a href="\students/{{$student->id}}/edit" class='btn btn-primary btn-sm'>تعديل</a>
                                         </td>
                                     </tr>
                                 @endforeach

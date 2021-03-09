@@ -25,13 +25,13 @@
         @endforeach
     @endif
 
-    <form class="needs-validation" action="{{route('students.update',$student->id)}}" method="post" novalidate>
+    <form class="needs-validation" action="{{route('students.update', $student->id)}}" method="post" novalidate>
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">برنامج جديد</h4>
-                    <p class="card-title-desc">إنشاء برنامج جديد ليتم إسناده لاحقا إلى المدارس التي ستشترك به </p>
+                    <p class="card-title-desc">إنشاء برنامج جديد ليتم إسناده لاحقا إلى الهيئات التعليميهالتي ستشترك به </p>
 
                         @csrf
                         @method('PATCH')
@@ -105,7 +105,7 @@
                                 @else
                                 <input type="checkbox" name="school_nomination" value="1"  class="custom-control-input" id="customCheck2" >
                                 @endif
-                                    <label class="custom-control-label" for="customCheck2">ترشيح المدرسة</label>
+                                    <label class="custom-control-label" for="customCheck2">ترشيح الهيئه التعليمة</label>
                                 </div>
                             </div>
 
@@ -124,7 +124,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">مدرسة الطالب وبرنامجه</h4>
-                        <p class="card-title-desc" style="display:inline-block">اسناد الطاب إلى المدرسة والبرنامج الخاص به </p>
+                        <p class="card-title-desc" style="display:inline-block">اسناد الطاب إلى الهيئه التعليمة والبرنامج الخاص به </p>
 
                     <div class="row " id="programContainer">
                         <div class="form-group col-md-6 ">
