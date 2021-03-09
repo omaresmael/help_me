@@ -96,6 +96,11 @@ class SchoolController extends Controller
     {
         $school->update($request->validated());
         if($request->has('programs') && $request->has('programs_price')){
+            $oldprogramids=[];
+            foreach($school->programs as $program){
+                array_push($oldprogramids, $program->id); 
+            }
+            $school->programs()->detach($oldprogramids);
             $programs = $request->programs;
             $programs_price = $request->programs_price;
             $start_at = $request->start_at;
@@ -103,9 +108,10 @@ class SchoolController extends Controller
             foreach($programs as $i => $program)
             {
                 // you need to figure the logic to calculate the program price day nut for now its static
-                $school->programs()->sync($program,['program_price'=>$programs_price[$i],'start_at'=>$start_at[$i],'end_at'=>$end_at[$i],'program_day_price'=>'50']);
+                $school->programs()->attach($program,['program_price'=>$programs_price[$i],'start_at'=>$start_at[$i],'end_at'=>$end_at[$i],'program_day_price'=>'50']);
             }
         }
+        return redirect('schools')->with(['message'=>'تم تعديل الهئية التعليميه بنجاح']);
     }
 
 }
