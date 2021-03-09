@@ -11,7 +11,7 @@
 
                 <li>
                     <a href="{{url('index')}}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span class="badge badge-pill badge-success float-right">3</span>
+                    <i class="fas fa-tachometer-alt"></i><span class="badge badge-pill badge-success float-right">3</span>
 {{--                        <span>@lang('translation.Dashboard')</span>--}}
                         <span>الرئيسية</span>
                     </a>
@@ -19,7 +19,7 @@
 
                 <li>
                     <a href="{{route('programs.index')}}" class=" waves-effect">
-                        <i class="ri-window-2-fill"></i>
+                    <i class="fas fa-chalkboard"></i>
 {{--                        <span>@lang('translation.Calendar')</span>--}}
                         <span>البرامج</span>
                     </a>
@@ -27,15 +27,15 @@
 
                 <li>
                     <a href="{{route('schools.index')}}" class=" waves-effect">
-                        <i class="ri-building-line"></i>
+                    <i class="fas fa-school"></i>
 {{--                        <span>@lang('translation.Chat')</span>--}}
-                        <span>المدارس</span>
+                        <span>الهيئات التعليميه</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('students.index')}}" class=" waves-effect">
-                        <i class="ri-user-line"></i>
+                        <i class="fas fa-user-graduate"></i>
                         {{--                        <span>@lang('translation.Chat')</span>--}}
                         <span>الطلاب</span>
                     </a>
@@ -43,7 +43,7 @@
 
                 <li>
                     <a href="{{route('periods.index')}}" class=" waves-effect">
-                        <i class="ri-braces-line"></i>
+                        <i class="fas fa-id-card"></i>
                         {{--                        <span>@lang('translation.Chat')</span>--}}
                         <span>الدفعات</span>
                     </a>
@@ -53,7 +53,7 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                    <i class="fas fa-file-alt"></i>
 {{--                        <span>@lang('translation.Email')</span>--}}
                         <span>التقارير</span>
                     </a>

@@ -25,7 +25,12 @@ class SchoolRequest extends FormRequest
     {
 
         return [
-            'name'=>'required','name_english'=>'required','phone_number'=>'required|numeric','email'=>'required|unique:schools','address'=>'required','state'=>'required'
+            'name'=>'required',
+            'name_english'=>'required',
+            'phone_number'=>'required|numeric|unique:schools',
+            'email'=>'required|unique:schools',
+            'address'=>'required',
+            'state'=>'required'
         ];
     }
 }

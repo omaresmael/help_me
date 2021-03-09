@@ -1,25 +1,32 @@
 @extends('layouts.master')
-@section('title') المدارس @endsection
+@section('title') الهيئات التعليميه@endsection
 @section('css')
     <!-- Responsive Table css -->
     <link href="{{ URL::asset('/assets/libs/rwd-table/rwd-table.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
     @component('components.breadcrumb')
-        @slot('title') المدارس @endslot
+        @slot('title') الهيئات التعليميه@endslot
         @slot('li_1') Tables @endslot
-        @slot('li_2') المدارس @endslot
+        @slot('li_2') الهيئات التعليميه@endslot
     @endcomponent
 
-
+    @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{session()->pull('message')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">المدارس المتاحة</h4>
-                    <p class="card-title-desc" style="display:inline-block">إحصائية المدارس المتاحة </p>
-                    <a href="{{route('schools.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء مدرسة جديدة
+                    <h4 class="card-title">الهيئات التعليميه المتاحة</h4>
+                    <p class="card-title-desc" style="display:inline-block">إحصائية الهيئات التعليميه المتاحة </p>
+                    <a href="{{route('schools.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء هيئه التعليميه جديدة
                         </button></a>
                     <div class="table-rep-plugin">
                         <div class="table-responsive mb-0" data-pattern="priority-columns">
@@ -28,13 +35,13 @@
                                 <tr>
 
                                     <th data-priority="1">#</th>
-                                    <th data-priority="3">اسم المدرسة</th>
+                                    <th data-priority="3">اسم الهيئه التعليمة</th>
                                     <th data-priority="1">العنوان</th>
                                     <th data-priority="3">الحالة</th>
                                     <th data-priority="3">رقم التليفون</th>
                                     <th data-priority="3">الإيميل</th>
                                     <th data-priority="3">عدد الطلاب</th>
-                                    <th data-priority="3">تقارير</th>
+                                    <th data-priority="1">عمليات</th>
 
                                 </tr>
                                 </thead>
@@ -50,7 +57,8 @@
                                         <td>{{$school->email}}</td>
                                         <td>{{$school->studentsNumber()}}</td>
                                         <td>
-                                            <a href="/financial_report/{{$school->id}}"><button type="button" id="financial_button" class="btn btn-info">التقرير المالي</button></a>
+                                            <a href="/schools/{{$school->id}}/edit" class='btn btn-success btn-sm'>تعديل</a>
+                                            <a href="/financial_report/{{$school->id}}" id="financial_button" class='btn btn-info btn-sm'>التقرير المالي</a>
                                         </td>
 
                                     </tr>

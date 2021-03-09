@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title') المدارس @endsection
+@section('title') الهيئات التعليميه@endsection
 @section('css')
     <!-- Responsive Table css -->
     <link href="{{ URL::asset('/assets/libs/rwd-table/rwd-table.min.css')}}" rel="stylesheet" type="text/css" />
@@ -12,7 +12,7 @@
     @component('components.breadcrumb')
         @slot('title')  @endslot
         @slot('li_1')  @endslot
-        @slot('li_2') المدارس @endslot
+        @slot('li_2') الهيئات التعليميه@endslot
     @endcomponent
 
     @if(session()->has('message'))
@@ -36,22 +36,22 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">مدرسة جديدة</h4>
-                    <p class="card-title-desc">تسجيل مدرسة جديدة</p>
+                    <h4 class="card-title">هيئة تعليمية جديدة</h4>
+                    <p class="card-title-desc">تسجيل هيئة تعليمية جديدة</p>
 
                         @csrf
                         <div class="row">
 {{--                            <div class="col-md-12">--}}
                                 <div class="form-group col-md-6">
-                                    <label for="validationCustom01">اسم المدرسة بالعربي</label>
-                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم المدرسة" value="" required>
+                                    <label for="validationCustom01">اسم الهيئه التعليمة بالعربي</label>
+                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم الهيئه التعليمة" value="" required>
 
                                     <div class="invalid-feedback">
                                         من فضلك أدخل الإسم
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="validationCustom01">اسم المدرسة بالإنجليزي</label>
+                                    <label for="validationCustom01">اسم الهيئه التعليمة بالإنجليزي</label>
                                     <input type="text" name="name_english" class="form-control" id="validationCustom01" placeholder="School" value="" required>
 
                                     <div class="invalid-feedback">
@@ -130,7 +130,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">إسناد البرامج</h4>
-                        <p class="card-title-desc" style="display:inline-block">إسناد البرامج إلى المدرسة </p>
+                        <p class="card-title-desc" style="display:inline-block">إسناد البرامج إلى الهيئه التعليمة </p>
                         <button class="btn btn-info" id="addProgram" style="float: left;position: relative; top: -22px;">إسناد برنامج آخر</button>
                     <div class="row " id="programContainer">
                         <div class="form-group col-md-4 ">
@@ -170,7 +170,7 @@
         </div>
 
 
-        <button class="btn btn-primary mb-2" type="submit">حفظ المدرسة</button>
+        <button class="btn btn-primary mb-2" type="submit">حفظ الهيئه التعليمة</button>
     </form>
 @endsection
 

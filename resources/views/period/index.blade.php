@@ -18,7 +18,7 @@
                 <div class="card-body">
 
                     <h4 class="card-title">الدفعات المتاحة</h4>
-                    <p class="card-title-desc" style="display:inline-block">إحصائية الدفعات المتاحة وعدد الطلاب والمدارس المشتركين بكل دفعة</p>
+                    <p class="card-title-desc" style="display:inline-block">إحصائية الدفعات المتاحة وعدد الطلاب والهيئات التعليميهالمشتركين بكل دفعة</p>
                     <a href="{{route('periods.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء دفعة جديد
                         </button></a>
                     <div class="table-rep-plugin">
@@ -30,7 +30,7 @@
                                     <th data-priority="1">#</th>
                                     <th data-priority="3">اسم الدفعة</th>
                                     <th data-priority="1">النسبة المالية</th>
-                                    <th data-priority="3">عدد المدارس</th>
+                                    <th data-priority="3">عدد الهيئات التعليمية</th>
 
                                 </tr>
                                 </thead>

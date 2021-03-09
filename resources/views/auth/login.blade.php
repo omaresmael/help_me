@@ -20,11 +20,11 @@ Login
                                 <div>
                                     <div class="text-center">
                                         <div>
-                                            <a href="{{url('index')}}" class="logo"><img src="{{ URL::asset('/assets/images/logo-dark.png')}}" height="20" alt="logo"></a>
+                                            <a href="{{url('index')}}" class="logo"><img src="{{ URL::asset('/assets/images/logo.png')}}" height="20" alt="logo"></a>
                                         </div>
 
                                         <h4 class="font-size-18 mt-4">Welcome Back !</h4>
-                                        <p class="text-muted">Sign in to continue to Nazox.</p>
+{{--                                        <p class="text-muted">Sign in to continue to Nazox.</p>--}}
                                     </div>
 
                                     <div class="p-2 mt-5">
@@ -72,7 +72,7 @@ Login
 
                                     <div class="mt-5 text-center">
                                         <p>Don't have an account ? <a href="{{url('register')}}" class="font-weight-medium text-primary"> Register </a> </p>
-                                        <p><script>document.write(new Date().getFullYear())</script>© Nazox.  Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</p>
+                                        <p><script>document.write(new Date().getFullYear())</script>© Quantum.  
                                     </div>
                                 </div>
                             </div>

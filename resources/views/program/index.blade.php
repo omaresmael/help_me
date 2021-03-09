@@ -18,7 +18,7 @@
                 <div class="card-body">
 
                     <h4 class="card-title">البرامج المتاحة</h4>
-                    <p class="card-title-desc" style="display:inline-block">إحصائية البرامج المتاحة وعدد الطلاب والمدارس المشتركين بكل برنامج</p>
+                    <p class="card-title-desc" style="display:inline-block">إحصائية البرامج المتاحة وعدد الطلاب والهيئات التعليميهالمشتركين بكل برنامج</p>
                     <a href="{{route('programs.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء برنامج جديد
                         </button></a>
                     <div class="table-rep-plugin">
@@ -29,7 +29,7 @@
 
                                     <th data-priority="1">#</th>
                                     <th data-priority="3">اسم البرنامج</th>
-                                    <th data-priority="1">عدد المدارس</th>
+                                    <th data-priority="1">عدد الهيئات التعليمية</th>
                                     <th data-priority="3">عدد الطلاب</th>
 
                                 </tr>

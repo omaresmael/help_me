@@ -16,11 +16,11 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">المدارس المتاحة</h4>
-                    <p class="card-title-desc" style="display:inline-block">إحصائية المدارس المتاحة </p>
+                    <h4 class="card-title">الهيئات التعليميه المتاحة</h4>
+                    <p class="card-title-desc" style="display:inline-block">إحصائية الهيئات التعليميه المتاحة </p>
+                    <a href="{{route('schools.create')}}"> <button type="button" style="float: left; top: -18px;" class="btn btn-primary waves-effect waves-light">إنشاء هيئة تعليمية جديدة
+                        </button></a>
 
-                    <button id="print"  style="float: left; top: -18px; position: relative;
-    margin-left: 3px;" type="button" class="btn btn-success">طباعة</button>
                     <div class="table-rep-plugin">
 
                         <div class="table-responsive mb-0" data-pattern="priority-columns">
@@ -29,7 +29,7 @@
                                 <tr>
 
 
-                                    <th data-priority="3">اسم المدرسة</th>
+                                    <th data-priority="3">اسم الهيئه التعليمة</th>
                                     <th data-priority="1">عدد الطلاب</th>
                                     @foreach($periods as $period)
                                         @if($loop->odd)
