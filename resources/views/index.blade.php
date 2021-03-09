@@ -20,10 +20,10 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body overflow-hidden">
+                                <img style="float: left;" src="{{URL::asset('assets/images/dashboard/children.png')}}"  height="55px">
                                     <p class="text-truncate font-size-14 mb-2">عدد الطلااب</p>
                                     <h4 class="mb-0">{{$students->count()}}</h4>
                                 </div>
-
                             </div>
                         </div>
 
@@ -35,6 +35,7 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body overflow-hidden">
+                                <img style="float: left;" src="{{URL::asset('assets/images/dashboard/school.png')}}"  height="55px">
                                     <p class="text-truncate font-size-14 mb-2">عدد الهيئات التعليمية</p>
                                     <h4 class="mb-0">{{$schools->count()}}</h4>
                                 </div>
@@ -51,6 +52,7 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body overflow-hidden">
+                                <img style="float: left;" src="{{URL::asset('assets/images/dashboard/program.png')}}"  height="55px">
                                     <p class="text-truncate font-size-14 mb-2">عدد البرامج</p>
                                     <h4 class="mb-0">{{$programs->count()}}</h4>
                                 </div>
