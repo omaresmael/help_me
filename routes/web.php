@@ -1,6 +1,4 @@
 <?php
-
-use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +23,8 @@ Route::group(['perfix'=>'/'],function(){
     Route::get('pages-404', 'NazoxController@index')->name('NotFound');
 
     Route::group(['middleware'=>'auth'],function(){
+        Route::get('logout', 'AuthController@logout')->name('logout.action');
+
         Route::resource('schools', 'SchoolController');
         Route::post('/associated/{school}','SchoolController@getAssociatedPrograms')->name('associatedPrograms');
         Route::resource('programs', 'ProgramController');
