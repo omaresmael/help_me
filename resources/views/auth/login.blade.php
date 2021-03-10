@@ -11,11 +11,14 @@ Login To Help Me
 </div>
 <div>
     <div class="container-fluid p-0">
+   
         <div class="row no-gutters">
+        
             <div class="col-lg-4">
                 <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
                     <div class="w-100">
                         <div class="row justify-content-center">
+                        @include('Inc.messages')
                             <div class="col-lg-9">
                                 <div>
                                     <div class="text-center">
@@ -28,7 +31,7 @@ Login To Help Me
                                     </div>
 
                                     <div class="p-2 mt-5">
-                                        <form method="POST" action="{{ route('login') }}">
+                                        <form method="POST" action="{{ route('login.action') }}">
                                             @csrf
 
                                             <div class="form-group auth-form-group-custom mb-4">

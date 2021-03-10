@@ -18,6 +18,8 @@ Route::group(['perfix'=>'/'],function(){
 
     Route::group(['middleware' => 'guest'],function(){
         Route::get('/','AuthController@loginForm')->name('login');
+        Route::post('login', 'AuthController@loginAction')->name('login.action');
+
     });
     
     Route::get('pages-404', 'NazoxController@index')->name('NotFound');
