@@ -31,6 +31,6 @@ class HomeController extends Controller
         $students = Student::all();
         $programs = Program::all();
 
-        return view('index',compact('schools','students','programs'));
+        return view('dashboard',compact('schools','students','programs'));
     }
 }
