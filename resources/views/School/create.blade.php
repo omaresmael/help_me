@@ -13,7 +13,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">الكود</label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" required>
                         </div>
                       </div>
                       <div class="col-md-4">

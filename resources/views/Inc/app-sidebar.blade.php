@@ -9,16 +9,40 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-        <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
+        <li class="nav-item" id='dashboard'>
+            <a class="nav-link" href="{{route('dashboard')}}">
             <i class="material-icons">dashboard</i>
             <p>الصفحه الرئيسية</p>
             </a>
         </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="chilren.html">
-            <i class="material-icons">person</i>
+        <li class="nav-item " id='students'>
+            <a class="nav-link" href="{{route('students.index')}}">
+            <i class="fas fa-users"></i>
             <p>الاطفال</p>
+            </a>
+        </li>
+        <li class="nav-item " id='school'>
+            <a class="nav-link" href="{{route('schools.index')}}">
+            <i class="fas fa-school"></i>
+            <p>الهيئات التعليميه</p>
+            </a>
+        </li>
+        <li class="nav-item " id='programs'>
+            <a class="nav-link" href="{{route('schools.index')}}">
+            <i class="fas fa-book-reader"></i>
+            <p>البرامج</p>
+            </a>
+        </li>
+        <li class="nav-item " >
+            <a class="nav-link" href="{{route('programs.index')}}">
+            <i class="fas fa-user-graduate"></i>
+            <p>الدفعات</p>
+            </a>
+        </li>
+        <li class="nav-item " id='teachers'>
+            <a class="nav-link" href="{{route('schools.index')}}">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <p>اعضاء هيئة التدريس</p>
             </a>
         </li>
         <li class="nav-item ">

@@ -530,3 +530,10 @@
         </div>
 </div>    
 @endsection
+@section('inc-scripts')
+<script>
+$(function() {
+  $('#dashboard').addClass('active');
+}); 
+</script>
+@endsection

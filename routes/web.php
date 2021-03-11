@@ -40,7 +40,7 @@ Route::group(['perfix'=>'/'],function(){
         Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');
         
         
-        Route::get('/dashboard', 'HomeController@root')->name('dasboard');
+        Route::get('/dashboard', 'HomeController@root')->name('dashboard');
         Route::get('{any}', 'HomeController@index');
         
         Route::get('index/{locale}', 'LocaleController@lang');
