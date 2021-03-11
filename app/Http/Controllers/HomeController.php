@@ -10,16 +10,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -41,6 +31,6 @@ class HomeController extends Controller
         $students = Student::all();
         $programs = Program::all();
 
-        return view('index',compact('schools','students','programs'));
+        return view('dashboard',compact('schools','students','programs'));
     }
 }

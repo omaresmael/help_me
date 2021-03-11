@@ -1,6 +1,4 @@
 <?php
-
-use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,33 +12,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect('/index');
-// });
+Route::group(['perfix'=>'/'],function(){
 
-Auth::routes();
-Route::resource('schools', 'SchoolController');
-Route::post('/associated/{school}','SchoolController@getAssociatedPrograms')->name('associatedPrograms');
-Route::resource('programs', 'ProgramController');
-//
+    Route::group(['middleware' => 'guest'],function(){
+        Route::get('/','AuthController@loginForm')->name('login');
+        Route::post('login', 'AuthController@loginAction')->name('login.action');
 
+    });
+    
+    Route::get('pages-404', 'NazoxController@index')->name('NotFound');
 
-Route::resource('periods', 'PeriodController');
+    Route::group(['middleware'=>'auth'],function(){
+        Route::get('logout', 'AuthController@logout')->name('logout.action');
 
-//students
-Route::resource('students', 'StudentController');
-Route::put('/absence/{student}','StudentController@updateAbsenceDays');
-
-//reports
-Route::get('financial_report/{school}','SchoolController@financialReport');
-Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');
-
-
-
-Route::get('pages-404', 'NazoxController@index');
-Route::get('/', 'HomeController@root');
-Route::get('{any}', 'HomeController@index');
-
-Route::get('index/{locale}', 'LocaleController@lang');
-
+        Route::resource('schools', 'SchoolController');
+        Route::post('/associated/{school}','SchoolController@getAssociatedPrograms')->name('associatedPrograms');
+        Route::resource('programs', 'ProgramController');
+        
+        Route::resource('periods', 'PeriodController');
+        
+        //students
+        Route::resource('students', 'StudentController');
+        Route::put('/absence/{student}','StudentController@updateAbsenceDays');
+        
+        //reports
+        Route::get('financial_report/{school}','SchoolController@financialReport');
+        Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');
+        
+        
+        Route::get('/dashboard', 'HomeController@root')->name('dasboard');
+        Route::get('{any}', 'HomeController@index');
+        
+        Route::get('index/{locale}', 'LocaleController@lang');
+        
+    });
+    
+});
 
