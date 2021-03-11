@@ -12,7 +12,5 @@
   <link rel="stylesheet" href="{{ URL::asset('assets/css/all.min.css')}}">
   <!-- CSS Files -->
   <link href="{{ URL::asset('assets/css/material-dashboard-arabic.css')}}" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{ URL::asset('assets/demo/demo.css')}}" rel="stylesheet" />
   @yield('css_includes')
 </head>

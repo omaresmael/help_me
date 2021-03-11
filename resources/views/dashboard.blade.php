@@ -69,7 +69,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <a href="Add-children.html">
+        <a href="{{route('students.create')}}">
             <div class="card card-chart">
             <div class="card-header card-header-success">
                 <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
@@ -82,7 +82,7 @@
         </a>
     </div>
     <div class="col-md-4">
-        <a href="Add-school.html">
+        <a href="{{route('schools.create')}}">
             <div class="card card-chart">
             <div class="card-header card-header-danger">
                 <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
@@ -95,15 +95,17 @@
         </a>
     </div>
     <div class="col-md-4">
-        <div class="card card-chart">
-        <div class="card-header card-header-warning">
-            <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-            <img src="../assets/img/program.png">
-        </div>
-        <div class="card-body">
-            <h3 class="card-title"> اضافة برنامج </h3>
-        </div>
-        </div>
+        <a href="{{route('programs.create')}}">
+            <div class="card card-chart">
+            <div class="card-header card-header-warning">
+                <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+                <img src="../assets/img/program.png">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title"> اضافة برنامج </h3>
+            </div>
+            </div>
+        </a>
     </div>
     <div class="col-md-4">
         <a href="Add-classrom.html">
@@ -164,7 +166,6 @@
         </div>
         </a>
     </div>
-
     <div class="col-md-4">
         <a href="Add-specialist.html">
             <div class="card card-chart">
@@ -178,67 +179,63 @@
             </div>
         </a>
     </div>   
-
-    </div>
-    <div class="card card-nav-tabs text-center">
+</div>
+<div class="card card-nav-tabs text-center">
         <div class="card-header card-header-primary">
             جميع التقارير
         </div>
     <div class="card-body">
         <div class="row">
-        <div class="col-md-2">
-            <a href="Add-children.html">
-            <div class="card card-chart">
-            <div class="card-header card-header-success">
-                <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-                <img src="../assets/img/children.png" style="width: 45px;">
+            <div class="col-md-2">
+                <a href="Add-children.html">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+                            <img src="../assets/img/children.png" style="width: 45px;">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title card-title-2">تقرير الاطفال </h3>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="card-body">
-                <h3 class="card-title card-title-2">تقرير الاطفال </h3>
+            <div class="col-md-2">
+                <a href="Add-school.html">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-danger">
+                            <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+                            <img src="../assets/img/school.png" style="width: 45px;">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title card-title-2">احصائيات عامة</h3>
+                        </div>
+                    </div>
+                </a>
             </div>
+            <div class="col-md-2">
+                <a href="Add-classrom.html">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-warning">
+                            <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+                            <img src="../assets/img/classroom.png" style="width: 45px;">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title card-title-2">تقرير الجلسات </h3>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
-        </div>
-
-        <div class="col-md-2">
-            <a href="Add-school.html">
-            <div class="card card-chart">
-            <div class="card-header card-header-danger">
-                <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-                <img src="../assets/img/school.png" style="width: 45px;">
+            <div class="col-md-2">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
+                        <img src="../assets/img/payment-method.png" style="width: 45px;">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title card-title-2"> تقرير المستخدمين </h3>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h3 class="card-title card-title-2">احصائيات عامة</h3>
-            </div>
-            </div>
-        </a>
-        </div>
-
-        <div class="col-md-2">
-            <a href="Add-classrom.html">
-            <div class="card card-chart">
-            <div class="card-header card-header-warning">
-                <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-                <img src="../assets/img/classroom.png" style="width: 45px;">
-            </div>
-            <div class="card-body">
-                <h3 class="card-title card-title-2">تقرير الجلسات </h3>
-            </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-md-2">
-            <div class="card card-chart">
-            <div class="card-header card-header-success">
-                <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-                <img src="../assets/img/payment-method.png" style="width: 45px;">
-            </div>
-            <div class="card-body">
-                <h3 class="card-title card-title-2"> تقرير المستخدمين </h3>
-            </div>
-            </div>
-        </div>
-        
         </div>
     </div>
 </div>
@@ -531,6 +528,5 @@
             </table>
         </div>
         </div>
-</div>
-</div>      
+</div>    
 @endsection

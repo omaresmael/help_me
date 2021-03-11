@@ -27,8 +27,6 @@
 <script src="{{ URL::asset('assets/js/plugins/jquery-jvectormap.js')}}"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="{{ URL::asset('assets/js/plugins/nouislider.min.js')}}"></script>
-<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js')}}"></script>
 <!-- Library for adding dinamically elements -->
 <script src="{{ URL::asset('assets/js/plugins/arrive.min.js"></script>
 <!--  Google Maps Plugin    -->
@@ -38,8 +36,6 @@
 <!--  Notifications Plugin    -->
 <script src="{{ URL::asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{ URL::asset('assets/js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ URL::asset('assets/demo/demo.js')}}"></script>
+<script src="{{ URL::asset('assets/js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>ً
 <script src="{{ URL::asset('assets/js/design.js')}}"></script>
 @yield('inc-scripts')
