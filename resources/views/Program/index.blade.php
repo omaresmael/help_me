@@ -6,6 +6,7 @@
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">جميع البرامج</h4>
                     <p class="card-category">إحصاشة البرامج المتاحة وعدد المدارس والطلاب المشتركين في كل برنامج </p>
+                    <a href="{{route('programs.create')}}" class="btn btn-warning btn-sm">اضافة برنامج</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -47,7 +48,7 @@
 @section('inc-scripts')
     <script>
         $(function() {
-            $('#schools').addClass('active');
+            $('#programs').addClass('active');
         });
     </script>
 @endsection
