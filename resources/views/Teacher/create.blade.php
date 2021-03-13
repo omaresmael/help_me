@@ -24,7 +24,7 @@
                                     <label for="id_label_single">
                                         اختر هيئة تعليمية
                                     </label>
-                                    <select class="js-example-basic-single js-states form-control" id="id_label_single" name="school_id" required>
+                                    <select class="select2 form-control" id="id_label_single" name="school_id" required>
                                         @isset($schools)
                                             <option>اختر هيئة تعليمية</option>
                                         @endisset
@@ -47,9 +47,5 @@
     </div>
 @endsection
 @section('inc-scripts')
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
+
 @endsection

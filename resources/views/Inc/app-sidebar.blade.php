@@ -21,7 +21,7 @@
             <p>جميع طلاب</p>
             </a>
         </li>
-        <li class="nav-item " id='school'>
+        <li class="nav-item " id='schools'>
             <a class="nav-link" href="{{route('schools.index')}}">
             <i class="fas fa-school"></i>
             <p>الهيئات التعليميه</p>

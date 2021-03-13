@@ -18,7 +18,7 @@
                           <tr>
                               <th class="text-center">#</th>
                               <th>الاسم</th>
-                              <th>اسم المدرسة</th>
+                              <th>اسم الهيئة التعليمية</th>
                               <th class="text-left">العمليات</th>
                           </tr>
                       </thead>
