@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:kBbjFaT1fWaMHFIiThKKaRnn3D1DXAmaeCwFTy/APpc=',
+    'key' => 'base64:YtiKwT1PX3upCMCzb5i2jHSBOTOHwM7jRLeUnqUTT1U=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -177,7 +177,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -247,14 +247,14 @@
   ),
   'database' => 
   array (
-    'default' => 'sqlite',
+    'default' => 'mysql',
     'connections' => 
     array (
       'sqlite' => 
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'C:\\Users\\DELL\\Desktop\\help_me\\database\\database.sqlite',
+        'database' => 'help_me',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -264,8 +264,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'forge',
-        'username' => 'forge',
+        'database' => 'help_me',
+        'username' => 'root',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -283,9 +283,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '5432',
-        'database' => 'forge',
-        'username' => 'forge',
+        'port' => '3306',
+        'database' => 'help_me',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -297,10 +297,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
-        'port' => '1433',
-        'database' => 'forge',
-        'username' => 'forge',
+        'host' => '127.0.0.1',
+        'port' => '3306',
+        'database' => 'help_me',
+        'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -343,12 +343,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -365,7 +365,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\DELL\\Desktop\\help_me\\public\\storage' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app/public',
+      'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\public\\storage' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -399,13 +399,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -455,7 +455,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -512,7 +512,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\DELL\\Desktop\\help_me\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -562,7 +562,7 @@
     'failed' => 
     array (
       'driver' => 'database',
-      'database' => 'sqlite',
+      'database' => 'mysql',
       'table' => 'failed_jobs',
     ),
   ),
@@ -591,7 +591,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -611,9 +611,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\DELL\\Desktop\\help_me\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -648,7 +648,7 @@
   'trustedproxy' => 
   array (
     'proxies' => NULL,
-    'headers' => 94,
+    'headers' => 30,
   ),
   'tinker' => 
   array (
