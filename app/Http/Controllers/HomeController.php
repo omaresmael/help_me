@@ -19,8 +19,8 @@ class HomeController extends Controller
         $schools = School::all();
         $students = Student::all();
         $programs = Program::all();
-        if(view()->exists($request->path())){
-            return view($request->path(),compact('schools','students','programs'));
+        if (view()->exists($request->path())) {
+            return view($request->path(), compact('schools', 'students', 'programs'));
         }
         return view('pages-404');
     }
@@ -31,6 +31,6 @@ class HomeController extends Controller
         $students = Student::all();
         $programs = Program::all();
 
-        return view('dashboard',compact('schools','students','programs'));
+        return view('dashboard', compact('schools', 'students', 'programs'));
     }
 }

@@ -13,7 +13,7 @@ class NazoxController extends Controller
      */
     public function index(Request $request)
     {
-        if(view()->exists($request->path())){
+        if (view()->exists($request->path())) {
             return view($request->path());
         }
         return view('pages-404');

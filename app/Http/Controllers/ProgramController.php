@@ -13,7 +13,7 @@ class ProgramController extends Controller
         $programs = Program::all();
 
 
-        return view('program.index',compact('programs'));
+        return view('program.index', compact('programs'));
     }
 
     public function create()
@@ -26,6 +26,6 @@ class ProgramController extends Controller
     {
 
         Program::create($request->all());
-        return back()->with(['success'=>'تم إضافة البرنامج بنجاح']);
+        return back()->with(['success' => 'تم إضافة البرنامج بنجاح']);
     }
 }
