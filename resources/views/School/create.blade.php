@@ -4,7 +4,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">اضافة مدرسة</h4>
+                  <h4 class="card-title">اضافة هيئة تعليمة</h4>
                   <p class="card-category">ادخال البيانات المطلوبة</p>
                 </div>
                 <div class="card-body">

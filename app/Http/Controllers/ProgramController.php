@@ -38,7 +38,7 @@ class ProgramController extends Controller
      * @param \App\models\School $school
      * @return redirect
      */
-    public function update(ProgramRequest $request,Program $program)
+    public function update(ProgramRequest $request, Program $program)
     {
         $program->update($request->validated());
         return redirect('programs')->with(['message' => 'تم تعديل البرنامج التعليميه بنجاح']);

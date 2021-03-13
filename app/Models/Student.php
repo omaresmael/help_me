@@ -10,17 +10,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-
-    protected $fillable = ['name','national_number','guardian_name','guardian_national_number','email','ministry_nomination','school_nomination','program_school_id'];
+    protected $fillable = [
+        'name',
+        'national_number',
+        'guardian_name',
+        'guardian_national_number',
+        'email',
+        'ministry_nomination',
+        'school_nomination',
+        'program_school_id'
+    ];
     // this represents the relation between student and the his school and program
     public function data()
     {
-        return $this->belongsTo(ProgramSchool::class,'program_school_id');
+        return $this->belongsTo(ProgramSchool::class, 'program_school_id');
     }
 
     public function absence()
     {
-        return $this->belongsToMany(Period::class,'absence')->withPivot('absence_days');
+        return $this->belongsToMany(Period::class, 'absence')->withPivot('absence_days');
     }
 
     public function school()
@@ -31,13 +39,13 @@ class Student extends Model
     public function program()
     {
 
-        $program =Program::find($this->data->program_id);
+        $program = Program::find($this->data->program_id);
         $working_days = $program->working_days;
 
-        $financeData = $program->schools()->where('program_id',$program->id)->first();
+        $financeData = $program->schools()->where('program_id', $program->id)->first();
 
 
-        return [$financeData,$program];
+        return [$financeData, $program];
     }
 
 
@@ -52,14 +60,14 @@ class Student extends Model
 
         $absence_days = $absence_days->pivot->absence_days;
 
-        $period->absence()->updateExistingPivot($this->id,['absence_days'=>$absence_days+$days]);
+        $period->absence()->updateExistingPivot($this->id, ['absence_days' => $absence_days + $days]);
 
-        return $absence_days+$days;
+        return $absence_days + $days;
     }
 
     public function absenceDays($period)
     {
-        return $this->absence()->where('period_id',$period->id)->first();
+        return $this->absence()->where('period_id', $period->id)->first();
     }
 
     public function getCurrentPeriod()
@@ -70,6 +78,4 @@ class Student extends Model
         })->first();
         return $period;
     }
-
-
 }
