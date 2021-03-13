@@ -24,7 +24,7 @@
                                     <label for="id_label_single">
                                         اختر هيئة تعليمية
                                     </label>
-                                    <select class="js-example-basic-single js-states form-control" id="id_label_single" name="school_id">
+                                    <select class="js-example-basic-single js-states form-control" id="id_label_single" name="school_id" required>
                                         @isset($schools)
                                             <option>اختر هيئة تعليمية</option>
                                         @endisset
