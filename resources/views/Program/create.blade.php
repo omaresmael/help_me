@@ -8,12 +8,13 @@
                     <p class="card-category">ادخال البيانات المطلوبة</p>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="{{route('programs.store')}}" method="post">
+                        @csrf
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="validationCustom01">اسم البرنامج</label>
-                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم البرنامج" value="" required>
+
+                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم البرنامج" value="" autocomplete="off" required>
 
                                     <div class="invalid-feedback">
                                         من فضلك أدخل الإسم
