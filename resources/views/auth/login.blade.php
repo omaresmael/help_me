@@ -11,9 +11,9 @@ Login To Help Me
 </div>
 <div>
     <div class="container-fluid p-0">
-   
+
         <div class="row no-gutters">
-        
+
             <div class="col-lg-4">
                 <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
                     <div class="w-100">
@@ -35,10 +35,10 @@ Login To Help Me
                                             @csrf
 
                                             <div class="form-group auth-form-group-custom mb-4">
-                                                
-                                                <label for="username">User Name</label>
-                                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="email" placeholder="Enter Your User Name">
-                                                @error('username')
+
+                                                <label for="email">Email</label>
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Enter Your User Name">
+                                                @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -46,7 +46,7 @@ Login To Help Me
                                             </div>
 
                                             <div class="form-group auth-form-group-custom mb-4">
-                                            
+
                                                 <label for="password">{{ __('Password') }}</label>
                                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" id="password" placeholder="Enter password">
                                                 @error('password')
@@ -61,7 +61,7 @@ Login To Help Me
                                         </form>
                                     </div>
                                     <div class="mt-5 text-center">
-                                        <p><script>document.write(new Date().getFullYear())</script>© Quantum.  
+                                        <p><script>document.write(new Date().getFullYear())</script>© Quantum.
                                     </div>
                                 </div>
                             </div>

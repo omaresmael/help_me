@@ -19,7 +19,7 @@ Route::group(['perfix'=>'/'],function(){
         Route::post('login', 'AuthController@loginAction')->name('login.action');
 
     });
-    
+
     Route::get('pages-404', 'NazoxController@index')->name('NotFound');
 
     Route::group(['middleware'=>'auth'],function(){
@@ -28,24 +28,29 @@ Route::group(['perfix'=>'/'],function(){
         Route::resource('schools', 'SchoolController');
         Route::post('/associated/{school}','SchoolController@getAssociatedPrograms')->name('associatedPrograms');
         Route::resource('programs', 'ProgramController');
-        
+
         Route::resource('periods', 'PeriodController');
-        
+
         //students
         Route::resource('students', 'StudentController');
         Route::put('/absence/{student}','StudentController@updateAbsenceDays');
-        
+
+        //teachers
+        Route::resource('teachers', 'TeacherController');
+
         //reports
         Route::get('financial_report/{school}','SchoolController@financialReport');
         Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');
-        
-        
+
+
         Route::get('/dashboard', 'HomeController@root')->name('dashboard');
         Route::get('{any}', 'HomeController@index');
-        
+
         Route::get('index/{locale}', 'LocaleController@lang');
-        
+
+
+
     });
-    
+
 });
 

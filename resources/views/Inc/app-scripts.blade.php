@@ -38,4 +38,5 @@
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ URL::asset('assets/js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>ً
 <script src="{{ URL::asset('assets/js/design.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @yield('inc-scripts')

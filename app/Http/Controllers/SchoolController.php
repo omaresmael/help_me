@@ -36,12 +36,13 @@ class SchoolController extends Controller
                 $school->programs()->attach($program,['program_price'=>$programs_price[$i],'start_at'=>$start_at[$i],'end_at'=>$end_at[$i],'program_day_price'=>'50']);
             }
         }
-
-//        if($periods = $request->has('periods')){
-//            $school->periods()->attach($periods);
-//        }
         return back()->with(['message'=>'تم إضافة الهيئه التعليمة بنجاح']);
     }
+    public function show(School $school)
+    {
+        return view('school.show',compact('school'));
+    }
+
 
     public function getAssociatedPrograms(School $school)
     {
@@ -113,7 +114,7 @@ class SchoolController extends Controller
         if($request->has('programs') && $request->has('programs_price')){
             $oldprogramids=[];
             foreach($school->programs as $program){
-                array_push($oldprogramids, $program->id); 
+                array_push($oldprogramids, $program->id);
             }
             $school->programs()->detach($oldprogramids);
             $programs = $request->programs;

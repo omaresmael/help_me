@@ -26,6 +26,6 @@ class ProgramController extends Controller
     {
 
         Program::create($request->all());
-        return back()->with(['message'=>'The program has been added successfully']);
+        return back()->with(['success'=>'تم إضافة البرنامج بنجاح']);
     }
 }
