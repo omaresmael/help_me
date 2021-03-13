@@ -12,22 +12,21 @@
                         <table class="table">
                             <thead>
                             <tr>
-
                                 <th data-priority="1">#</th>
                                 <th data-priority="3">اسم البرنامج</th>
                                 <th data-priority="1">عدد الهيئات التعليمية</th>
                                 <th data-priority="3">عدد الطلاب</th>
+                                <th data-priority="3">عمليات</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse($programs as $i => $program)
                                 <tr>
-
                                     <td>{{$i+1}}</td>
                                     <td>{{$program->name}}</td>
                                     <td>{{$program->schools->count()}}</td>
                                     <td>{{$program->studentsNumber()}}</td>
-
+                                    <td><a href="\programs/{{$program->id}}/edit" class="btn btn-success btn-sm">تعديل</a></td>
                                 </tr>
                                 @empty
                                 <tr>
@@ -35,9 +34,7 @@
                                     <p>يمكنك أضاف برامج من  </p>
                                     <a href="{{route('programs.create')}}"><strong style="font-weight: bold">هنا</strong></a>
                                 </tr>
-
                             @endforelse
-
                             </tbody>
                         </table>
                     </div>

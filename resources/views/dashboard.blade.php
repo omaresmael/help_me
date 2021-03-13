@@ -143,7 +143,7 @@
                 <img src="../assets/img/children.png">
             </div>
             <div class="card-body">
-                <h3 class="card-title"> اضافة اطفال </h3>
+                <h3 class="card-title"> اضافة طلاب </h3>
             </div>
             </div>
         </a>
@@ -156,7 +156,7 @@
                 <img src="../assets/img/school.png">
             </div>
             <div class="card-body">
-                <h3 class="card-title"> اضافه مدرسة </h3>
+                <h3 class="card-title"> اضافه هيئة تعليمية </h3>
             </div>
             </div>
         </a>
@@ -175,16 +175,15 @@
         </a>
     </div>
     <div class="col-md-4">
-        <a href="Add-classrom.html">
-        <div class="card card-chart">
-        <div class="card-header card-header-warning">
-            <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-            <img src="../assets/img/classroom.png">
-        </div>
-        <div class="card-body">
-            <h3 class="card-title"> اضافة فصل</h3>
-        </div>
-        </div>
+        <a href="{{route('teachers.create')}}">
+            <div class="card card-chart">
+            <div class="card-header card-header-warning">
+                <img src="../assets/img/classroom.png">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title"> اضافة مدرس </h3>
+            </div>
+            </div>
         </a>
     </div>
     <div class="col-md-4">
