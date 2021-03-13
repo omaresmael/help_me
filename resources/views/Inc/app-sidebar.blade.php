@@ -35,8 +35,8 @@
         </li>
         <li class="nav-item " id='teachers'>
             <a class="nav-link" href="{{route('teachers.index')}}">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <p>اعضاء هيئة التدريس</p>
+                <i class="fas fa-chalkboard-teacher"></i>
+                <p>المعلمين</p>
             </a>
         </li>
         <li class="nav-item " >

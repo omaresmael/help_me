@@ -181,7 +181,7 @@
                 <img src="../assets/img/classroom.png">
             </div>
             <div class="card-body">
-                <h3 class="card-title"> اضافة مدرس </h3>
+                <h3 class="card-title"> اضافة معلم </h3>
             </div>
             </div>
         </a>
