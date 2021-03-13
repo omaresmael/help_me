@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Model;
 
 class School extends Model
@@ -29,6 +30,11 @@ class School extends Model
     public function students()
     {
         return $this->hasManyThrough(Student::class, ProgramSchool::class);
+    }
+
+    public function teachers()
+    {
+        return $this->hasMany(Teacher::class);
     }
     //get the row money without periods
     public function getSchoolTotalRowMoney()

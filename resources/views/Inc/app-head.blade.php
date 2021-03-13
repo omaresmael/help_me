@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Dashboard 
+    Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -13,4 +13,6 @@
   <!-- CSS Files -->
   <link href="{{ URL::asset('assets/css/material-dashboard-arabic.css')}}" rel="stylesheet" />
   @yield('css_includes')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 </head>
