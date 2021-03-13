@@ -38,6 +38,9 @@ Route::group(['perfix'=>'/'],function(){
         //teachers
         Route::resource('teachers', 'TeacherController');
 
+        //sittings
+        Route::resource('sittings', 'SittingController');
+
         //reports
         Route::get('financial_report/{school}','SchoolController@financialReport');
         Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');

@@ -377,6 +377,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/sittings' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/sittings/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/schools_finance' => 
       array (
         0 => 
@@ -420,7 +476,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/s(?|chools/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|tudents/([^/]++)(?|(*:76)|/edit(*:88)|(*:95)))|/a(?|ssociated/([^/]++)(*:127)|bsence/([^/]++)(*:150))|/p(?|rograms/([^/]++)(?|(*:183)|/edit(*:196)|(*:204))|eriods/([^/]++)(?|(*:231)|/edit(*:244)|(*:252)))|/teachers/([^/]++)(?|(*:283)|/edit(*:296)|(*:304))|/financial_report/([^/]++)(*:339)|/([^/]++)(*:356)|/index/([^/]++)(*:379))/?$}sDu',
+      0 => '{^(?|/s(?|chools/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|tudents/([^/]++)(?|(*:76)|/edit(*:88)|(*:95))|ittings/([^/]++)(?|(*:122)|/edit(*:135)|(*:143)))|/a(?|ssociated/([^/]++)(*:176)|bsence/([^/]++)(*:199))|/p(?|rograms/([^/]++)(?|(*:232)|/edit(*:245)|(*:253))|eriods/([^/]++)(?|(*:280)|/edit(*:293)|(*:301)))|/teachers/([^/]++)(?|(*:332)|/edit(*:345)|(*:353))|/financial_report/([^/]++)(*:388)|/([^/]++)(*:405)|/index/([^/]++)(*:428))/?$}sDu',
     ),
     3 => 
     array (
@@ -600,7 +656,95 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      127 => 
+      122 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.show',
+          ),
+          1 => 
+          array (
+            0 => 'sitting',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      135 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.edit',
+          ),
+          1 => 
+          array (
+            0 => 'sitting',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      143 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.update',
+          ),
+          1 => 
+          array (
+            0 => 'sitting',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'sittings.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'sitting',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      176 => 
       array (
         0 => 
         array (
@@ -622,13 +766,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      150 => 
+      199 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::pWUyHFHYJP2uY4St',
+            '_route' => 'generated::oIqDo0GsNufP8gfu',
           ),
           1 => 
           array (
@@ -644,7 +788,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      183 => 
+      232 => 
       array (
         0 => 
         array (
@@ -667,7 +811,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      196 => 
+      245 => 
       array (
         0 => 
         array (
@@ -690,7 +834,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      204 => 
+      253 => 
       array (
         0 => 
         array (
@@ -732,7 +876,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      231 => 
+      280 => 
       array (
         0 => 
         array (
@@ -755,7 +899,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      244 => 
+      293 => 
       array (
         0 => 
         array (
@@ -778,7 +922,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      252 => 
+      301 => 
       array (
         0 => 
         array (
@@ -820,7 +964,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      283 => 
+      332 => 
       array (
         0 => 
         array (
@@ -843,7 +987,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      296 => 
+      345 => 
       array (
         0 => 
         array (
@@ -866,7 +1010,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      304 => 
+      353 => 
       array (
         0 => 
         array (
@@ -908,13 +1052,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      339 => 
+      388 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::IGn8yJMxgUDWsiTc',
+            '_route' => 'generated::2ElZpvRb1wSMTLuf',
           ),
           1 => 
           array (
@@ -931,13 +1075,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      356 => 
+      405 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::0WhL6uFh5TGXrgb1',
+            '_route' => 'generated::hvGALEpcROL3EE8V',
           ),
           1 => 
           array (
@@ -954,13 +1098,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      379 => 
+      428 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::6fQOOFrU2SeOauFN',
+            '_route' => 'generated::wOwAU6DLBhILxSCX',
           ),
           1 => 
           array (
@@ -2235,7 +2379,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::pWUyHFHYJP2uY4St' => 
+    'generated::oIqDo0GsNufP8gfu' => 
     array (
       'methods' => 
       array (
@@ -2257,7 +2401,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::pWUyHFHYJP2uY4St',
+        'as' => 'generated::oIqDo0GsNufP8gfu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2536,7 +2680,271 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::IGn8yJMxgUDWsiTc' => 
+    'sittings.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'sittings',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.index',
+        'uses' => 'App\\Http\\Controllers\\SittingController@index',
+        'controller' => 'App\\Http\\Controllers\\SittingController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'sittings.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'sittings/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.create',
+        'uses' => 'App\\Http\\Controllers\\SittingController@create',
+        'controller' => 'App\\Http\\Controllers\\SittingController@create',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'sittings.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'sittings',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.store',
+        'uses' => 'App\\Http\\Controllers\\SittingController@store',
+        'controller' => 'App\\Http\\Controllers\\SittingController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'sittings.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'sittings/{sitting}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.show',
+        'uses' => 'App\\Http\\Controllers\\SittingController@show',
+        'controller' => 'App\\Http\\Controllers\\SittingController@show',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'sittings.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'sittings/{sitting}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.edit',
+        'uses' => 'App\\Http\\Controllers\\SittingController@edit',
+        'controller' => 'App\\Http\\Controllers\\SittingController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'sittings.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'sittings/{sitting}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.update',
+        'uses' => 'App\\Http\\Controllers\\SittingController@update',
+        'controller' => 'App\\Http\\Controllers\\SittingController@update',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'sittings.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'sittings/{sitting}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'sittings.destroy',
+        'uses' => 'App\\Http\\Controllers\\SittingController@destroy',
+        'controller' => 'App\\Http\\Controllers\\SittingController@destroy',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'generated::2ElZpvRb1wSMTLuf' => 
     array (
       'methods' => 
       array (
@@ -2559,7 +2967,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::IGn8yJMxgUDWsiTc',
+        'as' => 'generated::2ElZpvRb1wSMTLuf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2650,7 +3058,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::0WhL6uFh5TGXrgb1' => 
+    'generated::hvGALEpcROL3EE8V' => 
     array (
       'methods' => 
       array (
@@ -2673,7 +3081,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0WhL6uFh5TGXrgb1',
+        'as' => 'generated::hvGALEpcROL3EE8V',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2688,7 +3096,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::6fQOOFrU2SeOauFN' => 
+    'generated::wOwAU6DLBhILxSCX' => 
     array (
       'methods' => 
       array (
@@ -2711,7 +3119,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::6fQOOFrU2SeOauFN',
+        'as' => 'generated::wOwAU6DLBhILxSCX',
       ),
       'fallback' => false,
       'defaults' => 

@@ -45,6 +45,12 @@
             <p>اعضاء هيئة التدريس</p>
             </a>
         </li>
+            <li class="nav-item " id='sittings'>
+                <a class="nav-link" href="{{route('sittings.index')}}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>الحصص</p>
+                </a>
+            </li>
         <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
             <i class="material-icons">content_paste</i>

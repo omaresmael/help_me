@@ -28,6 +28,11 @@ class Student extends Model
         return School::find($this->data->school_id);
     }
 
+    public function sittings()
+    {
+        return $this->belongsToMany(Sitting::class);
+    }
+
     public function program()
     {
 
