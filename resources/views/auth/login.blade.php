@@ -56,7 +56,7 @@ Login To Help Me
                                                 @enderror
                                             </div>
                                             <div class="mt-4 text-center">
-                                                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">{{ __('Log In') }}</button>
+                                                <button class="form-control btn btn-primary w-md waves-effect waves-light" type="submit">{{ __('Log In') }}</button>
                                             </div>
                                         </form>
                                     </div>
