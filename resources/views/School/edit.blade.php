@@ -143,7 +143,7 @@
                       <label class="control-label">اختر برنامج</label>
                       <select name="programs[]" class="form-control select2" required>
                         <option>Select</option>
-                        @foreach($programs as $program)
+                        @foreach($programsList as $program)
                         <option value="{{$program->id}}">{{$program->name}}</option>
                         @endforeach
                       </select>
@@ -196,7 +196,7 @@ $(function() {
                       <label class="control-label">اختر برنامج</label>
                       <select name="programs[]" class="form-control select2" required>
                         <option>Select</option>
-                        @foreach($programs as $program)
+                        @foreach($programsList as $program)
                         <option value="{{$program->id}}">{{$program->name}}</option>
                         @endforeach
                       </select>
