@@ -13,9 +13,7 @@ class School extends Model
     TODO::
      * refactor -> Use getSchoolTotalRowMoney In getSchoolRowMoney
      **/
-
-
-    protected $fillable = ['name','name_english','phone_number','fax_number','email','address','state'];
+    protected $guarded = [];
 
     public function periods()
     {
