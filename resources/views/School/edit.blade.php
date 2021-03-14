@@ -139,11 +139,52 @@
                   <p class="card-title-desc" style="display:inline-block">إسناد البرامج إلى الهيئه التعليمة </p>
                   <button class="btn btn-info" id="addProgram" style="float: left;position: relative; top: -22px;">إسناد برنامج آخر</button>
                   <div class="row " id="programContainer">
+                  @if(count($school->programs) > 0)
+                        @foreach($school->programs as $schoolProgram)
+                        <div class="form-group col-md-3 ">
+                          <label class="control-label">اختر برنامج</label>
+                          <select name="programs[]" class="form-control select2" required>
+                          <option value="{{$schoolProgram->id}}">{{$schoolProgram->name}} </option>
+                            @foreach($programsList as $program)
+                              @if($program->id !=$schoolProgram->id)
+                                <option value="{{$program->id}}">{{$program->name}}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group mb-0 col-md-4">
+                          <div class="row">
+                            <div class="col-12">
+                              <label>
+                                مدة البرنامج
+                              </label>
+                            </div>
+                            <div class="col-6">
+                              <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" value='{{$schoolProgram->start_at}}' required />
+                            </div>
+                            <div class="col-6">
+                              <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required value="{{$schoolProgram->end_at}}" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <div class="row">
+                            <div class="col-12">
+                              <label for="validationCustom01">سعر البرنامج</label>
+                            </div>
+                            <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="{{$schoolProgram->programs_price}}" required>
+                            <div class="invalid-feedback">
+                              من فضلك أدخل السعر
+                            </div>
+                          </div>
+                        </div>
+                        @endforeach
+                    @else
                     <div class="form-group col-md-3 ">
                       <label class="control-label">اختر برنامج</label>
                       <select name="programs[]" class="form-control select2" required>
                         <option>Select</option>
-                        @foreach($programsList as $program)
+                        @foreach($programs as $program)
                         <option value="{{$program->id}}">{{$program->name}}</option>
                         @endforeach
                       </select>
@@ -174,6 +215,7 @@
                         </div>
                       </div>
                     </div>
+                    @endif
                   </div>
                 </div>
               </div>
