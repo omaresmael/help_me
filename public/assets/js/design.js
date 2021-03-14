@@ -172,4 +172,7 @@ $(document).ready(function() {
 
     // enable select2 lib
     $('.select2').select2();
+
+    //enable datepicker
+    $('.datepicker').datepicker();
 });

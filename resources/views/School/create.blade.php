@@ -137,7 +137,7 @@
                   <p class="card-title-desc" style="display:inline-block">إسناد البرامج إلى الهيئه التعليمة </p>
                   <button class="btn btn-info" id="addProgram" style="float: left;position: relative; top: -22px;">إسناد برنامج آخر</button>
                   <div class="row " id="programContainer">
-                    <div class="form-group col-md-4 ">
+                    <div class="form-group col-md-3 ">
                       <label class="control-label">اختر برنامج</label>
                       <select name="programs[]" class="form-control select2" required>
                         <option>Select</option>
@@ -147,21 +147,29 @@
                       </select>
                     </div>
                     <div class="form-group mb-0 col-md-4">
-                      <label>
-                        مدة البرنامج
-                      </label>
-                      <div>
-                        <div class="input-daterange input-group" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-autoclose="true">
-                          <input type="text" class="form-control" placeholder="يبدأ من" name="start_at[]" required />
-                          <input type="text" class="form-control" placeholder="ينتهي عند" name="end_at[]" required />
+                      <div class="row">
+                        <div class="col-12">
+                          <label>
+                            مدة البرنامج
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" required />
+                        </div>
+                        <div class="col-6">
+                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required />
                         </div>
                       </div>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="validationCustom01">سعر البرنامج</label>
-                      <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
-                      <div class="invalid-feedback">
-                        من فضلك أدخل السعر
+                      <div class="row">
+                        <div class="col-12">
+                          <label for="validationCustom01">سعر البرنامج</label>
+                        </div>
+                        <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
+                        <div class="invalid-feedback">
+                          من فضلك أدخل السعر
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -179,38 +187,49 @@
 @endsection
 @section('inc-scripts')
 <script>
+$(function() {
   $('#addProgram').click(function() {
     //fix the select search method
-    var html = '<div class="form-group col-md-4 ">\n' +
-      '                            <label class="control-label">اختر برنامج</label>\n' +
-      '                            <select name="programs[]" class="form-control select2" required>\n' +
-      '                                <option>Select</option>\n' +
-      '                                @foreach($programs as $program)\n' +
-      '                                    <option value="{{$program->id}}">{{$program->name}}</option>\n' +
-      '                                @endforeach\n' +
-      '                            </select>\n' +
-      '                        </div>\n' +
-      '                        <div class="form-group mb-0 col-md-4">\n' +
-      '                            <label>\n' +
-      '                                مدة البرنامج\n' +
-      '                            </label>\n' +
-      '                            <div>\n' +
-      '                                <div class="input-daterange input-group" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-autoclose="true">\n' +
-      '                                    <input type="text" class="form-control" placeholder="يبدأ من" name="start_at[]" required />\n' +
-      '                                    <input type="text" class="form-control" placeholder="ينتهي عند" name="end_at[]" required />\n' +
-      '                                </div>\n' +
-      '                            </div>\n' +
-      '                        </div>\n' +
-      '\n' +
-      '                        <div class="form-group col-md-4">\n' +
-      '                            <label for="validationCustom01">سعر البرنامج</label>\n' +
-      '                            <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>\n' +
-      '\n' +
-      '                            <div class="invalid-feedback">\n' +
-      '                                من فضلك أدخل السعر\n' +
-      '                            </div>\n' +
-      '                        </div>';
-    $('#programContainer').append(html);
+    let html = `<div class="form-group col-md-3 ">
+                      <label class="control-label">اختر برنامج</label>
+                      <select name="programs[]" class="form-control select2" required>
+                        <option>Select</option>
+                        @foreach($programs as $program)
+                        <option value="{{$program->id}}">{{$program->name}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                    <div class="form-group mb-0 col-md-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <label>
+                            مدة البرنامج
+                          </label>
+                        </div>
+                        <div class="col-6">
+                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" required />
+                        </div>
+                        <div class="col-6">
+                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <div class="row">
+                        <div class="col-12">
+                          <label for="validationCustom01">سعر البرنامج</label>
+                        </div>
+                        <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
+                        <div class="invalid-feedback">
+                          من فضلك أدخل السعر
+                        </div>
+                      </div>
+                    </div>`;
+    $('#programContainer').append(html).ready(()=>{
+      $('.datepicker').datepicker();
+      $('.select2').select2();
+    });
   });
+}); 
 </script>
 @endsection

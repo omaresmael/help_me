@@ -13,8 +13,8 @@
 <script src="{{ URL::asset('assets/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
 <script src="{{ URL::asset('assets/js/plugins/bootstrap-selectpicker.js')}}"></script>
-<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-<script src="{{ URL::asset('assets/js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://jqueryui.com/datepicker/ -->
+<script src="{{ URL::asset('assets/js/plugins/jquery-ui.js')}}"></script>
 <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
 <script src="{{ URL::asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
 <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
