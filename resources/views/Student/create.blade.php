@@ -27,7 +27,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">البريد الاكتروني للطالب</label>
-                  <input type="email" class="form-control" name="national_number" required>
+                  <input type="email" class="form-control" name="email" required>
                 </div>
               </div>
             </div>
@@ -47,13 +47,13 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الوزارة</label>
-                  <input type="checkbox" class="form-control" name="ministry_nomination" required>
+                  <input type="checkbox" class="form-control" name="ministry_nomination" checked>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الهيئة التعليمة</label>
-                  <input type="checkbox" class="form-control" name='school_nomination' required>
+                  <input type="checkbox" class="form-control" name='school_nomination' checked>
                 </div>
               </div>
             </div>

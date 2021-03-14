@@ -9,25 +9,26 @@
           <p class="card-category">ادخال البيانات المطلوبة</p>
         </div>
         <div class="card-body">
-          <form method="POST" action="{{route('students.store')}}">
+          <form method="POST" action="{{route('students.update', $student->id)}}">
             @csrf
+            @method('PATCH')
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">أسم الطالب رباعي</label>
-                  <input type="text" class="form-control" name="name" required>
+                  <input type="text" class="form-control" name="name" value='{{$student->name}}' required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">رقم القومي للطالب </label>
-                  <input type="text" class="form-control" name="national_number" required>
+                  <input type="text" class="form-control" name="national_number" value='{{$student->national_number}}' required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">البريد الاكتروني للطالب</label>
-                  <input type="email" class="form-control" name="national_number" required>
+                  <input type="email" class="form-control" name="email" value="{{$student->email}}" required>
                 </div>
               </div>
             </div>
@@ -35,29 +36,28 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">اسم ولي الامر </label>
-                  <input type="text" class="form-control" name="guardian_name" required>
+                  <input type="text" class="form-control" name="guardian_name" value='{{$student->guardian_name}}' required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">رقم القومي ولي الامر</label>
-                  <input type="text" class="form-control" name="guardian_national_number" required>
+                  <input type="text" class="form-control" name="guardian_national_number" value="{{$student->guardian_national_number}}" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الوزارة</label>
-                  <input type="checkbox" class="form-control" name="ministry_nomination" required>
+                  <input type="checkbox" class="form-control" name="ministry_nomination" checked="{{$student->ministry_nomination}}" >
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الهيئة التعليمة</label>
-                  <input type="checkbox" class="form-control" name='school_nomination' required>
+                  <input type="checkbox" class="form-control" name='school_nomination' checked="{{$student->ministry_nomination}}" >
                 </div>
               </div>
             </div>
-
             <hr>
             <div class="row">
               <div class="col-xl-12">
@@ -69,16 +69,18 @@
                       <div class="form-group col-md-6 ">
                         <label class="control-label">اختر هيئة تعليمية</label>
                         <select name="school" class="form-control select2" id="school" required>
-                          <option>اختر هيئة تعليمية</option>
+                          <option value="{{$student->school()->id}}">{{$student->school()->name}}</option>
                           @foreach($schools as $school)
-                            <option value="{{$school->id}}">{{$school->name}}</option>
+                            @if($school->id != $student->school()->id)
+                              <option value="{{$school->id}}">{{$school->name}}</option>
+                            @endif
                           @endforeach
                         </select>
                       </div>
                       <div class="form-group col-md-6 ">
-                            <label class="control-label" >اختر برنامج</label>
+                            <label class="control-label" id='studentProgramId' programId="{{$student->program()[1]->id}}">اختر برنامج</label>
                             <select name="program_school_id" id="program"  class="form-control select2" required> 
-                              <option>اختر برنامج</option>
+                            <option value="{{$student->program()[1]->id}}">{{$student->program()[1]->name}}</option>
                             </select>
                         </div>
                     </div>
@@ -86,7 +88,7 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">حفظ الطالب</button>
+            <button type="submit" class="btn btn-primary pull-right">تحديث الطالب</button>
             <div class="clearfix"></div>
           </form>
         </div>
@@ -98,12 +100,15 @@
 @section('inc-scripts')
 <script>
   $(function() {
+    $('#school').trigger( "change" );
     $('#school').change(function() {
       let selected = $("#school option:selected").val(),
-          url = "/associated/" + selected;
+          url = "/associated/" + selected,
+          studentprogramId = $("#studentProgramId").attr('programId');
 
       $.post(url, function(data) {
         $.each(data, function(key, valueObj) {
+          if(key != studentprogramId)
             $('#program').append(' <option value="' + key + '">' + valueObj + '</option>');
         });
       });

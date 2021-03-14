@@ -221,7 +221,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary pull-right" style="float: left;">اضافة هيئة تعليمية</button>
+          <button type="submit" class="btn btn-primary pull-right" style="float: left;">تحديث هيئة تعليمية</button>
           <div class="clearfix"></div>
         </form>
       </div>
