@@ -12,7 +12,8 @@ class AuthController extends Controller
      * return loginform Ui
      * @return view
      */
-    public function loginForm(){
+    public function loginForm()
+    {
         return view('Auth.login');
     }
     /**

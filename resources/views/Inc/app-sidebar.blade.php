@@ -18,31 +18,31 @@
         <li class="nav-item " id='students'>
             <a class="nav-link" href="{{route('students.index')}}">
             <i class="fas fa-users"></i>
-            <p>الاطفال</p>
+            <p>جميع طلاب</p>
             </a>
         </li>
-        <li class="nav-item " id='school'>
+        <li class="nav-item " id='schools'>
             <a class="nav-link" href="{{route('schools.index')}}">
             <i class="fas fa-school"></i>
             <p>الهيئات التعليميه</p>
             </a>
         </li>
         <li class="nav-item " id='programs'>
-            <a class="nav-link" href="{{route('schools.index')}}">
+            <a class="nav-link" href="{{route('programs.index')}}">
             <i class="fas fa-book-reader"></i>
             <p>البرامج</p>
+            </a>
+        </li>
+        <li class="nav-item " id='teachers'>
+            <a class="nav-link" href="{{route('teachers.index')}}">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <p>المعلمين</p>
             </a>
         </li>
         <li class="nav-item " >
             <a class="nav-link" href="{{route('programs.index')}}">
             <i class="fas fa-user-graduate"></i>
             <p>الدفعات</p>
-            </a>
-        </li>
-        <li class="nav-item " id='teachers'>
-            <a class="nav-link" href="{{route('teachers.index')}}">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <p>اعضاء هيئة التدريس</p>
             </a>
         </li>
         <li class="nav-item ">

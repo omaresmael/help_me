@@ -16,9 +16,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-       $teachers = Teacher::with('school')->get();
+        $teachers = Teacher::with('school')->get();
 
-       return view('teacher.index',compact('teachers'));
+        return view('teacher.index', compact('teachers'));
     }
 
     /**
@@ -29,7 +29,7 @@ class TeacherController extends Controller
     public function create()
     {
         $schools = School::all();
-        return view('teacher.create',compact('schools'));
+        return view('teacher.create', compact('schools'));
     }
 
     /**
@@ -43,7 +43,7 @@ class TeacherController extends Controller
         $validatedData = $request->validated();
         Teacher::create($validatedData);
 
-        return back()->with(['success'=>'تم إضافة المعلم بنجاح']);
+        return back()->with(['success' => 'تم إضافة المعلم بنجاح']);
     }
 
     /**

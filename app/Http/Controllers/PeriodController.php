@@ -13,7 +13,7 @@ class PeriodController extends Controller
     {
         $periods = Period::all();
 
-        return view('period.index',compact('periods'));
+        return view('period.index', compact('periods'));
     }
 
     public function create()
@@ -21,7 +21,7 @@ class PeriodController extends Controller
 
         $schools = School::all();
 
-        return view('period.create',compact('schools'));
+        return view('period.create', compact('schools'));
     }
 
     public function store(PeriodRequest $request)
@@ -34,7 +34,7 @@ class PeriodController extends Controller
 
 
 
-        $schools = School::whereIn('id',$schoolsIds)->get();
+        $schools = School::whereIn('id', $schoolsIds)->get();
 
 
 
@@ -42,22 +42,21 @@ class PeriodController extends Controller
 
 
 
-        foreach($schools as $school)
-        {
+        foreach ($schools as $school) {
 
             $initialValue = $school->getSchoolRowMoney($period);
 
             $studentsId = $school->studentsId();
 
-            $period->absence()->attach($studentsId,['absence_days'=>0]);
+            $period->absence()->attach($studentsId, ['absence_days' => 0]);
 
-//            $deservedValue =$school->getSchoolEntitlements($initialValue);
-//            dd($deservedValue);
-            $school->periods()->attach($period->id,['initial_value'=>$initialValue,'deserved_value'=>$initialValue]);
+            //            $deservedValue =$school->getSchoolEntitlements($initialValue);
+            //            dd($deservedValue);
+            $school->periods()->attach($period->id, ['initial_value' => $initialValue, 'deserved_value' => $initialValue]);
         }
 
 
 
-        return back()->with(['message'=>'تم إضافة الدفعة بنجاح']);
+        return back()->with(['message' => 'تم إضافة الدفعة بنجاح']);
     }
 }

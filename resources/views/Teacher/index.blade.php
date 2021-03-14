@@ -7,7 +7,7 @@
                   <h4 class="card-title "> المعلمين</h4>
                     <div style="position: relative">
                         <p class="card-category" >احصائية المعلمين والهيئات التعليمية العاملين بها</p>
-                        <a href="{{route('teachers.create')}}" style=" position: absolute; top: -107%; left: 0 " class="float-left"><button class="btn btn-info">إضافة معلم</button></a>
+                        <a href="{{route('teachers.create')}}" style=" top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة معلم</button></a>
                     </div>
 
                 </div>
@@ -18,7 +18,7 @@
                           <tr>
                               <th class="text-center">#</th>
                               <th>الاسم</th>
-                              <th>اسم المدرسة</th>
+                              <th>اسم الهيئة التعليمية</th>
                               <th class="text-left">العمليات</th>
                           </tr>
                       </thead>
@@ -43,8 +43,6 @@
                           @empty
                           <tr>
                               <h3>لا يوجد معلمين </h3>
-                              <p>يمكنك أضافة معلمين من  </p>
-                              <a href="{{route('teachers.create')}}"><strong style="font-weight: bold">هنا</strong></a>
                           </tr>
                           @endforelse
 

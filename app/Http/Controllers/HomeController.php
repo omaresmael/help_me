@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Program;
 use App\Models\School;
+use App\Models\Program;
 use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,18 +20,18 @@ class HomeController extends Controller
         $schools = School::all();
         $students = Student::all();
         $programs = Program::all();
-        if(view()->exists($request->path())){
-            return view($request->path(),compact('schools','students','programs'));
+        if (view()->exists($request->path())) {
+            return view($request->path(), compact('schools', 'students', 'programs'));
         }
         return view('pages-404');
     }
 
     public function root()
     {
-        $schools = School::all();
-        $students = Student::all();
-        $programs = Program::all();
-
-        return view('dashboard',compact('schools','students','programs'));
+        $schools = School::count();
+        $students = Student::count();
+        $programs = Program::count();
+        $teachers = Teacher::count();
+        return view('dashboard', compact('schools', 'students', 'programs', 'teachers'));
     }
 }

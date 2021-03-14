@@ -7,10 +7,10 @@
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
-    'locale' => 'en',
+    'locale' => 'ar',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:YtiKwT1PX3upCMCzb5i2jHSBOTOHwM7jRLeUnqUTT1U=',
+    'key' => 'base64:oBweeS/kVIM1ztGULeZQqSte024brsZKNDLoePSYhnE=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -177,7 +177,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -247,14 +247,14 @@
   ),
   'database' => 
   array (
-    'default' => 'mysql',
+    'default' => 'sqlite',
     'connections' => 
     array (
       'sqlite' => 
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'help_me',
+        'database' => 'C:\\Users\\DELL\\Desktop\\help_me\\database\\database.sqlite',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -264,8 +264,8 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'help_me',
-        'username' => 'root',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
@@ -283,9 +283,9 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
-        'database' => 'help_me',
-        'username' => 'root',
+        'port' => '5432',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -297,10 +297,10 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '127.0.0.1',
-        'port' => '3306',
-        'database' => 'help_me',
-        'username' => 'root',
+        'host' => 'localhost',
+        'port' => '1433',
+        'database' => 'forge',
+        'username' => 'forge',
         'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
@@ -343,12 +343,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\app',
+        'root' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\app/public',
+        'root' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -365,7 +365,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\public\\storage' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\app/public',
+      'C:\\Users\\DELL\\Desktop\\help_me\\public\\storage' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -399,13 +399,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -455,7 +455,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -512,7 +512,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\DELL\\Desktop\\help_me\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -562,7 +562,7 @@
     'failed' => 
     array (
       'driver' => 'database',
-      'database' => 'mysql',
+      'database' => 'sqlite',
       'table' => 'failed_jobs',
     ),
   ),
@@ -591,7 +591,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -611,9 +611,109 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\resources\\views',
+      0 => 'C:\\Users\\DELL\\Desktop\\help_me\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\quantum\\help_me\\dashboards\\nazoxlaraveladmin-10\\Nazox_Laravel_v1.0.0\\Admin\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework\\views',
+  ),
+  'debugbar' => 
+  array (
+    'enabled' => NULL,
+    'except' => 
+    array (
+      0 => 'telescope*',
+      1 => 'horizon*',
+    ),
+    'storage' => 
+    array (
+      'enabled' => true,
+      'driver' => 'file',
+      'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\debugbar',
+      'connection' => NULL,
+      'provider' => '',
+      'hostname' => '127.0.0.1',
+      'port' => 2304,
+    ),
+    'include_vendors' => true,
+    'capture_ajax' => true,
+    'add_ajax_timing' => false,
+    'error_handler' => false,
+    'clockwork' => false,
+    'collectors' => 
+    array (
+      'phpinfo' => true,
+      'messages' => true,
+      'time' => true,
+      'memory' => true,
+      'exceptions' => true,
+      'log' => true,
+      'db' => true,
+      'views' => true,
+      'route' => true,
+      'auth' => false,
+      'gate' => true,
+      'session' => true,
+      'symfony_request' => true,
+      'mail' => true,
+      'laravel' => false,
+      'events' => false,
+      'default_request' => false,
+      'logs' => false,
+      'files' => false,
+      'config' => false,
+      'cache' => false,
+      'models' => true,
+      'livewire' => true,
+    ),
+    'options' => 
+    array (
+      'auth' => 
+      array (
+        'show_name' => true,
+      ),
+      'db' => 
+      array (
+        'with_params' => true,
+        'backtrace' => true,
+        'backtrace_exclude_paths' => 
+        array (
+        ),
+        'timeline' => false,
+        'explain' => 
+        array (
+          'enabled' => false,
+          'types' => 
+          array (
+            0 => 'SELECT',
+          ),
+        ),
+        'hints' => false,
+        'show_copy' => false,
+      ),
+      'mail' => 
+      array (
+        'full_log' => false,
+      ),
+      'views' => 
+      array (
+        'data' => false,
+      ),
+      'route' => 
+      array (
+        'label' => true,
+      ),
+      'logs' => 
+      array (
+        'file' => NULL,
+      ),
+      'cache' => 
+      array (
+        'values' => true,
+      ),
+    ),
+    'inject' => true,
+    'route_prefix' => '_debugbar',
+    'route_domain' => NULL,
+    'theme' => 'auto',
   ),
   'flare' => 
   array (
@@ -648,7 +748,7 @@
   'trustedproxy' => 
   array (
     'proxies' => NULL,
-    'headers' => 30,
+    'headers' => 94,
   ),
   'tinker' => 
   array (

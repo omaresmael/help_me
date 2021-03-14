@@ -15,14 +15,23 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('name_english');
+            $table->string('code');
+            $table->string('name')->index()->unique();
+            $table->string('name_english')->index()->unique();
+            $table->text('stage');
             $table->text('address');
-            $table->string('state');
-            $table->integer('phone_number');
+            $table->integer('phone_number')->index()->unique();
             $table->integer('fax_number');
             $table->string('email')->index()->unique();
-
+            $table->string('type');
+            $table->string('license_type');
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('area')->nullable();
+            $table->string('part')->nullable();
+            $table->string('street')->nullable();
+            $table->string('geolocation')->nullable();
+            $table->string('general_manager');// iguess it's list of users
             $table->timestamps();
         });
     }

@@ -8,12 +8,12 @@
             <i class="material-icons">person</i>
             </div>
             <p class="card-category">عدد المعلمين</p>
-            <h3 class="card-title">10
+            <h3 class="card-title">{{$teachers}}
             </h3>
         </div>
         <div class="card-footer">
             <div class="stats">
-            <i class="material-icons">update</i> الاجمالى (10)
+            <i class="material-icons">update</i> الاجمالى ({{$teachers}})
             </div>
         </div>
         </div>
@@ -30,6 +30,73 @@
         <div class="card-footer">
             <div class="stats">
             <i class="material-icons">update</i> انجزت  (10)
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+        <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+            <i class="fa fa-star"></i>
+            </div>
+            <p class="card-category">عدد التقيمات</p>
+            <h3 class="card-title">75</h3>
+        </div>
+        <div class="card-footer">
+            <div class="stats">
+            <i class="material-icons">update</i> الاجمالى (10)
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+        <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+            <i class="fa fa-child"></i>
+            </div>
+            <p class="card-category">عدد الاطفال</p>
+            <h3 class="card-title">{{$schools}}</h3>
+        </div>
+        <div class="card-footer">
+            <div class="stats">
+            <i class="material-icons">update</i> الاجمالى ({{$schools}})
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+            <i class="fas fa-school"></i>
+            </div>
+            <p class="card-category">عدد الهيئات التعليمة</p>
+            <h3 class="card-title">{{$schools}}
+            </h3>
+        </div>
+        <div class="card-footer">
+            <div class="stats">
+            <i class="material-icons">update</i> الاجمالى ({{$schools}})
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+            <i class="fas fa-cog"></i>
+            </div>
+            <p class="card-category">عدد البرامج</p>
+            <h3 class="card-title">{{$programs}}</h3>
+        </div>
+        <div class="card-footer">
+            <div class="stats">
+            <i class="material-icons">update</i> إجمالي  ({{$programs}})
             </div>
         </div>
         </div>
@@ -76,7 +143,7 @@
                 <img src="../assets/img/children.png">
             </div>
             <div class="card-body">
-                <h3 class="card-title"> اضافة اطفال </h3>
+                <h3 class="card-title"> اضافة طلاب </h3>
             </div>
             </div>
         </a>
@@ -89,7 +156,7 @@
                 <img src="../assets/img/school.png">
             </div>
             <div class="card-body">
-                <h3 class="card-title"> اضافه مدرسة </h3>
+                <h3 class="card-title"> اضافه هيئة تعليمية </h3>
             </div>
             </div>
         </a>
@@ -108,16 +175,15 @@
         </a>
     </div>
     <div class="col-md-4">
-        <a href="Add-classrom.html">
-        <div class="card card-chart">
-        <div class="card-header card-header-warning">
-            <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-            <img src="../assets/img/classroom.png">
-        </div>
-        <div class="card-body">
-            <h3 class="card-title"> اضافة فصل</h3>
-        </div>
-        </div>
+        <a href="{{route('teachers.create')}}">
+            <div class="card card-chart">
+            <div class="card-header card-header-warning">
+                <img src="../assets/img/classroom.png">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title"> اضافة معلم </h3>
+            </div>
+            </div>
         </a>
     </div>
     <div class="col-md-4">

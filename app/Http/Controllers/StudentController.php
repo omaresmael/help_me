@@ -13,22 +13,22 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('student.index',compact('students'));
+        return view('student.index', compact('students'));
     }
 
     public function create()
     {
         $schools = School::all();
-        return view('student.create',compact('schools'));
+        return view('student.create', compact('schools'));
     }
 
     public function store(StudentRequest $request)
     {
         Student::create($request->all());
-        return back()->with(['message'=>'تم إضافة الطالب بنجاح']);
+        return back()->with(['message' => 'تم إضافة الطالب بنجاح']);
     }
 
-    public function updateAbsenceDays($studentId,Request $request)
+    public function updateAbsenceDays($studentId, Request $request)
     {
 
         $student = Student::find($studentId);
@@ -41,16 +41,16 @@ class StudentController extends Controller
         $school = $student->school();
         $period = $student->getCurrentPeriod();
         $program = $student->program();
-        $program =  $school->programs()->where('program_id',$program->id)->first();
+        $program =  $school->programs()->where('program_id', $program->id)->first();
 
         $programDayPrice = $program->pivot->program_day_price;
 
 
 
-        $school->absenceEntitlements($totalAbsentDays,$period,$programDayPrice);
+        $school->absenceEntitlements($totalAbsentDays, $period, $programDayPrice);
 
 
-        return view('student.index')->with(['message'=>'The student: '.$student->name.' Absence dauys has been updated successfully']);
+        return view('student.index')->with(['message' => 'The student: ' . $student->name . ' Absence dauys has been updated successfully']);
     }
     /**
      * get edit view for updating student
@@ -61,7 +61,7 @@ class StudentController extends Controller
     {
         $schools = School::all();
         return view('student.edit', compact('student', 'schools'));
-    } 
+    }
     /**
      * updating student
      * @param \App\Http\Requests\UpdateStudentRequest  $request
@@ -71,7 +71,6 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         $student->update($request->validated());
-        return redirect('students')->with(['message'=>'تم تعديل الطالب بنجاح']);
+        return redirect('students')->with(['message' => 'تم تعديل الطالب بنجاح']);
     }
-    
 }
