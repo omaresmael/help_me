@@ -20,10 +20,14 @@ class SchoolController extends Controller
         $programs = Program::all();
         return view('school.create', compact('programs'));
     }
-
+    /**
+     * store a new school
+     * @param App\Http\Request\SchoolRequest $request
+     * @return redirect
+     */
     public function store(SchoolRequest $request)
     {
-        $school = School::create($request->all());
+        $school = School::create($request->validated());
         if ($request->has('programs') && $request->has('programs_price')) {
             $programs = $request->programs;
             $programs_price = $request->programs_price;
@@ -34,7 +38,7 @@ class SchoolController extends Controller
                 $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => '50']);
             }
         }
-        return back()->with(['message' => 'تم إضافة الهيئه التعليمة بنجاح']);
+        return redirect('schools')->with(['message' => 'تم إضافة الهيئه التعليمة بنجاح']);
     }
     public function show(School $school)
     {

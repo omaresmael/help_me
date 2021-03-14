@@ -13,53 +13,53 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الكود</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name='code' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة العربية</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name='name' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة الانجليزية</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name='name_english' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">المرحلة</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name='stage' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">العنوان</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name='address' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">التليفون</label>
-                <input type="number" class="form-control" required>
+                <input type="number" class="form-control" name='phone_number' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الفاكس</label>
-                <input type="number" class="form-control" required>
+                <input type="number" class="form-control" name='fax_number' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الايميل</label>
-                <input type="email" class="form-control" required>
+                <input type="email" class="form-control" name='email' required>
               </div>
             </div>
             <div class="col-md-4">
-              <select class="form-control" data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98" required>
+              <select class="form-control" name='type' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98" required>
                 <option value="0" select2>اختر نوع المؤسسة التعليمية</option>
                 <option>2</option>
                 <option>3</option>
@@ -70,11 +70,11 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">نوع الترخيص</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" name='lincense_type' required>
               </div>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2" data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
+              <select class="form-control select2" name='country' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
                 <option value="0">اختر البلد</option>
                 <option>2</option>
                 <option>3</option>
@@ -83,7 +83,7 @@
               </select>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2" data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
+              <select class="form-control select2" name='city' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
                 <option value="0">اختر المدينة</option>
                 <option>2</option>
                 <option>3</option>
@@ -94,30 +94,30 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">المنطقة</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name='area'>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">القطعة</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name='part'>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الشارع</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name='street'>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">بيانات الموقع الجغرافى</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name='geolocation'>
               </div>
             </div>
             <div class="col-md-4">
               <div class="class-12" style="margin-top:20px;">
-                <select class="form-control select2" data-style="btn btn-link" id="exampleFormControlSelect1" required>
+                <select class="form-control select2" data-style="btn btn-link" name='general_manager' id="exampleFormControlSelect1" required>
                   <option value="0">اختر مدير الادارة</option>
                   <option>2</option>
                   <option>3</option>

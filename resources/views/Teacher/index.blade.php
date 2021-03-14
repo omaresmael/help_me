@@ -7,7 +7,7 @@
                   <h4 class="card-title "> المعلمين</h4>
                     <div style="position: relative">
                         <p class="card-category" >احصائية المعلمين والهيئات التعليمية العاملين بها</p>
-                        <a href="{{route('teachers.create')}}" style=" position: absolute; top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة معلم</button></a>
+                        <a href="{{route('teachers.create')}}" style=" top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة معلم</button></a>
                     </div>
 
                 </div>

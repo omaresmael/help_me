@@ -10,7 +10,7 @@
     'locale' => 'ar',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:wo5FzapfRJLSJh/gdmHxGVicgrWgwK4vWhCXZSctLjA=',
+    'key' => 'base64:oBweeS/kVIM1ztGULeZQqSte024brsZKNDLoePSYhnE=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -177,7 +177,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\work\\help_me\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -254,7 +254,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'D:\\work\\help_me\\database\\database.sqlite',
+        'database' => 'C:\\Users\\DELL\\Desktop\\help_me\\database\\database.sqlite',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -343,12 +343,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\work\\help_me\\storage\\app',
+        'root' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\work\\help_me\\storage\\app/public',
+        'root' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -365,7 +365,7 @@
     ),
     'links' => 
     array (
-      'D:\\work\\help_me\\public\\storage' => 'D:\\work\\help_me\\storage\\app/public',
+      'C:\\Users\\DELL\\Desktop\\help_me\\public\\storage' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -399,13 +399,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\work\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\work\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -455,7 +455,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\work\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -512,7 +512,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\work\\help_me\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\DELL\\Desktop\\help_me\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -591,7 +591,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\work\\help_me\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -611,9 +611,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\work\\help_me\\resources\\views',
+      0 => 'C:\\Users\\DELL\\Desktop\\help_me\\resources\\views',
     ),
-    'compiled' => 'D:\\work\\help_me\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\framework\\views',
   ),
   'debugbar' => 
   array (
@@ -627,7 +627,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => 'D:\\work\\help_me\\storage\\debugbar',
+      'path' => 'C:\\Users\\DELL\\Desktop\\help_me\\storage\\debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',
