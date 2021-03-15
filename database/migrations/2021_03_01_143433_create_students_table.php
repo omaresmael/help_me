@@ -20,16 +20,12 @@ class CreateStudentsTable extends Migration
             $table->string('guardian_name');
             $table->string('guardian_national_number');
             $table->string('email');
-            $table->boolean('ministry_nomination');
-            $table->boolean('school_nomination');
-
-
+            $table->boolean('ministry_nomination')->default(false);
+            $table->boolean('school_nomination')->default(false);
             $table->unsignedBigInteger('program_school_id');
-
             $table->foreign('program_school_id')
                 ->references('id')
                 ->on('program_school');
-
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ class StudentController extends Controller
     public function store(StudentRequest $request)
     {
         Student::create($request->all());
-        return back()->with(['message' => 'تم إضافة الطالب بنجاح']);
+        return redirect('students')->with(['message' => 'تم إضافة الطالب بنجاح']);
     }
 
     public function updateAbsenceDays($studentId, Request $request)
