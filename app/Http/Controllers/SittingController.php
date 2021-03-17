@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTeacherRequest;
-use App\Models\School;
+use App\Http\Requests\SittingRequest;
+use App\Models\Sitting;
+use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class SittingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teachers = Teacher::with('school')->get();
-
-        return view('teacher.index', compact('teachers'));
+        $sittings =Sitting::with('teacher')->get();
+        return view('sitting.index',compact('sittings'));
     }
 
     /**
@@ -28,8 +28,9 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        $schools = School::all();
-        return view('teacher.create', compact('schools'));
+        $students = Student::all();
+        $teachers = Teacher::all();
+        return view('sitting.create',compact('students','teachers'));
     }
 
     /**
@@ -38,23 +39,20 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTeacherRequest $request)
+    public function store(Request $request)
     {
 
-        $validatedData = $request->validated();
-
-        Teacher::create($request->all());
-
-        return back()->with(['success' => 'تم إضافة المعلم بنجاح']);
+        Sitting::create($request->all());
+        return back()->with(['success' =>'تم إضافة جلسة بنجاح']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Sitting  $sitting
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show(Sitting $sitting)
     {
         //
     }
@@ -62,10 +60,10 @@ class TeacherController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Sitting  $sitting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit(Sitting $sitting)
     {
         //
     }
@@ -74,10 +72,10 @@ class TeacherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Sitting  $sitting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, Sitting $sitting)
     {
         //
     }
@@ -85,10 +83,10 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Sitting  $sitting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy(Sitting $sitting)
     {
         //
     }

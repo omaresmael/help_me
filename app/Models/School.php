@@ -34,10 +34,21 @@ class School extends Model
     {
         return $this->hasMany(Teacher::class);
     }
+
+    public function sittings()
+    {
+        return $this->hasManyThrough(Sitting::class, Teacher::class);
+    }
+
+    public function fines()
+    {
+        return $this->hasMany(Fine::class);
+    }
     //get the row money without periods
     public function getSchoolTotalRowMoney()
     {
         $programs = $this->programs;
+        $sittings = $this->sittings();
         $totalRowMoney = 0;
         foreach($programs as $program)
         {
@@ -45,21 +56,24 @@ class School extends Model
             $numberOfStudents = $programStudents->count();
             $totalRowMoney += $program->pivot->program_price * $numberOfStudents;
         }
+
+        $totalRowMoney = $totalRowMoney + $sittings->sum('price');
+
         return $totalRowMoney;
     }
 
     /**
-     * Get the fines of the school due to the fines that been applied to each period
+     * Get the fines of the school due to the violation that been applied to each period caused by the absence of a student or fine
      */
-    public function getSchoolTotalFines()
+    public function getSchoolTotalViolation()
     {
-        $totalFines = 0;
+        $totalViolation = 0;
         $periods = $this->periods;
         foreach($periods as $period)
         {
-            $totalFines += $period->pivot->initial_value - $period->pivot->deserved_value;
+            $totalViolation += $period->pivot->initial_value - $period->pivot->deserved_value;
         }
-        return $totalFines;
+        return $totalViolation;
     }
 //get the money before the penalties and absence cost values for one period
 
@@ -67,17 +81,17 @@ class School extends Model
     {
         $initialValue = 0;
         $programs = $this->programs;
-
+        $sittings = $this->sittings;
         foreach($programs as $program)
         {
-
-            $programStudents = Student::where('program_school_id',$program->pivot->id)->get();
-            $numberOfStudents = $programStudents->count();
-
+            $numberOfStudents = $program->studentsNumber();
             $totalProgramPrice = $program->pivot->program_price * $numberOfStudents;
             $initialValue += $totalProgramPrice * $period->financial_ratio / 100;
         }
-
+        foreach($sittings as $sitting)
+        {
+            $initialValue += $sitting->price  * $period->financial_ratio / 100;
+        }
         return $initialValue;
     }
 
@@ -90,6 +104,13 @@ class School extends Model
 
     }
 
+    public function finesEntitlements(Period $period, $amount)
+    {
+        $period = $this->periods()->where('periods.id',$period->id)->first();
+        $deservedValue = $period->pivot->deserved_value - $amount;
+        $this->periods()->updateExistingPivot($period->id,['deserved_value'=>$deservedValue]);
+    }
+
 
 
     public function getSchoolEntitlements($initialValue)
@@ -100,6 +121,7 @@ class School extends Model
         $periodAbsenceDays = 0;
 
         $absenceCost = 0; //the amount of money that costs the school due to their student absence
+        $finesAmount = 0;
 
         $programs = $this->programs;
         $periods = $this->periods;
@@ -108,18 +130,25 @@ class School extends Model
         {
             foreach ($programs as $program)
             {
+
                 $programStudents = Student::where('program_school_id',$program->pivot->id)->get();
 
                 foreach($programStudents as $student)
                 {
-                    //this table isn't yet migrated, don't forget to do so!
-                    $periodAbsenceDays += $student->periods->pivot->absence_days;
+
+                    $student->absence->each(function($item) use ($periodAbsenceDays) {
+                        $this->periodAbsenceDays +=   $item->pivot->absence_days;
+                    });
+
                 }
 
                 $absenceCost += $periodAbsenceDays * $program->pivot->day_price;
             }
-            // you still need to subtract Penalties cost from the initial value
-            $deservedValue = $initialValue - $absenceCost;
+
+
+            $finesAmount = $this->fines()->sum('amount');
+
+            $deservedValue = $initialValue - $absenceCost - $finesAmount;
 
             return $deservedValue;
         }

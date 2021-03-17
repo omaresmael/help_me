@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
+use App\Models\Fine;
+use App\Models\Period;
 use App\Models\Program;
 use App\Models\School;
+use App\Models\Student;
+use Illuminate\Support\Facades\App;
 
 class SchoolController extends Controller
 {
@@ -44,7 +48,11 @@ class SchoolController extends Controller
     {
         return view('school.show', compact('school'));
     }
-
+    public function edit(School $school)
+    {
+        $programsList = Program::all();
+        return view('school.edit', compact('programsList', 'school'));
+    }
 
     public function getAssociatedPrograms(School $school)
     {
@@ -58,22 +66,17 @@ class SchoolController extends Controller
 
     public function financialReport(School $school)
     {
-        $periods = $school->periods;
+
         $studentsNumber = $school->studentsNumber();
         $rowMoney = $school->getSchoolTotalRowMoney();
         $periods = $school->periods;
-        $totalFines = 0;
-        foreach ($periods as $period) {
-            $totalFines += $period->pivot->initial_value - $period->pivot->deserved_value;
-        }
-
-        $totalFines = $school->getSchoolTotalFines();
+        $totalViolaion = $school->getSchoolTotalViolation();
 
         $totalDeservedValue = $school->periods()->sum('deserved_value');
 
         $totalInitialValue = $school->periods()->sum('initial_value');
 
-        $residual = $rowMoney - $totalInitialValue - $totalFines;
+        $residual = $rowMoney - $totalInitialValue - $totalViolaion;
 
         $programsNumber = $school->programs()->count();
         return view('report.financial', compact('school', 'periods', 'programsNumber', 'residual', 'rowMoney', 'totalDeservedValue', 'studentsNumber'));
@@ -84,9 +87,64 @@ class SchoolController extends Controller
      */
     public function totalFinanceReport()
     {
+        $deservedValue = 0;
+        $students = Student::all();
         $schools = School::all();
-        return view('report.schools_finance', compact('schools'));
+        $periods = Period::all();
+
+
+
+
+        return view('school.report.schools-finance', compact('schools','students','periods'));
     }
+
+    public function studentsReport(School $school)
+    {
+        $students  = $school->students;
+
+        return view('school.report.students-report',compact('students','school'));
+    }
+    public function programsReport(School $school)
+    {
+        $programs  = $school->programs;
+
+        return view('school.report.programs-report',compact('programs','school'));
+    }
+    public function teachersReport(School $school)
+    {
+        $teachers  = $school->teachers;
+
+
+        return view('school.report.teachers-report',compact('teachers','school'));
+    }
+    public function sittingsReport(School $school)
+    {
+        $sittings  = $school->sittings;
+
+
+        return view('school.report.sittings-report',compact('sittings','school'));
+    }
+
+    public function periodsReport(School $school)
+    {
+        /**
+         * TODO:: Add The Real value for Absence days  cost
+         */
+        $periods  = $school->periods;
+        $fines = [];
+        $absenceCost = 0;
+        foreach ($periods as $period)
+        {
+            $fines [$period->id] = Fine::period($period)->sum('amount');
+        }
+
+
+
+
+
+        return view('school.report.periods-report',compact('periods','school','fines'));
+    }
+
 
 
     /**
@@ -94,11 +152,7 @@ class SchoolController extends Controller
      * @param App\Models\School
      * @return view
      */
-    public function edit(School $school)
-    {
-        $programsList = Program::all();
-        return view('school.edit', compact('programsList', 'school'));
-    }
+
     /**
      * updating school
      * @param \App\Http\Requests\UpdateSchoolRequest  $request

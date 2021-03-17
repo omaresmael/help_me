@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\School;
 use App\Models\Program;
+use App\Models\Sitting;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ class HomeController extends Controller
         $students = Student::count();
         $programs = Program::count();
         $teachers = Teacher::count();
-        return view('dashboard', compact('schools', 'students', 'programs', 'teachers'));
+        $sittings = Sitting::count();
+        return view('dashboard', compact('schools', 'students', 'programs', 'teachers','sittings'));
     }
 }

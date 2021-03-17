@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreTeacherRequest;
+use App\Http\Requests\FineRequest;
+use App\Models\Fine;
 use App\Models\School;
-use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class FineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teachers = Teacher::with('school')->get();
-
-        return view('teacher.index', compact('teachers'));
+        $fines = Fine::all();
+        return view('Fine.index',compact('fines'));
     }
 
     /**
@@ -29,32 +28,32 @@ class TeacherController extends Controller
     public function create()
     {
         $schools = School::all();
-        return view('teacher.create', compact('schools'));
+        return view('fine.create', compact('schools'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\FineRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTeacherRequest $request)
+    public function store(FineRequest $request)
     {
+        $fine = Fine::create($request->validated());
+        $school = School::find($fine->school_id);
+        $period = $fine->getCurrentPeriod();
+        $school->finesEntitlements($period, $fine->amount);
 
-        $validatedData = $request->validated();
-
-        Teacher::create($request->all());
-
-        return back()->with(['success' => 'تم إضافة المعلم بنجاح']);
+        return back()->with(['success' => 'تم إضافة الجزاء بنجاح']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Fine  $fine
      * @return \Illuminate\Http\Response
      */
-    public function show(Teacher $teacher)
+    public function show(Fine $fine)
     {
         //
     }
@@ -62,10 +61,10 @@ class TeacherController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Fine  $fine
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit(Fine $fine)
     {
         //
     }
@@ -74,10 +73,10 @@ class TeacherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Fine  $fine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, Fine $fine)
     {
         //
     }
@@ -85,10 +84,10 @@ class TeacherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Teacher  $teacher
+     * @param  \App\Fine  $fine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy(Fine $fine)
     {
         //
     }

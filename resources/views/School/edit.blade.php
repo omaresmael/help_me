@@ -50,7 +50,7 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label class="bmd-label-floating">الفاكس</label>    
+                <label class="bmd-label-floating">الفاكس</label>
                 <input type="number" class="form-control" name='fax_number' value='{{$school->fax_number}}' required>
               </div>
             </div>
@@ -184,7 +184,7 @@
                       <label class="control-label">اختر برنامج</label>
                       <select name="programs[]" class="form-control select2" required>
                         <option>Select</option>
-                        @foreach($programs as $program)
+                        @foreach($programsList as $program)
                         <option value="{{$program->id}}">{{$program->name}}</option>
                         @endforeach
                       </select>
@@ -270,10 +270,14 @@ $(function() {
                       </div>
                     </div>`;
     $('#programContainer').append(html).ready(()=>{
-      $('.datepicker').datepicker();
-      $('.select2').select2();
+
     });
   });
-}); 
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        startDate: '-3d'
+    });
+    $('.select2').select2();
+});
 </script>
 @endsection

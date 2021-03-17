@@ -15,19 +15,19 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label class="bmd-label-floating">أسم الطالب رباعي</label>
-                  <input type="text" class="form-control" name="name" required>
+                  <input type="text" class="form-control" value="{{old('name')}}" name="name" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="bmd-label-floating">رقم القومي للطالب </label>
-                  <input type="text" class="form-control" name="national_number" required>
+                  <label class="bmd-label-floating">رقم المدني للطالب </label>
+                  <input type="text" class="form-control" value="{{old('national_number')}}"name="national_number" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">البريد الاكتروني للطالب</label>
-                  <input type="email" class="form-control" name="email" required>
+                  <input type="email" class="form-control" value="{{old('email')}}"name="email" required>
                 </div>
               </div>
             </div>
@@ -35,25 +35,37 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">اسم ولي الامر </label>
-                  <input type="text" class="form-control" name="guardian_name" required>
+                  <input type="text" class="form-control" value="{{old('guardian_name')}}"name="guardian_name" required>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="bmd-label-floating">رقم القومي ولي الامر</label>
-                  <input type="text" class="form-control" name="guardian_national_number" required>
+                  <label class="bmd-label-floating">رقم المدني لولي الامر</label>
+                  <input type="text" class="form-control" value="{{old('guardian_national_number')}}"name="guardian_national_number" required>
                 </div>
               </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">نوع الإعاقة</label>
+                        <input type="text" class="form-control" value="{{old('disability_type')}}" name="disability_type" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">شدة الإعاقة</label>
+                        <input type="text" class="form-control" value="{{old('disability_power')}}" name="disability_power" required>
+                    </div>
+                </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الوزارة</label>
-                  <input type="checkbox" class="form-control" name="ministry_nomination" checked>
+                  <input type="checkbox" class="form-control" name="ministry_nomination" value="1" checked>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الهيئة التعليمة</label>
-                  <input type="checkbox" class="form-control" name='school_nomination' checked>
+                  <input type="checkbox" class="form-control" name='school_nomination' value="1" checked>
                 </div>
               </div>
             </div>
@@ -77,7 +89,7 @@
                       </div>
                       <div class="form-group col-md-6 ">
                             <label class="control-label" >اختر برنامج</label>
-                            <select name="program_school_id" id="program"  class="form-control select2" required> 
+                            <select name="program_school_id" id="program"  class="form-control select2" required>
                               <option>اختر برنامج</option>
                             </select>
                         </div>

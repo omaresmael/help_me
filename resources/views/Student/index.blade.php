@@ -17,6 +17,8 @@
                               <th class="text-center">اسم الطالب</th>
                               <th class="text-center">رقم القومي</th>
                               <th >الإيميل</th>
+                              <th >الهيئة التعليمية</th>
+
                               <th >البرنامج الملحق به</th>
                               <th class="text-center">عمليات</th>
                           </tr>
@@ -28,6 +30,7 @@
                             <td>{{$student->name}}</td>
                             <td>{{$student->national_number}}</td>
                             <td>{{$student->email}}</td>
+                            <td>{{$student->school()->name}}</td>
                             <td>{{$student->program()[1]->name}}</td>
                             <td>
                                 <a href="/students/{{$student->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-user"></i></a>
@@ -47,13 +50,13 @@
                 </div>
               </div>
             </div>
-    
+
           </div>
 @endsection
 @section('inc-scripts')
 <script>
 $(function() {
   $('#students').addClass('active');
-}); 
+});
 </script>
 @endsection

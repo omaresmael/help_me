@@ -16,7 +16,7 @@
                               <th>#</th>
                               <th class="text-center">الكود</th>
                               <th class="text-center">اسم الهيئة التعليمية</th>
-                              <th class="text-right">العنوان</th>
+                              <th class="text-center">العنوان</th>
                               <th >رقم التليفون</th>
                               <th >الإيميل</th>
                               <th >عدد الطلاب</th>
@@ -29,7 +29,7 @@
                             <td>{{$i+1}}</td>
                             <td>{{$school->code}}</td>
                             <td>{{$school->name}}</td>
-                            <td>{{$school->address}}</td>
+                            <td style="width: 20%">{{$school->address}}</td>
                             <td>{{$school->phone_number}}</td>
                             <td>{{$school->email}}</td>
                             <td>{{$school->studentsNumber()}}</td>
@@ -37,7 +37,7 @@
                                 <a href="/schools/{{$school->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-school"></i></a>
                                 <a href="/schools/{{$school->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
                                 <a href="/schools/{{$school->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>
-                                <a href="/financial_report/{{$school->id}}" id="financial_button" class='btn btn-info btn-sm'>التقرير المالي</a>
+
                             </td>
                         </tr>
                         @empty
@@ -51,13 +51,13 @@
                 </div>
               </div>
             </div>
-    
+
           </div>
 @endsection
 @section('inc-scripts')
 <script>
 $(function() {
   $('#schools').addClass('active');
-}); 
+});
 </script>
 @endsection

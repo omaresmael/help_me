@@ -39,16 +39,28 @@
                 <p>المعلمين</p>
             </a>
         </li>
+            <li class="nav-item " id='sittings'>
+                <a class="nav-link" href="{{route('sittings.index')}}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>الحصص</p>
+                </a>
+            </li>
+            <li class="nav-item " id='sittings'>
+                <a class="nav-link" href="{{route('fines.index')}}">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>الجزاءات</p>
+                </a>
+            </li>
         <li class="nav-item " >
-            <a class="nav-link" href="{{route('programs.index')}}">
+            <a class="nav-link" href="{{route('periods.index')}}">
             <i class="fas fa-user-graduate"></i>
             <p>الدفعات</p>
             </a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="{{route('schools.finance.report')}}">
             <i class="material-icons">content_paste</i>
-            <p>الحسابات</p>
+            <p>التقرير المالي المجمع</p>
             </a>
         </li>
         <li class="nav-item ">

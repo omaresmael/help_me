@@ -14,54 +14,54 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الكود</label>
-                <input type="text" class="form-control" name='code' required>
+                <input type="text" value="{{old('code')}}" class="form-control" name='code' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة العربية</label>
-                <input type="text" class="form-control" name='name' required>
+                <input type="text" value="{{old('name')}}" class="form-control" name='name' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة الانجليزية</label>
-                <input type="text" class="form-control" name='name_english' required>
+                <input type="text" class="form-control" value="{{old('name_english')}}" name='name_english' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">المرحلة</label>
-                <input type="text" class="form-control" name='stage' required>
+                <input type="text" class="form-control" value="{{old('stage')}}" name='stage' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">العنوان</label>
-                <input type="text" class="form-control" name='address' required>
+                <input type="text" class="form-control" value="{{old('address')}}" name='address' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">التليفون</label>
-                <input type="number" class="form-control" name='phone_number' required>
+                <input type="number" class="form-control" value="{{old('phone_number')}}" name='phone_number' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الفاكس</label>
-                <input type="number" class="form-control" name='fax_number' required>
+                <input type="number" class="form-control" value="{{old('fax_number')}}" name='fax_number' required>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الايميل</label>
-                <input type="email" class="form-control" name='email' required>
+                <input type="email" class="form-control" value="{{old('email')}}" name='email' required>
               </div>
             </div>
             <div class="col-md-4">
               <select class="form-control" name='type' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98" required>
-                <option value="0" select2>اختر نوع المؤسسة التعليمية</option>
+                <option value="0" selected>اختر نوع المؤسسة التعليمية</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
@@ -227,10 +227,12 @@ $(function() {
                       </div>
                     </div>`;
     $('#programContainer').append(html).ready(()=>{
-      $('.datepicker').datepicker();
+      $('.datepicker').datepicker({
+          format: 'YYYY-MM-DD',
+      });
       $('.select2').select2();
     });
   });
-}); 
+});
 </script>
 @endsection

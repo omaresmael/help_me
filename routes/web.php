@@ -38,9 +38,23 @@ Route::group(['perfix'=>'/'],function(){
         //teachers
         Route::resource('teachers', 'TeacherController');
 
+        //fines
+        Route::resource('fines', 'FineController');
+
+        //sittings
+        Route::resource('sittings', 'SittingController');
+
+
         //reports
         Route::get('financial_report/{school}','SchoolController@financialReport');
-        Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance');
+        Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance.report');
+        Route::get('/students_report/{school}','SchoolController@studentsReport')->name('school.students.report');
+        Route::get('/programs_report/{school}','SchoolController@programsReport')->name('school.programs.report');
+        Route::get('/teachers_report/{school}','SchoolController@teachersReport')->name('school.teachers.report');
+        Route::get('/sittings_report/{school}','SchoolController@sittingsReport')->name('school.sittings.report');
+        Route::get('/periods_report/{school}','SchoolController@periodsReport')->name('school.periods.report');
+
+
 
 
         Route::get('/dashboard', 'HomeController@root')->name('dashboard');

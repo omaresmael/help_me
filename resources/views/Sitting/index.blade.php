@@ -4,10 +4,10 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title "> المعلمين</h4>
+                  <h4 class="card-title "> الحصص</h4>
                     <div style="position: relative">
-                        <p class="card-category" >احصائية المعلمين والهيئات التعليمية العاملين بها</p>
-                        <a href="{{route('teachers.create')}}" style=" top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة معلم</button></a>
+                        <p class="card-category" >احضائية الحصص المتاحة والعلمين وعدد الطلاب المنتسبين لكل حصةا</p>
+                        <a href="{{route('sittings.create')}}" style=" position: absolute; top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة حصة</button></a>
                     </div>
 
                 </div>
@@ -18,33 +18,22 @@
                           <tr>
                               <th class="text-center">#</th>
                               <th>الاسم</th>
-                              <th>التخصص</th>
-                              <th>المؤهل</th>
-                              <th>الوظيفة</th>
-                              <th>الجنسية</th>
-                              <th>الرقم المدني</th>
-                              <th>رقم موافقة الهيئة</th>
-                              <th>تاريخ موافقة الهيئة</th>
-
-                              <th>اسم الهيئة التعليمية</th>
+                              <th>اسم المعلم</th>
+                              <th>اسم المدرسة</th>
+                              <th>سعر الحصة</th>
+                              <th>عدد الطلاب</th>
                               <th class="text-left">العمليات</th>
                           </tr>
                       </thead>
                       <tbody>
-                      @forelse($teachers as $teacher)
-
+                      @forelse($sittings as $sitting)
                           <tr>
                               <td class="text-center">{{$loop->iteration}}</td>
-                              <td>{{$teacher->name}}</td>
-                              <td>{{$teacher->speciality}}</td>
-                              <td>{{$teacher->qualification}}</td>
-                              <td>{{$teacher->job}}</td>
-                              <td>{{$teacher->nationality}}</td>
-                              <td>{{$teacher->national_number}}</td>
-                              <td>{{$teacher->entity_acceptance_number}}</td>
-                              <td>{{$teacher->entity_acceptance_date}}</td>
-
-                              <td>{{$teacher->school->name}}</td>
+                              <td>{{$sitting->name}}</td>
+                              <td>{{$sitting->teacher->name}}</td>
+                              <td>{{$sitting->teacher->school->name}}</td>
+                              <td>{{$sitting->price}}</td>
+                              <td>{{$sitting->students()->count()}}</td>
                               <td class="td-actions text-left">
                                 <button type="button" rel="tooltip" class="btn btn-info btn-round">
                                     <i class="material-icons">person</i>
@@ -60,6 +49,8 @@
                           @empty
                           <tr>
                               <h3>لا يوجد معلمين </h3>
+                              <p>يمكنك أضافة معلمين من  </p>
+                              <a href="{{route('sittings.create')}}"><strong style="font-weight: bold">هنا</strong></a>
                           </tr>
                           @endforelse
 
@@ -75,7 +66,7 @@
 @section('inc-scripts')
 <script>
 $(function() {
-  $('#teachers').addClass('active');
+  $('#sittings').addClass('active');
 });
 </script>
 @endsection

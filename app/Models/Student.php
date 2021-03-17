@@ -18,7 +18,9 @@ class Student extends Model
         'email',
         'ministry_nomination',
         'school_nomination',
-        'program_school_id'
+        'program_school_id',
+        'disability_type',
+        'disability_power'
     ];
     // this represents the relation between student and the his school and program
     public function data()
@@ -77,5 +79,11 @@ class Student extends Model
             $query->where('start_at', '<', Carbon::now()->toDateString())->where('end_at', '>', Carbon::now()->toDateString());
         })->first();
         return $period;
+    }
+
+    public function totalAbsenceDays()
+    {
+        $totalAbsenceDays = $this->absence()->sum('absence_days');
+        return $totalAbsenceDays;
     }
 }

@@ -45,6 +45,18 @@
                   <input type="text" class="form-control" name="guardian_national_number" value="{{$student->guardian_national_number}}" required>
                 </div>
               </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">نوع الإعاقة</label>
+                        <input type="text" class="form-control" name="disability_type" value='{{$student->disability_type}}' required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">شدة الإعاقة</label>
+                        <input type="text" class="form-control" name="disability_power" value='{{$student->disability_power}}' required>
+                    </div>
+                </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الوزارة</label>
@@ -79,7 +91,7 @@
                       </div>
                       <div class="form-group col-md-6 ">
                             <label class="control-label" id='studentProgramId' programId="{{$student->program()[1]->id}}">اختر برنامج</label>
-                            <select name="program_school_id" id="program"  class="form-control select2" required> 
+                            <select name="program_school_id" id="program"  class="form-control select2" required>
                             <option value="{{$student->program()[1]->id}}">{{$student->program()[1]->name}}</option>
                             </select>
                         </div>

@@ -20,6 +20,8 @@ class CreateStudentsTable extends Migration
             $table->string('guardian_name');
             $table->string('guardian_national_number');
             $table->string('email');
+            $table->string('disability_type');
+            $table->string('disability_power');
             $table->boolean('ministry_nomination')->default(false);
             $table->boolean('school_nomination')->default(false);
             $table->unsignedBigInteger('program_school_id');

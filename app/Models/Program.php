@@ -31,6 +31,15 @@ class Program extends Model
 
     }
 
+    public function studentsNumberPerSchool($school)
+    {
+        $school = $this->schools()->where('schools.id',$school->id)->first();
+
+        $countStudents = Student::where('program_school_id',$school->pivot->id)->count();
+
+        return $countStudents;
+    }
+
     public function getWorkingDaysAttribute()
     {
 
