@@ -25,24 +25,10 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-
-                                    <label class="bmd-label-floating">تبدأ من</label>
-                                    <input type="text" name="start_at" value="{{old('start_at')}}" class="form-control datepicker" required>
-
-
-
+                                    <label class="bmd-label-floating">التاريخ</label>
+                                    <input type="text" name="date" value="{{old('date')}}" class="form-control datepicker" required>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-
-                                    <label class="bmd-label-floating">تنتهي عند</label>
-                                    <input type="text" name="end_at" value="{{old('end_at')}}" class="form-control datepicker" required>
-
-
-                                </div>
-                            </div>
-
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -67,7 +53,7 @@
                                     <label for="id_label_single">
                                         اختر الطلبة المشتركين في الجلسة
                                     </label>
-                                    <select class="js-example-basic-single js-states form-control" id="" name="teacher_id">
+                                    <select class="js-example-basic-single js-states form-control" id="" name="student_id">
                                         @isset($students)
                                             <option>اختر الطلبة</option>
                                         @endisset

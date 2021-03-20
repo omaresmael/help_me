@@ -9,4 +9,6 @@ class ProgramSchool extends Model
 {
 
     protected $table = 'program_school';
+
+
 }

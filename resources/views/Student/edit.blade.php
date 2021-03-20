@@ -47,6 +47,18 @@
               </div>
                 <div class="col-md-3">
                     <div class="form-group">
+                        <label class="bmd-label-floating">بداية الدوام</label>
+                        <input type="text" class="form-control datepicker" value="{{$student->attendance_begin}}" name="attendance_begin" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">نهاية الدوام</label>
+                        <input type="text" class="form-control datepicker" value="{{$student->attendance_end}}" name="attendance_end" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
                         <label class="bmd-label-floating">نوع الإعاقة</label>
                         <input type="text" class="form-control" name="disability_type" value='{{$student->disability_type}}' required>
                     </div>
@@ -125,6 +137,9 @@
         });
       });
     })
+  });
+  $('.datepicker').datepicker({
+      dateFormat: 'yy-mm-dd',
   });
 </script>
 @endsection

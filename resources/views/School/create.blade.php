@@ -155,10 +155,10 @@
                           </label>
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" required />
+                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" autocomplete="off" required />
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required />
+                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" autocomplete="off" required />
                         </div>
                       </div>
                     </div>
@@ -228,11 +228,16 @@ $(function() {
                     </div>`;
     $('#programContainer').append(html).ready(()=>{
       $('.datepicker').datepicker({
-          format: 'YYYY-MM-DD',
+          dateFormat: 'yy-mm-dd',
       });
       $('.select2').select2();
     });
   });
+
+});
+
+$('.datepicker').datepicker({
+    dateFormat: 'yy-mm-dd',
 });
 </script>
 @endsection

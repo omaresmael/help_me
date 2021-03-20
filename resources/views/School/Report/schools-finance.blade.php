@@ -62,8 +62,7 @@
                                         <td>{{$school->getSchoolEntitlements($school->getSchoolTotalRowMoney()) - $school->periods()->sum('deserved_value')}}</td>
                                         <td>{{$student->disability_type}}</td>
                                         <td>{{$student->disability_power}}</td>
-                                        <td></td>
-                                        <td></td>
+
                                     </tr>
                                 @endforeach
                             @endforeach

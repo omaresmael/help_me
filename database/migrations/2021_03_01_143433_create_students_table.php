@@ -22,6 +22,8 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('disability_type');
             $table->string('disability_power');
+            $table->date('attendance_begin');
+            $table->date('attendance_end');
             $table->boolean('ministry_nomination')->default(false);
             $table->boolean('school_nomination')->default(false);
             $table->unsignedBigInteger('program_school_id');

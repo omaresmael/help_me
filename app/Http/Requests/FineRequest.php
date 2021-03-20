@@ -26,6 +26,7 @@ class FineRequest extends FormRequest
         return [
             'amount' => 'required|numeric',
             'school_id' =>'required|numeric',
+            'reason' => 'required'
         ];
     }
 }

@@ -18,7 +18,6 @@
                               <th class="text-center">رقم القومي</th>
                               <th >الإيميل</th>
                               <th >الهيئة التعليمية</th>
-
                               <th >البرنامج الملحق به</th>
                               <th class="text-center">عمليات</th>
                           </tr>

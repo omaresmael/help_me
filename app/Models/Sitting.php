@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sitting extends Model
 {
-    protected $fillable = ['name','start_at','end_at','teacher_id','price'];
+    protected $fillable = ['name','date','student_id','teacher_id','price'];
+    protected $appends = ['working_days'];
 
     /**
-     * TODO:: Add Accessor that reformat the datetime into start date and enddate values to store it in database in create page
-     * TODO:: Add multiple select to students in create page
+     *
+     *
      */
 
     public function teacher()
@@ -18,8 +19,8 @@ class Sitting extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public function students()
+    public function student()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsTo(Student::class);
     }
 }
