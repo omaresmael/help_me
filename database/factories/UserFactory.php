@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Models\Program;
 use App\User;
 use Faker\Generator as Faker;
 
@@ -23,3 +24,5 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => bcrypt('123456789')
     ];
 });
+
+

@@ -10,6 +10,7 @@ use App\Models\Program;
 use App\Models\School;
 use App\Models\Student;
 use Illuminate\Support\Facades\App;
+use DateTime;
 
 class SchoolController extends Controller
 {
@@ -37,9 +38,22 @@ class SchoolController extends Controller
             $programs_price = $request->programs_price;
             $start_at = $request->start_at;
             $end_at = $request->end_at;
+
+
             foreach ($programs as $i => $program) {
-                // you need to figure the logic to calculate the program price day nut for now its static
-                $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => '50']);
+                /**
+                 * TODO:: You need to refactor that into a seperate function, an mutator, or a in creating model function
+                 */
+                $datetime1 = new DateTime($end_at[$i]);
+                $datetime2 = new DateTime($start_at[$i]);
+
+                $interval = $datetime1->diff($datetime2);
+                $days = $interval->format('%a');
+
+                $program_day_price = $programs_price[$i] / $days;
+
+                $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => $program_day_price]);
+
             }
         }
         return redirect('schools')->with(['message' => 'تم إضافة الهيئه التعليمة بنجاح']);
@@ -173,8 +187,15 @@ class SchoolController extends Controller
             $start_at = $request->start_at;
             $end_at = $request->end_at;
             foreach ($programs as $i => $program) {
-                // you need to figure the logic to calculate the program price day nut for now its static
-                $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => '50']);
+                $datetime1 = new DateTime($end_at[$i]);
+                $datetime2 = new DateTime($start_at[$i]);
+
+                $interval = $datetime1->diff($datetime2);
+                $days = $interval->format('%a');
+
+                $program_day_price = $programs_price[$i] / $days;
+
+                $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => $program_day_price]);
             }
         }
         return redirect('schools')->with(['message' => 'تم تعديل الهئية التعليميه بنجاح']);

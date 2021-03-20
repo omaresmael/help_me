@@ -16,7 +16,7 @@ class Fine extends Model
             $model->issuer_name = auth()->user()->name;
         });
     }
-    protected $fillable = ['amount','issuer_name','school_id'];
+    protected $fillable = ['amount','issuer_name','reason','school_id'];
 
     public function school()
     {

@@ -20,8 +20,12 @@ class Student extends Model
         'school_nomination',
         'program_school_id',
         'disability_type',
-        'disability_power'
+        'disability_power',
+        'attendance_end',
+        'attendance_begin'
     ];
+    protected $appends = ['working_days'];
+
     // this represents the relation between student and the his school and program
     public function data()
     {
@@ -50,6 +54,10 @@ class Student extends Model
         return [$financeData, $program];
     }
 
+    public function sittings()
+    {
+        return $this->hasMany(Sitting::class);
+    }
 
 
 
@@ -85,5 +93,21 @@ class Student extends Model
     {
         $totalAbsenceDays = $this->absence()->sum('absence_days');
         return $totalAbsenceDays;
+    }
+
+    public function getWorkingDaysAttribute()
+    {
+
+
+        $start_at = $this->attendance_begin;
+        $end_at = $this->attendance_end;
+
+        $datetime1 = new DateTime($end_at);
+        $datetime2 = new DateTime($start_at);
+
+        $interval = $datetime1->diff($datetime2);
+        $days = $interval->format('%a');
+
+        return $days;
     }
 }

@@ -21,7 +21,7 @@
                               <th>اسم المعلم</th>
                               <th>اسم المدرسة</th>
                               <th>سعر الحصة</th>
-                              <th>عدد الطلاب</th>
+                              <th>اسم الطالب</th>
                               <th class="text-left">العمليات</th>
                           </tr>
                       </thead>
@@ -33,7 +33,7 @@
                               <td>{{$sitting->teacher->name}}</td>
                               <td>{{$sitting->teacher->school->name}}</td>
                               <td>{{$sitting->price}}</td>
-                              <td>{{$sitting->students()->count()}}</td>
+                              <td>{{$sitting->student->name}}</td>
                               <td class="td-actions text-left">
                                 <button type="button" rel="tooltip" class="btn btn-info btn-round">
                                     <i class="material-icons">person</i>
@@ -48,8 +48,8 @@
                           </tr>
                           @empty
                           <tr>
-                              <h3>لا يوجد معلمين </h3>
-                              <p>يمكنك أضافة معلمين من  </p>
+                              <h3>لا يوجد حصص </h3>
+                              <p>يمكنك أضافة حصص من  </p>
                               <a href="{{route('sittings.create')}}"><strong style="font-weight: bold">هنا</strong></a>
                           </tr>
                           @endforelse

@@ -21,7 +21,9 @@ class StudentRequest extends FormRequest
             'email' => 'required|regex:/^.+@.+$/i|unique:students',
             'ministry_nomination' => 'sometimes',
             'school_nomination' => 'sometimes',
-            'program_school_id' => 'required'
+            'program_school_id' => 'required|numeric',
+            'attendance_begin' => 'required|date',
+            'attendance_end' => 'required|date|after:attendance_begin'
         ];
     }
 }

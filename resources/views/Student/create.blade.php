@@ -46,6 +46,18 @@
               </div>
                 <div class="col-md-3">
                     <div class="form-group">
+                        <label class="bmd-label-floating">بداية الدوام</label>
+                        <input type="text" class="form-control datepicker" value="{{old('attendance_begin')}}" name="attendance_begin" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">نهاية الدوام</label>
+                        <input type="text" class="form-control datepicker" value="{{old('attendance_end')}}" name="attendance_end" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
                         <label class="bmd-label-floating">نوع الإعاقة</label>
                         <input type="text" class="form-control" value="{{old('disability_type')}}" name="disability_type" required>
                     </div>
@@ -119,7 +131,11 @@
             $('#program').append(' <option value="' + key + '">' + valueObj + '</option>');
         });
       });
-    })
+    });
+
+  });
+  $('.datepicker').datepicker({
+      dateFormat: 'yy-mm-dd',
   });
 </script>
 @endsection

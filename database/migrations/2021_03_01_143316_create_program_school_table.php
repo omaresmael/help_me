@@ -18,7 +18,7 @@ class CreateProgramSchoolTable extends Migration
             $table->unsignedBigInteger('program_id');
             $table->unsignedBigInteger('school_id');
             $table->integer('program_price');
-            $table->integer('program_day_price')->default(0);
+            $table->float('program_day_price',7,2)->default(0);
             $table->date('start_at');
             $table->date('end_at');
 

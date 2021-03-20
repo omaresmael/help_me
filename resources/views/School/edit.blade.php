@@ -141,6 +141,7 @@
                   <div class="row " id="programContainer">
                   @if(count($school->programs) > 0)
                         @foreach($school->programs as $schoolProgram)
+
                         <div class="form-group col-md-3 ">
                           <label class="control-label">اختر برنامج</label>
                           <select name="programs[]" class="form-control select2" required>
@@ -160,10 +161,10 @@
                               </label>
                             </div>
                             <div class="col-6">
-                              <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" value='{{$schoolProgram->start_at}}' required />
+                              <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" value='{{$schoolProgram->pivot->start_at}}' required />
                             </div>
                             <div class="col-6">
-                              <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required value="{{$schoolProgram->end_at}}" />
+                              <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required value="{{$schoolProgram->pivot->end_at}}" />
                             </div>
                           </div>
                         </div>
@@ -172,7 +173,7 @@
                             <div class="col-12">
                               <label for="validationCustom01">سعر البرنامج</label>
                             </div>
-                            <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="{{$schoolProgram->programs_price}}" required>
+                            <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="{{$schoolProgram->pivot->program_price}}" required>
                             <div class="invalid-feedback">
                               من فضلك أدخل السعر
                             </div>
@@ -196,12 +197,12 @@
                             مدة البرنامج
                           </label>
                         </div>
-                        <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" required />
-                        </div>
-                        <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required />
-                        </div>
+                          <div class="col-6">
+                              <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" value='' autocomplete="off" required />
+                          </div>
+                          <div class="col-6">
+                              <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required value="" />
+                          </div>
                       </div>
                     </div>
                     <div class="form-group col-md-4">
@@ -251,10 +252,10 @@ $(function() {
                           </label>
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" required />
+                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" autocomplete="off" name="start_at[]" required />
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required />
+                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" autocomplete="off" name="end_at[]" required />
                         </div>
                       </div>
                     </div>
@@ -270,14 +271,19 @@ $(function() {
                       </div>
                     </div>`;
     $('#programContainer').append(html).ready(()=>{
+        $('.datepicker').datepicker({
+            dateFormat: 'yy-mm-dd',
 
+        });
     });
   });
-    $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd',
-        startDate: '-3d'
-    });
+
     $('.select2').select2();
+});
+
+$('.datepicker').datepicker({
+    dateFormat: 'yy-mm-dd',
+
 });
 </script>
 @endsection

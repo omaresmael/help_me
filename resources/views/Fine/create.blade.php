@@ -18,6 +18,12 @@
                                     <input type="text" name="amount" value="{{old('amount')}}" class="form-control" required>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">السبب</label>
+                                    <textarea name="reason"  class="form-control" required>{{old('reason')}}</textarea>
+                                </div>
+                            </div>
 
 
                         </div>
