@@ -15,18 +15,27 @@
                                 <div class="form-group">
                                     <label class="bmd-label-floating">اسم الجلسة</label>
                                     <input type="text" name="name" class="form-control" required>
+                                    @if($errors->has("name"))
+                                        <small style="color: red">{{$errors->first('name')}}</small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">السعر</label>
                                     <input type="text" name="price" class="form-control" required>
+                                    @if($errors->has("price"))
+                                        <small style="color: red">{{$errors->first('price')}}</small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">التاريخ</label>
                                     <input type="text" name="date" value="{{old('date')}}" class="form-control datepicker" required>
+                                    @if($errors->has("date"))
+                                        <small style="color: red">{{$errors->first('date')}}</small>
+                                    @endif
                                 </div>
                             </div>
                         </div>
