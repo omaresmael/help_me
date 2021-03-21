@@ -15,9 +15,9 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="اسم البرنامج" value="{{$program->name}}" autocomplete="off" required>
-                                    <div class="invalid-feedback">
-                                        من فضلك أدخل الإسم
-                                    </div>
+                                    @if($errors->has("name"))
+                                        <small style="color: red">{{$errors->first('name')}}</small>
+                                    @endif
                                 </div>
                             </div>
                         </div>

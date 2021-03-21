@@ -15,27 +15,28 @@
                                 <div class="form-group">
                                     <label class="bmd-label-floating">اسم الدفعة</label>
                                     <input type="text" name="name" value="{{old('name')}}" class="form-control" required>
+                                    @if($errors->has("name"))
+                                        <small style="color: red">{{$errors->first('name')}}</small>
+                                    @endif
 
-                                    <div class="invalid-feedback">
-                                        من فضلك أدخل الإسم
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">النسبة المالية</label>
                                     <input type="text" name="financial_ratio" value="{{old('financial_ratio')}}" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        من فضلك أدخل النسبة المالية
-                                    </div>
+                                    @if($errors->has("financial_ratio"))
+                                        <small style="color: red">{{$errors->first('financial_ratio')}}</small>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-
                                     <label class="bmd-label-floating">تبدأ من</label>
                                     <input type="text" name="start_at" value="{{old('start_at')}}" class="form-control datepicker" required>
-
+                                    @if($errors->has("start_at"))
+                                        <small style="color: red">{{$errors->first('start_at')}}</small>
+                                    @endif
 
 
                                 </div>
@@ -45,7 +46,9 @@
 
                                     <label class="bmd-label-floating">تنتهي عند</label>
                                     <input type="text" name="end_at" value="{{old('end_at')}}" class="form-control datepicker" required>
-
+                                    @if($errors->has("end_at"))
+                                        <small style="color: red">{{$errors->first('end_at')}}</small>
+                                    @endif
 
                                 </div>
                             </div>

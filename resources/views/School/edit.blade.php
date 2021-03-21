@@ -16,48 +16,72 @@
               <div class="form-group">
                 <label class="bmd-label-floating">الكود</label>
                 <input type="text" class="form-control" name='code' required value="{{$school->code}}">
+                  @if($errors->has("code"))
+                      <small style="color: red">{{$errors->first('code')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة العربية</label>
                 <input type="text" class="form-control" name='name' required value='{{$school->name}}'>
+                  @if($errors->has("name"))
+                      <small style="color: red">{{$errors->first('name')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة الانجليزية</label>
                 <input type="text" class="form-control" name='name_english' required value='{{$school->name_english}}'>
+                  @if($errors->has("name_english"))
+                      <small style="color: red">{{$errors->first('name_english')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">المرحلة</label>
                 <input type="text" class="form-control" name='stage' required value='{{$school->stage}}'>
+                  @if($errors->has("stage"))
+                      <small style="color: red">{{$errors->first('stage')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">العنوان</label>
                 <input type="text" class="form-control" name='address' value="{{$school->address}}" required>
+                  @if($errors->has("address"))
+                      <small style="color: red">{{$errors->first('address')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">التليفون</label>
                 <input type="number" class="form-control" name='phone_number' value="{{$school->phone_number}}" required>
+                  @if($errors->has("phone_number"))
+                      <small style="color: red">{{$errors->first('phone_number')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الفاكس</label>
                 <input type="number" class="form-control" name='fax_number' value='{{$school->fax_number}}' required>
+                  @if($errors->has("fax_number"))
+                      <small style="color: red">{{$errors->first('fax_number')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الايميل</label>
                 <input type="email" class="form-control" name='email' value="{{$school->email}}" required>
+                  @if($errors->has("email"))
+                      <small style="color: red">{{$errors->first('email')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
@@ -73,6 +97,9 @@
               <div class="form-group">
                 <label class="bmd-label-floating">نوع الترخيص</label>
                 <input type="text" class="form-control" name='license_type' value="{{$school->license_type}}" required>
+                  @if($errors->has("license_type"))
+                      <small style="color: red">{{$errors->first('license_type')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
@@ -97,24 +124,36 @@
               <div class="form-group">
                 <label class="bmd-label-floating">المنطقة</label>
                 <input type="text" class="form-control" name='area' value="{{$school->area}}">
+                  @if($errors->has("area"))
+                      <small style="color: red">{{$errors->first('area')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">القطعة</label>
                 <input type="text" class="form-control" name='part' value="{{$school->part}}">
+                  @if($errors->has("part"))
+                      <small style="color: red">{{$errors->first('part')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الشارع</label>
                 <input type="text" class="form-control" name='street' value="{{$school->street}}">
+                  @if($errors->has("street"))
+                      <small style="color: red">{{$errors->first('street')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">بيانات الموقع الجغرافى</label>
                 <input type="text" class="form-control" name='geolocation' value="{{$school->geolocation}}">
+                  @if($errors->has("geolocation"))
+                      <small style="color: red">{{$errors->first('geolocation')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
@@ -199,9 +238,15 @@
                         </div>
                           <div class="col-6">
                               <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" value='' autocomplete="off" required />
+                              @if($errors->has("start_at"))
+                                  <small style="color: red">{{$errors->first('start_at')}}</small>
+                              @endif
                           </div>
                           <div class="col-6">
                               <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required value="" />
+                              @if($errors->has("end_at"))
+                                  <small style="color: red">{{$errors->first('end_at')}}</small>
+                              @endif
                           </div>
                       </div>
                     </div>
@@ -211,6 +256,9 @@
                           <label for="validationCustom01">سعر البرنامج</label>
                         </div>
                         <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
+                          @if($errors->has("program_price"))
+                              <small style="color: red">{{$errors->first('program_price')}}</small>
+                          @endif
                         <div class="invalid-feedback">
                           من فضلك أدخل السعر
                         </div>

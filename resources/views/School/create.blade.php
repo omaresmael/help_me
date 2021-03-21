@@ -8,59 +8,86 @@
         <p class="card-category">ادخال البيانات المطلوبة</p>
       </div>
       <div class="card-body">
-        <form action="{{route('schools.store')}}" method='POST'>
+
+
+        <form action="{{route('schools.store')}}" method='POST' >
           <div class="row">
           @csrf
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الكود</label>
-                <input type="text" value="{{old('code')}}" class="form-control" name='code' required>
+                <input type="text" value="{{old('code')}}" class="form-control" name='code' >
+                  @if($errors->has("code"))
+                      <small style="color: red">{{$errors->first('code')}}</small>
+                  @endif
+
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة العربية</label>
-                <input type="text" value="{{old('name')}}" class="form-control" name='name' required>
+                <input type="text" value="{{old('name')}}" class="form-control" name='name' >
+                  @if($errors->has("name"))
+                      <small style="color: red">{{$errors->first('name')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الاسم باللغة الانجليزية</label>
-                <input type="text" class="form-control" value="{{old('name_english')}}" name='name_english' required>
+                <input type="text" class="form-control" value="{{old('name_english')}}" name='name_english' >
+                  @if($errors->has("name_english"))
+                      <small style="color: red">{{$errors->first('name_english')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">المرحلة</label>
-                <input type="text" class="form-control" value="{{old('stage')}}" name='stage' required>
+                <input type="text" class="form-control" value="{{old('stage')}}" name='stage' >
+                  @if($errors->has("stage"))
+                      <small style="color: red">{{$errors->first('stage')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">العنوان</label>
-                <input type="text" class="form-control" value="{{old('address')}}" name='address' required>
+                <input type="text" class="form-control" value="{{old('address')}}" name='address' >
+                  @if($errors->has("address"))
+                      <small style="color: red">{{$errors->first('address')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">التليفون</label>
-                <input type="number" class="form-control" value="{{old('phone_number')}}" name='phone_number' required>
+                <input type="number" class="form-control" value="{{old('phone_number')}}" name='phone_number' >
+                  @if($errors->has("phone_number"))
+                      <small style="color: red">{{$errors->first('phone_number')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الفاكس</label>
-                <input type="number" class="form-control" value="{{old('fax_number')}}" name='fax_number' required>
+                <input type="number" class="form-control" value="{{old('fax_number')}}" name='fax_number' >
+                  @if($errors->has("fax_number"))
+                      <small style="color: red">{{$errors->first('fax_number')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الايميل</label>
-                <input type="email" class="form-control" value="{{old('email')}}" name='email' required>
+                <input type="email" class="form-control" value="{{old('email')}}" name='email' >
+                  @if($errors->has("email"))
+                      <small style="color: red">{{$errors->first('email')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
-              <select class="form-control" name='type' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98" required>
+              <select class="form-control" name='type' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98" >
                 <option value="0" selected>اختر نوع المؤسسة التعليمية</option>
                 <option>2</option>
                 <option>3</option>
@@ -71,7 +98,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">نوع الترخيص</label>
-                <input type="text" class="form-control" name='license_type' required>
+                <input type="text" class="form-control" name='license_type' >
               </div>
             </div>
             <div class="col-md-4">
@@ -96,29 +123,41 @@
               <div class="form-group">
                 <label class="bmd-label-floating">المنطقة</label>
                 <input type="text" class="form-control" name='area'>
+                  @if($errors->has("area"))
+                      <small style="color: red">{{$errors->first('area')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">القطعة</label>
                 <input type="text" class="form-control" name='part'>
+                  @if($errors->has("part"))
+                      <small style="color: red">{{$errors->first('part')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الشارع</label>
                 <input type="text" class="form-control" name='street'>
+                  @if($errors->has("street"))
+                      <small style="color: red">{{$errors->first('street')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">بيانات الموقع الجغرافى</label>
                 <input type="text" class="form-control" name='geolocation'>
+                  @if($errors->has("geolocation"))
+                      <small style="color: red">{{$errors->first('geolocation')}}</small>
+                  @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="class-12" style="margin-top:20px;">
-                <select class="form-control select2" data-style="btn btn-link" name='general_manager' id="exampleFormControlSelect1" required>
+                <select class="form-control select2" data-style="btn btn-link" name='general_manager' id="exampleFormControlSelect1" >
                   <option value="0">اختر مدير الادارة</option>
                   <option>2</option>
                   <option>3</option>
@@ -140,7 +179,7 @@
                   <div class="row " id="programContainer">
                     <div class="form-group col-md-3 ">
                       <label class="control-label">اختر برنامج</label>
-                      <select name="programs[]" class="form-control select2" required>
+                      <select name="programs[]" class="form-control select2" >
                         <option>Select</option>
                         @foreach($programs as $program)
                         <option value="{{$program->id}}">{{$program->name}}</option>
@@ -155,10 +194,16 @@
                           </label>
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" autocomplete="off" required />
+                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" autocomplete="off"  />
+                            @if($errors->has("start_at"))
+                                <small style="color: red">{{$errors->first('start_at')}}</small>
+                            @endif
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" autocomplete="off" required />
+                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" autocomplete="off"  />
+                            @if($errors->has("end_at"))
+                                <small style="color: red">{{$errors->first('end_at')}}</small>
+                            @endif
                         </div>
                       </div>
                     </div>
@@ -167,7 +212,10 @@
                         <div class="col-12">
                           <label for="validationCustom01">سعر البرنامج</label>
                         </div>
-                        <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
+                        <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" >
+                          @if($errors->has("program_price"))
+                              <small style="color: red">{{$errors->first('program_price')}}</small>
+                          @endif
                         <div class="invalid-feedback">
                           من فضلك أدخل السعر
                         </div>
@@ -193,7 +241,7 @@ $(function() {
     //fix the select search method
     let html = `<div class="form-group col-md-3 ">
                       <label class="control-label">اختر برنامج</label>
-                      <select name="programs[]" class="form-control select2" required>
+                      <select name="programs[]" class="form-control select2" >
                         <option>Select</option>
                         @foreach($programs as $program)
                         <option value="{{$program->id}}">{{$program->name}}</option>
@@ -208,10 +256,10 @@ $(function() {
                           </label>
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" required />
+                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]"  />
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]" required />
+                          <input type="text" class="form-control datepicker" placeholder="ينتهي عند" name="end_at[]"  />
                         </div>
                       </div>
                     </div>
@@ -220,7 +268,7 @@ $(function() {
                         <div class="col-12">
                           <label for="validationCustom01">سعر البرنامج</label>
                         </div>
-                        <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" required>
+                        <input type="text" name="programs_price[]" class="form-control" id="validationCustom01" placeholder="سعر البرنامج" value="" >
                         <div class="invalid-feedback">
                           من فضلك أدخل السعر
                         </div>
