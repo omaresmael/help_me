@@ -19,7 +19,7 @@
                               <th >الإيميل</th>
                               <th >الهيئة التعليمية</th>
                               <th >البرنامج الملحق به</th>
-{{--                              <th class="text-center">عمليات</th>--}}
+                             <th class="text-center">عمليات</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -31,12 +31,12 @@
                             <td>{{$student->email}}</td>
                             <td>{{$student->school()->name}}</td>
                             <td>{{$student->program()[1]->name}}</td>
-{{--                            <td>--}}
+                            <td>
 {{--                                <a href="/students/{{$student->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-user"></i></a>--}}
-{{--                                <a href="/students/{{$student->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>--}}
+                                <a href="/students/{{$student->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
 {{--                                <a href="/students/{{$student->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>--}}
 {{--                                <a href="/financial_report/{{$student->id}}" id="financial_button" class='btn btn-info btn-sm'>التقرير المالي</a>--}}
-{{--                            </td>--}}
+                            </td>
                         </tr>
                         @empty
                         <tr>

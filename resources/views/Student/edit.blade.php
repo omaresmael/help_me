@@ -99,13 +99,13 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الوزارة</label>
-                  <input type="checkbox" class="form-control" name="ministry_nomination" checked="{{$student->ministry_nomination}}" >
+                  <input type="checkbox" class="form-control" name="ministry_nomination" value="1" checked="{{$student->ministry_nomination}}" >
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
                   <label class="bmd-label-floating">ترشيح الهيئة التعليمة</label>
-                  <input type="checkbox" class="form-control" name='school_nomination' checked="{{$student->ministry_nomination}}" >
+                  <input type="checkbox" class="form-control" name='school_nomination' value="1" checked="{{$student->ministry_nomination}}" >
                 </div>
               </div>
             </div>
@@ -128,10 +128,11 @@
                           @endforeach
                         </select>
                       </div>
+
                       <div class="form-group col-md-6 ">
                             <label class="control-label" id='studentProgramId' programId="{{$student->program()[1]->id}}">اختر برنامج</label>
                             <select name="program_school_id" id="program"  class="form-control select2" required>
-                            <option value="{{$student->program()[1]->id}}">{{$student->program()[1]->name}}</option>
+                            <option value="{{$student->program_school_id}}">{{$student->program()[1]->name}}</option>
                             </select>
                         </div>
                     </div>
