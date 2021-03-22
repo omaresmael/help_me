@@ -42,7 +42,7 @@
                             </thead>
                             <tbody>
                             @foreach($school->students as $student)
-
+{{--                                @dd($student->program()[0]->pivot->program_day_price)--}}
                                 <tr>
 
                                     <td>{{$loop->iteration}}</td>

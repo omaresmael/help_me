@@ -36,7 +36,7 @@
                             <td>
                                 <a href="/schools/{{$school->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-school"></i></a>
                                 <a href="/schools/{{$school->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
-                                <a href="/schools/{{$school->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>
+{{--                                <a href="/schools/{{$school->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>--}}
 
                             </td>
                         </tr>

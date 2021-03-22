@@ -90,7 +90,12 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">شدة الإعاقة</label>
-                        <input type="text" class="form-control" value="{{old('disability_power')}}" name="disability_power" required>
+                        <select name="disability_pwer"  class="form-control select2" required>
+                            <option value="ضعيف">ضعيف</option>
+                            <option value="متوسط">متوسط</option>
+                            <option value="شديد">شديد</option>
+                        </select>
+
                         @if($errors->has("disability_power"))
                             <small style="color: red">{{$errors->first('disability_power')}}</small>
                         @endif
