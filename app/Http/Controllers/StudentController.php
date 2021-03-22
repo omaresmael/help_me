@@ -60,6 +60,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
+
         $schools = School::all();
         return view('student.edit', compact('student', 'schools'));
     }
