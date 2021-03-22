@@ -41,7 +41,9 @@ class FineController extends Controller
     {
         $fine = Fine::create($request->validated());
         $school = School::find($fine->school_id);
+
         $period = $fine->getCurrentPeriod();
+        if($period)
         $school->finesEntitlements($period, $fine->amount);
 
         return back()->with(['success' => 'تم إضافة الجزاء بنجاح']);
