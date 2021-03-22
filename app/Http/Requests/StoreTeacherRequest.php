@@ -25,7 +25,7 @@ class StoreTeacherRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'school_id'=>'required',
+            'school_id'=>'required|numeric',
             'national_number' => 'required|digits_between:12,14|unique:students',
             'speciality' => 'required',
             'qualification' => 'required',
@@ -33,6 +33,7 @@ class StoreTeacherRequest extends FormRequest
             'entity_acceptance_number' => 'required|numeric',
             'nationality'=>'required',
             'job' => 'required',
+
 
 
         ];

@@ -178,15 +178,23 @@ class SchoolController extends Controller
         $school->update($request->validated());
         if ($request->has('programs') && $request->has('programs_price')) {
             $oldprogramids = [];
-            foreach ($school->programs as $program) {
-                array_push($oldprogramids, $program->id);
-            }
-            $school->programs()->detach($oldprogramids);
+            foreach ($school->programs as $i => $program) {
+                if($request->programs[$i] == $program->id) {
+
+
+                }
+                else {
+                    array_push($oldprogramids,$program->id);
+                    }
+                }
+
+           $school->programs()->detach($oldprogramids);
             $programs = $request->programs;
             $programs_price = $request->programs_price;
             $start_at = $request->start_at;
             $end_at = $request->end_at;
             foreach ($programs as $i => $program) {
+
                 $datetime1 = new DateTime($end_at[$i]);
                 $datetime2 = new DateTime($start_at[$i]);
 
@@ -194,7 +202,9 @@ class SchoolController extends Controller
                 $days = $interval->format('%a');
 
                 $program_day_price = $programs_price[$i] / $days;
-
+                if($school->programs->contains($program)){
+                    continue;
+                };
                 $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => $program_day_price]);
             }
         }

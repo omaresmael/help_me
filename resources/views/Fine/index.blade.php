@@ -20,7 +20,7 @@
                                 <th>اسم المُصدر</th>
                                 <th>اسم الهيئة التعليمية</th>
                                 <th>قيمة الجزاء</th>
-                                <th class="text-left">العمليات</th>
+{{--                                <th class="text-left">العمليات</th>--}}
                             </tr>
                             </thead>
                             <tbody>
@@ -31,17 +31,17 @@
                                     <td>{{$fine->school->name}}</td>
                                     <td>{{$fine->amount}}</td>
 
-                                    <td class="td-actions text-left">
-                                        <button type="button" rel="tooltip" class="btn btn-info btn-round">
-                                            <i class="material-icons">person</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-round">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" class="btn btn-danger btn-round">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </td>
+{{--                                    <td class="td-actions text-left">--}}
+{{--                                        <button type="button" rel="tooltip" class="btn btn-info btn-round">--}}
+{{--                                            <i class="material-icons">person</i>--}}
+{{--                                        </button>--}}
+{{--                                        <button type="button" rel="tooltip" class="btn btn-success btn-round">--}}
+{{--                                            <i class="material-icons">edit</i>--}}
+{{--                                        </button>--}}
+{{--                                        <button type="button" rel="tooltip" class="btn btn-danger btn-round">--}}
+{{--                                            <i class="material-icons">close</i>--}}
+{{--                                        </button>--}}
+{{--                                    </td>--}}
                                 </tr>
                             @empty
                                 <tr>

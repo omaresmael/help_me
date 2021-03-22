@@ -27,7 +27,7 @@
                               <th>تاريخ موافقة الهيئة</th>
 
                               <th>اسم الهيئة التعليمية</th>
-                              <th class="text-left">العمليات</th>
+{{--                              <th class="text-left">العمليات</th>--}}
                           </tr>
                       </thead>
                       <tbody>
@@ -45,17 +45,17 @@
                               <td>{{$teacher->entity_acceptance_date}}</td>
 
                               <td>{{$teacher->school->name}}</td>
-                              <td class="td-actions text-left">
-                                <button type="button" rel="tooltip" class="btn btn-info btn-round">
-                                    <i class="material-icons">person</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-success btn-round">
-                                    <i class="material-icons">edit</i>
-                                </button>
-                                <button type="button" rel="tooltip" class="btn btn-danger btn-round">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
+{{--                              <td class="td-actions text-left">--}}
+{{--                                <button type="button" rel="tooltip" class="btn btn-info btn-round">--}}
+{{--                                    <i class="material-icons">person</i>--}}
+{{--                                </button>--}}
+{{--                                <button type="button" rel="tooltip" class="btn btn-success btn-round">--}}
+{{--                                    <i class="material-icons">edit</i>--}}
+{{--                                </button>--}}
+{{--                                <button type="button" rel="tooltip" class="btn btn-danger btn-round">--}}
+{{--                                    <i class="material-icons">close</i>--}}
+{{--                                </button>--}}
+{{--                            </td>--}}
                           </tr>
                           @empty
                           <tr>
