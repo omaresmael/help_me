@@ -21,7 +21,7 @@ class UpdateStudentRequest extends FormRequest
             'email' => 'required|regex:/^.+@.+$/i|unique:students,id',
             'ministry_nomination' => 'sometimes',
             'school_nomination' => 'sometimes',
-            'program_school_id' => 'required'
+            'program_school_id' => 'required|numeric'
         ];
     }
 }

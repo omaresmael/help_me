@@ -27,8 +27,8 @@ class SittingRequest extends FormRequest
             'name' => 'required',
             'date'=>'required|date',
             'price' => 'required|integer',
-            'teacher_id'=>'required',
-            'student_id'=>'required'
+            'teacher_id'=>'required|numeric',
+            'student_id'=>'required|numeric'
         ];
     }
 }
