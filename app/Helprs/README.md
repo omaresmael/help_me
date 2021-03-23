@@ -3,10 +3,10 @@
 1. add to your controller the following line
 > use App\Helpers\Country;
 1. create object from Country class 
-> $country = new Country();
+> $countries = new Country();
 OR
-> $countery = new Country;
+> $countries = new Country;
 1. then you will be able to use the following methods
-- $country->listOfCountries();
-- $country->listOfCities();
-- $country->getCountryCities('SA');
+- $countries->listOfCountries();
+- $countries->listOfCities();
+- $countries->getCountryCities('SA');
