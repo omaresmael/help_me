@@ -90,7 +90,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">شدة الإعاقة</label>
-                        <select name="disability_pwer"  class="form-control select2" required>
+                        <select name="disability_power"  class="form-control select2" required>
                             <option value="ضعيف">ضعيف</option>
                             <option value="متوسط">متوسط</option>
                             <option value="شديد">شديد</option>

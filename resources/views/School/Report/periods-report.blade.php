@@ -27,7 +27,7 @@
                                 @foreach($periods as $period)
                                     <th class="text-center">{{$period->name}}</th>
                                 @endforeach
-                                <th class="text-center">الجزاءات</th>
+{{--                                <th class="text-center">الجزاءات</th>--}}
                                 <th class="text-center">إجمالي المدفوع</th>
                                 <th class="text-center">المتبقي</th>
                                 {{--                                <th class="text-center">الفصل</th>--}}
@@ -65,9 +65,9 @@
                                         @endphp
                                         <td>{{$student->working_days * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
                                     @endforeach
-                                    <td>{{$school->fines()->sum('amount') / $school->students()->count()}}</td>
-                                    <td>{{$school->periods()->sum('deserved_value') / $school->students()->count()}}</td>
-                                    <td>{{$student->program()[0]->pivot->program_price - 2 * $school->periods()->sum('deserved_value') / $school->students()->count() + $actualPeriods}}</td>
+{{--                                    <td>{{$school->fines()->sum('amount') / $school->students()->count()}}</td>--}}
+                                    <td>{{$actualPeriods}}</td>
+                                    <td>{{$student->working_days * $student->program()[0]->pivot->program_day_price - $actualPeriods}}</td>
                                     <td>{{$student->disability_type}}</td>
                                     <td>{{$student->disability_power}}</td>
 
