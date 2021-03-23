@@ -3,14 +3,14 @@
   array (
     'name' => 'Laravel',
     'env' => 'local',
-    'debug' => true,
+    'debug' => false,
     'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'ar',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => '',
+    'key' => 'base64:lYIUhmHIEZZ9rUlaBJlBrNCxT+p+BKrmhWxv4YwB1p4=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -177,7 +177,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\help_me\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -343,12 +343,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\help_me\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\help_me\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -365,7 +365,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\quantum\\help\\help_me\\public\\storage' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\app/public',
+      'C:\\xampp\\htdocs\\help_me\\public\\storage' => 'C:\\xampp\\htdocs\\help_me\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -399,13 +399,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\help_me\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\help_me\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -455,7 +455,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\help_me\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -512,7 +512,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\help_me\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -591,7 +591,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\help_me\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -611,9 +611,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\help_me\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\help_me\\storage\\framework\\views',
   ),
   'debugbar' => 
   array (
@@ -627,7 +627,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => 'C:\\xampp\\htdocs\\quantum\\help\\help_me\\storage\\debugbar',
+      'path' => 'C:\\xampp\\htdocs\\help_me\\storage\\debugbar',
       'connection' => NULL,
       'provider' => '',
       'hostname' => '127.0.0.1',

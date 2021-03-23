@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
+use App\Helpers\Country;
 use App\Models\Fine;
 use App\Models\Period;
 use App\Models\Program;
@@ -23,7 +24,9 @@ class SchoolController extends Controller
     public function create()
     {
         $programs = Program::all();
-        return view('school.create', compact('programs'));
+		$countries = new Country;
+		return $countries = $countries->listOfCountries();
+        return view('school.create', compact('programs','countries'));
     }
     /**
      * store a new school

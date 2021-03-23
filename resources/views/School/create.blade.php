@@ -103,11 +103,7 @@
             </div>
             <div class="col-md-4">
               <select class="form-control select2" name='country' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
-                <option value="0">اختر البلد</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+			  
               </select>
             </div>
             <div class="col-md-4">
