@@ -20,7 +20,7 @@ class Country
      * @param $countries json file
      * @param $cities json file
      */
-    public function __construct($countries = 'countries.json', $cities = 'cities.json')
+    public function __construct($countries = __DIR__.'/countries.json', $cities = __DIR__.'/cities.json')
     {
         $countries = file_get_contents($countries);
         $countries = json_decode($countries, true);

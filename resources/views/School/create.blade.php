@@ -102,17 +102,17 @@
               </div>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2" name='country' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
-			  
+              <select  name='country' data-style="btn btn-link" id="exampleFormControlSelect1" class="form-control select2 country" tabindex="-98">
+                <option disabled>اختر البلد</option>
+                @foreach($countries as $key => $country)
+					<option value="{{$key}}">{{$country}}</option>
+				@endforeach
               </select>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2" name='city' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
-                <option value="0">اختر المدينة</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+              <select class="form-control select2 cities" name='city' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
+                <option disabled>اختر البلد</option>
+
               </select>
             </div>
             <div class="col-md-4">
@@ -233,6 +233,17 @@
 @section('inc-scripts')
 <script>
 $(function() {
+	$('.country').change(function() {
+      let country = $(".country option:selected").val(),
+          url = `city/ ${country}`;
+
+      $.get(url, function(data) {
+		  console.log(data);
+        $.each(data, function(key, valueObj) {
+            $('.cities').append(' <option value="' + key + '">' + valueObj + '</option>');
+        });
+      });
+    });
   $('#addProgram').click(function() {
     //fix the select search method
     let html = `<div class="form-group col-md-3 ">
