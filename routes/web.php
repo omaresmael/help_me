@@ -26,6 +26,7 @@ Route::group(['perfix'=>'/'],function(){
         Route::get('logout', 'AuthController@logout')->name('logout.action');
 
         Route::resource('schools', 'SchoolController');
+		Route::get('/city/{country}', 'SchoolController@getCities')->name('countries.cities');
         Route::post('/associated/{school}','SchoolController@getAssociatedPrograms')->name('associatedPrograms');
         Route::resource('programs', 'ProgramController');
 
