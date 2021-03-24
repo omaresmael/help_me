@@ -8,8 +8,6 @@
         <p class="card-category">ادخال البيانات المطلوبة</p>
       </div>
       <div class="card-body">
-
-
         <form action="{{route('schools.store')}}" method='POST' >
           <div class="row">
           @csrf
@@ -103,10 +101,10 @@
             </div>
             <div class="col-md-4">
               <select  name='country' data-style="btn btn-link" id="exampleFormControlSelect1" class="form-control select2 country" tabindex="-98">
-                <option disabled>اختر البلد</option>
+                <option >اختر البلد</option>
                 @foreach($countries as $key => $country)
-					<option value="{{$key}}">{{$country}}</option>
-				@endforeach
+					        <option value="{{$key}}">{{$country}}</option>
+				        @endforeach
               </select>
             </div>
             <div class="col-md-4">
