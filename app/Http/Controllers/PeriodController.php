@@ -41,4 +41,27 @@ class PeriodController extends Controller
 
         return back()->with(['success' => 'تم إضافة الدفعة بنجاح']);
     }
+    public function edit(Period $period)
+    {
+        $schools = School::all();
+        return view('period.edit',compact('period','schools'));
+    }
+    public function update(PeriodRequest $request, Period $period)
+    {
+        $period->update($request->validated());
+        $period->schools()->detach();
+        $schoolsIds = $request->schools;
+        $schools = School::whereIn('id', $schoolsIds)->get();
+        foreach ($schools as $school)
+        {
+            $initialValue = $school->getSchoolRowMoney($period);
+            $studentsId = $school->studentsId();
+            $period->absence()->attach($studentsId, ['absence_days' => 0]);
+            $school->periods()->attach($period->id, ['initial_value' => $initialValue, 'deserved_value' => $initialValue]);
+        }
+
+
+
+        return back()->with(['success' => 'تم تحديث الدفعة بنجاح']);
+    }
 }

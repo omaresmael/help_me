@@ -63,16 +63,35 @@
                                         @php
                                             $actualPeriods += $student->working_days * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
                                         @endphp
-                                        <td>{{$student->working_days * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
+                                        <td >{{$student->working_days * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
                                     @endforeach
 {{--                                    <td>{{$school->fines()->sum('amount') / $school->students()->count()}}</td>--}}
-                                    <td>{{$actualPeriods}}</td>
-                                    <td>{{$student->working_days * $student->program()[0]->pivot->program_day_price - $actualPeriods}}</td>
+                                    <td class="total">{{$actualPeriods}}</td>
+                                    <td class="remainder">{{$student->working_days * $student->program()[0]->pivot->program_day_price - $actualPeriods}}</td>
                                     <td>{{$student->disability_type}}</td>
                                     <td>{{$student->disability_power}}</td>
 
                                 </tr>
                             @endforeach
+                                <tr>
+                                    <td>المجموع</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td id="totTotal"></td>
+                                    <td id="totRemainder"></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -97,6 +116,22 @@
 
         $('#print').on('click',function(){
             printData();
+        })
+        $(document).ready(function(){
+            var total = 0;
+            var remainder = 0;
+            $('.total').each(function(key,item){
+                 total +=  parseInt(item.innerText);
+            })
+            $('.remainder').each(function(key,item){
+                console.log(item)
+                remainder +=  parseInt(item.innerText);
+            })
+            console.log(remainder)
+
+            var totTotal = $('#totTotal').text(total);
+            var totRemainder = $('#totRemainder').text(remainder);
+
         })
     </script>
 @endsection

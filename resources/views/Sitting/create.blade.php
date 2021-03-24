@@ -1,4 +1,71 @@
 @extends('layouts.app-layout')
+@section('css_includes')
+    <style>
+        .modal-content{
+            margin: 9em auto;
+            width: fit-content;
+            background-color: white;
+        }
+
+        .timepicker_wrapper{
+            display: none;
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            background-color: #00000082;
+            width: 100%;
+            height: 100vh;
+            direction: initial;
+        }
+
+        .timepicker_hour,
+        .timepicker_minute,
+        .timepicker_ampm{
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            border: 1px solid #80808080;
+            color: #0000009e;
+            font-weight: bold;
+        }
+
+        .timepicker_hour::-webkit-scrollbar,
+        .timepicker_minute::-webkit-scrollbar,
+        .timepicker_ampm::-webkit-scrollbar{
+            display: none;
+        }
+
+        .timepicker_hour option,
+        .timepicker_minute option,
+        .timepicker_ampm option{
+            font-weight: bold;
+            padding: 5px 25px;
+        }
+
+        .timepicker_control{text-align: end;margin-top: 5px;margin-bottom: 10px;}
+
+        .timepicker_control button{
+            padding: 7px 15px;
+            border: none;
+            font-weight: bold;
+            background-color: #46aa4a;
+            color: white;
+            margin-left: 8px;
+        }
+        .timepicker_wrapper_main{
+            width: fit-content;
+            border: 1px solid gray;
+            padding: 0px 12px;
+        }
+
+        .timepicker_control button:first-child{background-color: #ff0000db;color: white;margin-left: 15px;}
+
+        .timepicker_header{text-align: center;color: #0000008a;margin: 5px 0px;}
+
+
+    </style>
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -36,6 +103,32 @@
                                     @if($errors->has("date"))
                                         <small style="color: red">{{$errors->first('date')}}</small>
                                     @endif
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">تحديد الوقت</label>
+                                    <input type="text" onclick="timepicker(this,'a')"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="timepicker_wrapper" >
+                                <div class="modal-content">
+                                    <div class="timepicker_wrapper_main">
+                                        <p class="timepicker_header">
+                                            <b>12</b>:<b>00</b>
+                                            <b>AM</b>
+                                        </p>
+                                        <div class="timepicker_data_select">
+                                            <select onchange="changeTimepickerheader(this,'1')" size="5" class="timepicker_hour"></select>
+                                            <select onchange="changeTimepickerheader(this,'2')" size="5"  class="timepicker_minute"></select>
+                                            <select onchange="changeTimepickerheader(this,'3')" size="5" class="timepicker_ampm">
+                                                <option value="AM">AM</option><option value="PM">PM</option>
+                                            </select>
+                                        </div>
+                                        <div class="timepicker_control">
+                                            <button onclick="timepicker(this,'x')">الغاء</button><button onclick="timepicker(this,'c')">مسح</button><button onclick="timepicker(this,'s')">اضافة</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -92,6 +185,66 @@
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
         });
+        var c_t = "";
+        function timepicker(el,S){
+            var div = document.querySelector('.timepicker_wrapper')
+            function pad(n) {
+                var len = 2 - (''+n).length;
+                return (len > 0 ? new Array(++len).join('0') : '') + n
+            }
+
+            if (S == 'a'){
+                html = "";
+                for(i=1;i<=12;i++){
+                    html += '<option value="'+pad(i)+'">'+pad(i)+'</option>'
+                }
+                document.querySelector('.timepicker_hour').innerHTML = html
+
+                html = "";
+                for(i=0;i<=59;i++){
+                    html += '<option value="'+pad(i)+'">'+pad(i)+'</option>'
+                }
+                document.querySelector('.timepicker_minute').innerHTML = html
+
+                c_t = "";
+                c_t = el;
+                document.querySelector('.timepicker_wrapper').style.display = "block";
+
+            }
+            if(S == 'c'){
+                document.querySelector('.timepicker_hour').value = "";
+                document.querySelector('.timepicker_minute').value = "";
+                document.querySelector('.timepicker_ampm').value = "";
+                c_t.value = "";
+            }
+            if(S == 'x'){
+                div.style.display = "block";
+            }
+            if(S == 's'){
+                var hr = document.querySelector('.timepicker_hour').value;
+                var min = document.querySelector('.timepicker_minute').value;
+                var am = document.querySelector('.timepicker_ampm').value;
+                if(hr != "" && min != "" && am != ""){
+                    c_t.value = hr+":"+min+" "+am;
+                    div.style.display = "none";
+                }
+
+
+            }
+        }
+
+        function changeTimepickerheader(el ,S){
+            var k = document.querySelectorAll('.timepicker_header b')
+            if(S == '1'){
+                k[0].innerHTML = el.value
+            }
+            if(S == '2'){
+                k[1].innerHTML = el.value
+            }
+            if(S == '3'){
+                k[2].innerHTML = el.value
+            }
+        }
 
     </script>
 @endsection
