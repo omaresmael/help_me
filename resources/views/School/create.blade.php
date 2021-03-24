@@ -235,7 +235,7 @@ $(function() {
       let country = $(".country option:selected").val(),
           url = '/city/'+country;
       $.get(url, function(data) {
-		  console.log(data);
+        $('.cities').html(' ');
         $.each(data, function(key, valueObj) {
             $('.cities').append(' <option value="' + key + '">' + valueObj + '</option>');
         });
