@@ -21,6 +21,7 @@
                                 <th data-priority="3">اسم الدفعة</th>
                                 <th data-priority="1">النسبة المالية</th>
                                 <th data-priority="3">عدد الهيئات التعليمية</th>
+                                <th data-priority="3">عمليات</th>
 
                             </tr>
                             </thead>
@@ -32,6 +33,9 @@
                                     <td>{{$period->name}}</td>
                                     <td>%{{$period->financial_ratio}}</td>
                                     <td>{{$period->schools->count()}}</td>
+                                    @if(auth()->user->can('update'))
+                                    <td><a href="/periods/{{$period->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a></td>
+                                    @endif
 
 
                                 </tr>

@@ -15,27 +15,14 @@
                             <tr>
 
                                 <th class="text-center">#</th>
-                                <th class="text-center">اسم الطالب</th>
-                                <th class="text-center">الرقم المدني</th>
                                 <th class="text-center">رقم الهيئة التعليمية</th>
                                 <th class="text-center">اسم الهيئة التعليمية</th>
                                 <th class="text-center">رسوم الهيئة التعليمية</th>
-                                <th class="text-center">رسوم الطالب</th>
-                                <th class="text-center">بداية الدوام</th>
-                                <th class="text-center">نهاية الدوام</th>
-                                <th class="text-center">عدد الأيام</th>
                                 @foreach($periods as $period)
                                     <th class="text-center">{{$period->name}}</th>
                                 @endforeach
                                 <th class="text-center">إجمالي المدفوع</th>
                                 <th class="text-center">المتبقي</th>
-{{--                                <th class="text-center">الفصل</th>--}}
-                                <th class="text-center">نوع الإعاقة</th>
-                                <th class="text-center">وصف شدة الإعاقة</th>
-
-
-
-
                             </tr>
                             </thead>
                             <tbody>
@@ -45,23 +32,35 @@
                                     <tr>
 
                                         <td>1</td>
-
-                                        <td>{{$student->name}}</td>
-                                        <td>{{$student->national_number}}</td>
                                         <td>{{$school->code}}</td>
                                         <td>{{$school->name}}</td>
-                                        <td>{{$school->getSchoolEntitlements($school->getSchoolTotalRowMoney())}}</td>
-                                        <td>{{$student->program()[0]->pivot->program_price}}</td>
-                                        <td>{{$student->program()[0]->pivot->start_at}}</td>
-                                        <td>{{$student->program()[0]->pivot->end_at}}</td>
-                                        <td>{{$student->program()[1]->working_days}}</td>
+                                        <td>{{$school->getSchoolTotalRowMoney()}}</td>
+                                        @php
+                                            $actualPeriods = 0;
+                                            $totalPeriodMoney = 0;
+                                            $totalMoney = 0;
+                                        @endphp
                                         @foreach($periods as $period)
-                                        <td>{{$school->periods()->where('periods.id',$period->id)->get()[0]->pivot->deserved_value}}</td>
+                                            @foreach($students as $student)
+                                                @php
+                                                    $actualPeriods += ($student->working_days -$student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+                                                $totalPeriodMoney += ($student->working_days - $student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+                                                @endphp
+
+                                            @endforeach
+                                            <td>{{$totalPeriodMoney}}</td>
+                                            @php
+                                            $totalPeriodMoney = 0;
+                                            @endphp
                                         @endforeach
-                                        <td>{{$school->periods()->sum('deserved_value')}}</td>
-                                        <td>{{$school->getSchoolEntitlements($school->getSchoolTotalRowMoney()) - $school->periods()->sum('deserved_value')}}</td>
-                                        <td>{{$student->disability_type}}</td>
-                                        <td>{{$student->disability_power}}</td>
+                                        <td>{{$actualPeriods}}</td>
+                                        @foreach($students as $student)
+                                            @php
+                                            $totalMoney += ($student->working_days - $student->totalAbsenceDays()) * $student->program()[0]->pivot->program_day_price;
+                                            @endphp
+                                        @endforeach
+                                        <td>{{$totalMoney - $actualPeriods}}</td>
+
 
                                     </tr>
                                 @endforeach

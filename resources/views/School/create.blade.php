@@ -87,23 +87,24 @@
             <div class="col-md-4">
               <select class="form-control" name='type' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98" >
                 <option value="0" selected>اختر نوع المؤسسة التعليمية</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="">حضانة</option>
+                <option value="مركز تأهيل">مركز تأهيل</option>
+                <option value="مركز إيواء">مركز إيواء</option>
+                <option value="مدرسة ثنائية اللغة">مدرسة ثنائية اللغة</option>
+                <option value="مدرسة عربية">مدرسة عربية</option>
               </select>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">نوع الترخيص</label>
-                <input type="text" class="form-control" name='license_type' >
+                <input type="text" class="form-control" value="{{old('license_type')}}" name='license_type' >
               </div>
             </div>
             <div class="col-md-4">
               <select  name='country' data-style="btn btn-link" id="exampleFormControlSelect1" class="form-control select2 country" tabindex="-98">
                 <option >اختر البلد</option>
                 @foreach($countries as $key => $country)
-					        <option value="{{$key}}">{{$country}}</option>
+					        <option data-country="{{$key}}" value="{{$country}}">{{$country}}</option>
 				        @endforeach
               </select>
             </div>
@@ -116,7 +117,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">المنطقة</label>
-                <input type="text" class="form-control" name='area'>
+                <input type="text" class="form-control" value="{{old('area')}}"name='area'>
                   @if($errors->has("area"))
                       <small style="color: red">{{$errors->first('area')}}</small>
                   @endif
@@ -125,7 +126,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">القطعة</label>
-                <input type="text" class="form-control" name='part'>
+                <input type="text" class="form-control" value="{{old('part')}}" name='part'>
                   @if($errors->has("part"))
                       <small style="color: red">{{$errors->first('part')}}</small>
                   @endif
@@ -134,7 +135,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">الشارع</label>
-                <input type="text" class="form-control" name='street'>
+                <input type="text" class="form-control" value="{{old('street')}}" name='street'>
                   @if($errors->has("street"))
                       <small style="color: red">{{$errors->first('street')}}</small>
                   @endif
@@ -143,7 +144,7 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="bmd-label-floating">بيانات الموقع الجغرافى</label>
-                <input type="text" class="form-control" name='geolocation'>
+                <input type="text" class="form-control" value="{{old('geolocation')}}" name='geolocation'>
                   @if($errors->has("geolocation"))
                       <small style="color: red">{{$errors->first('geolocation')}}</small>
                   @endif
@@ -151,13 +152,8 @@
             </div>
             <div class="col-md-4">
               <div class="class-12" style="margin-top:20px;">
-                <select class="form-control select2" data-style="btn btn-link" name='general_manager' id="exampleFormControlSelect1" >
-                  <option value="0">اختر مدير الادارة</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                  <input type="text" class="form-control" name='general_manager' value="{{old('general_manager')}}" >
+
               </div>
 
             </div>
@@ -188,7 +184,7 @@
                           </label>
                         </div>
                         <div class="col-6">
-                          <input type="text" class="form-control datepicker" placeholder="يبدأ من" name="start_at[]" autocomplete="off"  />
+                          <input type="text" class="form-control datepicker"  placeholder="يبدأ من" name="start_at[]" autocomplete="off"  />
                             @if($errors->has("start_at"))
                                 <small style="color: red">{{$errors->first('start_at')}}</small>
                             @endif
@@ -232,12 +228,13 @@
 <script>
 $(function() {
 	$('.country').change(function() {
-      let country = $(".country option:selected").val(),
+      let country = $(".country option:selected").data('country');
+
           url = '/city/'+country;
       $.get(url, function(data) {
         $('.cities').html(' ');
         $.each(data, function(key, valueObj) {
-            $('.cities').append(' <option value="' + key + '">' + valueObj + '</option>');
+            $('.cities').append(' <option value="' + valueObj + '">' + valueObj + '</option>');
         });
       });
     });

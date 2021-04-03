@@ -91,11 +91,11 @@
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <label class="bmd-label-floating">البلد</label>
-                                    <h4 class="card-title"><strong> دبى</strong></h4>
+                                    <h4 class="card-title"><strong>{{$school->country}}</strong></h4>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <label class="bmd-label-floating">المدينة</label>
-                                    <h4 class="card-title"><strong> {{$school->country}}</strong></h4>
+                                    <h4 class="card-title"><strong> {{$school->city}}</strong></h4>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">

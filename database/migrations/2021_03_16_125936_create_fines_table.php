@@ -16,7 +16,7 @@ class CreateFinesTable extends Migration
         Schema::create('fines', function (Blueprint $table) {
             $table->id();
             $table->string('issuer_name');
-            $table->float('amount');
+            $table->integer('amount');
             $table->text('reason');
 
             $table->unsignedBigInteger('school_id');

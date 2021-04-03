@@ -80,6 +80,24 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
+                        <label class="bmd-label-floating">نوع التقرير</label>
+                        <input type="text" class="form-control" value="{{old('report_type')}}" name="report_type" required>
+                        @if($errors->has("report_type"))
+                            <small style="color: red">{{$errors->first('report_type')}}</small>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">الفصل</label>
+                        <input type="text" class="form-control" value="{{old('section')}}" name="section" required>
+                        @if($errors->has("section"))
+                            <small style="color: red">{{$errors->first('section')}}</small>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
                         <label class="bmd-label-floating">نوع الإعاقة</label>
                         <input type="text" class="form-control" value="{{old('disability_type')}}" name="disability_type" required>
                         @if($errors->has("disability_type"))
@@ -90,7 +108,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">شدة الإعاقة</label>
-                        <select name="disability_pwer"  class="form-control select2" required>
+                        <select name="disability_power"  class="form-control select2" required>
                             <option value="ضعيف">ضعيف</option>
                             <option value="متوسط">متوسط</option>
                             <option value="شديد">شديد</option>
@@ -125,7 +143,7 @@
                     <div class="row " id="programContainer">
                       <div class="form-group col-md-6 ">
                         <label class="control-label">اختر هيئة تعليمية</label>
-                        <select name="school" class="form-control select2" id="school" required>
+                        <select name="school" class="form-control select2" id="school" >
                           <option>اختر هيئة تعليمية</option>
                           @foreach($schools as $school)
                             <option value="{{$school->id}}">{{$school->name}}</option>
@@ -134,8 +152,8 @@
                       </div>
                       <div class="form-group col-md-6 ">
                             <label class="control-label" >اختر برنامج</label>
-                            <select name="program_school_id" id="program"  class="form-control select2" required>
-                              <option>اختر برنامج</option>
+                            <select name="program_school_id" id="program"  class="form-control select2" >
+                              <option value="{{null}}">اختر برنامج</option>
                             </select>
                         </div>
                     </div>

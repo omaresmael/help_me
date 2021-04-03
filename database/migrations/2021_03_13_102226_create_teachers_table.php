@@ -25,11 +25,12 @@ class CreateTeachersTable extends Migration
             $table->string('nationality');
             $table->string('job');
 
-            $table->unsignedBigInteger('school_id');
+            $table->unsignedBigInteger('school_id')->nullable();
 
             $table->foreign('school_id')
                 ->references('id')
-                ->on('schools');
+                ->on('schools')
+                ->onDelete('SET NULL');
 
             $table->timestamps();
         });

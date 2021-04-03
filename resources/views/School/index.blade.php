@@ -34,10 +34,21 @@
                             <td>{{$school->email}}</td>
                             <td>{{$school->studentsNumber()}}</td>
                             <td>
+                                @if(auth()->user()->can('show',\App\Models\School::class))
                                 <a href="/schools/{{$school->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-school"></i></a>
+                                @endif
+                                @if(auth()->user()->can('update',\App\Models\School::class))
                                 <a href="/schools/{{$school->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
+                                @endif
 {{--                                <a href="/schools/{{$school->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>--}}
-
+                                @if(auth()->user()->can('delete',\App\Models\School::class))
+                                <form action="{{route('schools.destroy',$school->id)}}" method="post"> <button type="submit" rel="tooltip" class="btn btn-danger btn-round">
+                                        @csrf
+                                        @method('DELETE')
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </form>
+                                @endif
                             </td>
                         </tr>
                         @empty

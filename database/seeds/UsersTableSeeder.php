@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Ability;
 use Illuminate\Database\Seeder;
 use App\User;
 class UsersTableSeeder extends Seeder
@@ -12,5 +13,11 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(User::class, 1)->create();
+        $names = ['إضافة مختص', 'تعديل مختص', 'حذف مختص', 'إضافة معلم','تعديل معلم','حذف معلم','إضافة طالب','عرض طالب','تعديل طالب','حذف طالب','إضافة هيئة تعليمية','عرض هيئة تعليمية','تعديل هيئة تعليمية','حذف هيئة تعليمية','إضافة جلسة','تعديل جلسة','حذف جلسة','إضافة دفعة','تعديل دفعة','حذف دفعة','تقارير','إضافة غرامة'];
+
+        factory(Ability::class, 19)->create()->each(function ($ability,$key) use ($names) {
+            $ability->name = $names[$key];
+            $ability->save();
+        });
     }
 }

@@ -28,7 +28,9 @@
                                 <td>{{$program->schools->count()}}</td>
                                 <td>{{$program->studentsNumber()}}</td>
                                 <td>
-                                    <a href="\programs/{{$program->id}}/edit" class="btn btn-success btn-round btn-sm"><i class="material-icons">edit</i></a>
+                                    @if(auth()->user()->can('update',\App\Models\Program::class))
+                                    <a href="/programs/{{$program->id}}/edit" class="btn btn-success btn-round btn-sm"><i class="material-icons">edit</i></a>
+                                        @endif
                                 </td>
                             </tr>
                             @empty

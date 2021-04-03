@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Ability;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -21,5 +22,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+//    public function setPasswordAttribute($password)
+//    {
+//        $this->attributes['password'] = bcrypt($password);
+//    }
+//
+//    public function abilities()
+//    {
+//        return $this->belongsToMany(Ability::class);
+//    }
 
 }
