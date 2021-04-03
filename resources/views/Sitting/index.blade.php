@@ -22,7 +22,7 @@
                               <th>اسم المدرسة</th>
                               <th>سعر الحصة</th>
                               <th>اسم الطالب</th>
-{{--                              <th class="text-left">العمليات</th>--}}
+                              <th class="text-left">العمليات</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -34,17 +34,22 @@
                               <td>{{$sitting->teacher->school->name}}</td>
                               <td>{{$sitting->price}}</td>
                               <td>{{$sitting->student->name}}</td>
-{{--                              <td class="td-actions text-left">--}}
+                              <td class="td-actions text-left">
 {{--                                <button type="button" rel="tooltip" class="btn btn-info btn-round">--}}
 {{--                                    <i class="material-icons">person</i>--}}
 {{--                                </button>--}}
 {{--                                <button type="button" rel="tooltip" class="btn btn-success btn-round">--}}
 {{--                                    <i class="material-icons">edit</i>--}}
 {{--                                </button>--}}
-{{--                                <button type="button" rel="tooltip" class="btn btn-danger btn-round">--}}
-{{--                                    <i class="material-icons">close</i>--}}
-{{--                                </button>--}}
-{{--                            </td>--}}
+                                  @if(auth()->user()->can('delete',\App\Models\Sitting::class))
+                               <form action="{{route('sittings.destroy',$sitting->id)}}" method="post"> <button type="submit" rel="tooltip" class="btn btn-danger btn-round">
+                                       @csrf
+                                       @method('DELETE')
+                                    <i class="material-icons">close</i>
+                                </button>
+                               </form>
+                                  @endif
+                            </td>
                           </tr>
                           @empty
                           <tr>

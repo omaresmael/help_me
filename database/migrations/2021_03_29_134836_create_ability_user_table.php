@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFinesTable extends Migration
+class CreateAbilityUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateFinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('fines', function (Blueprint $table) {
+        Schema::create('ability_user', function (Blueprint $table) {
             $table->id();
-            $table->string('issuer_name');
-            $table->integer('amount');
-            $table->text('reason');
+            $table->unsignedBigInteger('ability_id');
+            $table->unsignedBigInteger('user_id');
 
-            $table->unsignedBigInteger('school_id');
-
-            $table->foreign('school_id')
+            $table->foreign('ability_id')
                 ->references('id')
-                ->on('schools')
+                ->on('abilities')
+                ->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -36,6 +37,6 @@ class CreateFinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fines');
+        Schema::dropIfExists('ability_user');
     }
 }

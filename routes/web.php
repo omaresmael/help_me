@@ -33,11 +33,17 @@ Route::group(['perfix'=>'/'],function(){
         Route::resource('periods', 'PeriodController');
 
         //students
+        Route::get('/students/search/','StudentController@show')->name('students.search');
         Route::resource('students', 'StudentController');
-        Route::put('/absence/{student}','StudentController@updateAbsenceDays');
+        Route::get('/absence','StudentController@AddAbsenceDays')->name('absence.create');
+        Route::post('/absence/{student}','StudentController@updateAbsenceDays')->name('absence.update');
+
 
         //teachers
         Route::resource('teachers', 'TeacherController');
+
+        //users
+        Route::resource('users', 'UserController');
 
         //fines
         Route::resource('fines', 'FineController');
@@ -47,7 +53,7 @@ Route::group(['perfix'=>'/'],function(){
 
 
         //reports
-        Route::get('financial_report/{school}','SchoolController@financialReport');
+        Route::get('financial_report/{school}','SchoolController@financialReport')->middleware('can:show','App\Models\Report');
         Route::get('/schools_finance','SchoolController@totalFinanceReport')->name('schools.finance.report');
         Route::get('/students_report/{school}','SchoolController@studentsReport')->name('school.students.report');
         Route::get('/programs_report/{school}','SchoolController@programsReport')->name('school.programs.report');

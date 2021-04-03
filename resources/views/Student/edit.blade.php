@@ -80,6 +80,24 @@
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
+                        <label class="bmd-label-floating">نوع التقرير</label>
+                        <input type="text" class="form-control" name="report_type" value='{{$student->report_type}}' required>
+                        @if($errors->has("report_type"))
+                            <small style="color: red">{{$errors->first('report_type')}}</small>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">الفصل</label>
+                        <input type="text" class="form-control" name="section" value='{{$student->section}}' required>
+                        @if($errors->has("section"))
+                            <small style="color: red">{{$errors->first('section')}}</small>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
                         <label class="bmd-label-floating">نوع الإعاقة</label>
                         <input type="text" class="form-control" name="disability_type" value='{{$student->disability_type}}' required>
                         @if($errors->has("disability_type"))
@@ -120,20 +138,36 @@
                       <div class="form-group col-md-6 ">
                         <label class="control-label">اختر هيئة تعليمية</label>
                         <select name="school" class="form-control select2" id="school" required>
+                            <option value="" selected>اختر هيئة تعليمية</option>
+
+                        @if($student->school())
                           <option value="{{$student->school()->id}}">{{$student->school()->name}}</option>
+                          <option value="{{$student->school()->id}}">{{$student->school()->name}}</option>
+
                           @foreach($schools as $school)
                             @if($school->id != $student->school()->id)
                               <option value="{{$school->id}}">{{$school->name}}</option>
                             @endif
                           @endforeach
+                                @else
+                                @foreach($schools as $school)
+
+                                        <option value="{{$school->id}}">{{$school->name}}</option>
+
+                                @endforeach
+                            @endif
                         </select>
                       </div>
 
                       <div class="form-group col-md-6 ">
-                            <label class="control-label" id='studentProgramId' programId="{{$student->program()[1]->id}}">اختر برنامج</label>
+
+                            <label class="control-label" id='studentProgramId' programId="{{$student->program()?$student->program()[1]->id:null}}">اختر برنامج</label>
                             <select name="program_school_id" id="program"  class="form-control select2" required>
+                                @if($student->program())
                             <option value="{{$student->program_school_id}}">{{$student->program()[1]->name}}</option>
+                                @endif
                             </select>
+
                         </div>
                     </div>
                   </div>

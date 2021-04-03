@@ -15,7 +15,7 @@
                           <tr>
                               <th>#</th>
                               <th class="text-center">اسم الطالب</th>
-                              <th class="text-center">رقم القومي</th>
+                              <th class="text-center">رقم المدني</th>
                               <th >الإيميل</th>
                               <th >الهيئة التعليمية</th>
                               <th >البرنامج الملحق به</th>
@@ -29,13 +29,25 @@
                             <td>{{$student->name}}</td>
                             <td>{{$student->national_number}}</td>
                             <td>{{$student->email}}</td>
-                            <td>{{$student->school()->name}}</td>
-                            <td>{{$student->program()[1]->name}}</td>
+                            <td>{{$student->school()?$student->school()->name:'لم يتم إسناده إلى هيئة تعليمية حتى الآن'}}</td>
+                            <td>{{$student->program()?$student->program()[1]->name:'لم يتم إساناده إلى برنامج حتى الآن'}}</td>
                             <td>
-{{--                                <a href="/students/{{$student->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-user"></i></a>--}}
+                                @if(auth()->user()->can('show',\App\Models\Student::class))
+                                <a href="{{route('students.show',$student->id)}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-user"></i></a>
+                                @endif
+                                    @if(auth()->user()->can('update',\App\Models\Student::class))
                                 <a href="/students/{{$student->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
+                                    @endif
 {{--                                <a href="/students/{{$student->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>--}}
 {{--                                <a href="/financial_report/{{$student->id}}" id="financial_button" class='btn btn-info btn-sm'>التقرير المالي</a>--}}
+                                    @if(auth()->user()->can('delete',\App\Models\Student::class))
+                                <form action="{{route('students.destroy',$student->id)}}" method="post"> <button type="submit" rel="tooltip" class="btn btn-danger btn-round">
+                                        @csrf
+                                        @method('DELETE')
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </form>
+                                        @endif
                             </td>
                         </tr>
                         @empty

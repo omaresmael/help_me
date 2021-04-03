@@ -5,6 +5,7 @@
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">بيانات الدفعات للهيئة التعليمية: {{$school->name}}</h4>
+                    <p class="card-category"> {{$school->address}} </p>
                     <p class="card-category">جميع بيانات الدفعات</p>
                     <button class="btn btn-warning btn-sm" id="print">طباعة</button>
                 </div>
@@ -27,10 +28,10 @@
                                 @foreach($periods as $period)
                                     <th class="text-center">{{$period->name}}</th>
                                 @endforeach
-{{--                                <th class="text-center">الجزاءات</th>--}}
                                 <th class="text-center">إجمالي المدفوع</th>
                                 <th class="text-center">المتبقي</th>
-                                {{--                                <th class="text-center">الفصل</th>--}}
+                                <th class="text-center">الفصل</th>
+                                <th class="text-center">نوع التقرير</th>
                                 <th class="text-center">نوع الإعاقة</th>
 
                                 <th class="text-center">وصف شدة الإعاقة</th>
@@ -61,13 +62,15 @@
                                     @endphp
                                     @foreach($periods as $period)
                                         @php
-                                            $actualPeriods += $student->working_days * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+                                            $actualPeriods += ($student->working_days - $student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
                                         @endphp
-                                        <td >{{$student->working_days * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
+                                        <td>{{($student->working_days - $student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
                                     @endforeach
 {{--                                    <td>{{$school->fines()->sum('amount') / $school->students()->count()}}</td>--}}
                                     <td class="total">{{$actualPeriods}}</td>
-                                    <td class="remainder">{{$student->working_days * $student->program()[0]->pivot->program_day_price - $actualPeriods}}</td>
+                                    <td class="remainder">{{($student->working_days - $student->totalabsenceDays()) * $student->program()[0]->pivot->program_day_price - $actualPeriods}}</td>
+                                    <td>{{$student->section}}</td>
+                                    <td>{{$student->report_type}}</td>
                                     <td>{{$student->disability_type}}</td>
                                     <td>{{$student->disability_power}}</td>
 
@@ -83,13 +86,17 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+
                                     <td></td>
                                     <td></td>
                                     <td id="totTotal"></td>
                                     <td id="totRemainder"></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
+                                    <td></td>
+
+
 
                                 </tr>
                             </tbody>

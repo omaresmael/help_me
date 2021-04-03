@@ -30,7 +30,7 @@ class SchoolController extends Controller
     }
 	/**
 	* get all countries of selected country
-	* @param string $country 
+	* @param string $country
 	* @return array $cities
 	*/
 	public function getCities($country)
@@ -79,7 +79,9 @@ class SchoolController extends Controller
     public function edit(School $school)
     {
         $programsList = Program::all();
-        return view('school.edit', compact('programsList', 'school'));
+        $countries = new Country();
+        $countries = $countries->listOfCountries();
+        return view('school.edit', compact('programsList', 'school','countries'));
     }
 
     public function getAssociatedPrograms(School $school)
@@ -189,6 +191,7 @@ class SchoolController extends Controller
      */
     public function update(UpdateSchoolRequest $request, School $school)
     {
+
         $school->update($request->validated());
         if ($request->has('programs') && $request->has('programs_price')) {
             $oldprogramids = [];
@@ -223,5 +226,11 @@ class SchoolController extends Controller
             }
         }
         return redirect('schools')->with(['message' => 'تم تعديل الهئية التعليميه بنجاح']);
+    }
+
+    public function destroy(School $school)
+    {
+        $school->delete();
+        return back()->with('success','تم إزالة الهيئة التعليمية  بنجاح');
     }
 }

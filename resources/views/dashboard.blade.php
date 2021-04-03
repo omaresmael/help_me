@@ -160,20 +160,22 @@
         </a>
     </div>
     <div class="col-md-4">
-        <a href="Add-classrom.html">
+        <a href="{{route('absence.create')}}">
+
         <div class="card card-chart">
         <div class="card-header card-header-warning">
             <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
             <img src="../assets/img/classroom.png">
         </div>
         <div class="card-body">
+
             <h3 class="card-title"> الحضور والغياب </h3>
         </div>
         </div>
         </a>
     </div>
     <div class="col-md-4">
-        <a href="Add-specialist.html">
+        <a href="{{route('users.create')}}">
             <div class="card card-chart">
             <div class="card-header card-header-success">
                 <!-- <div class="ct-chart" id="dailySalesChart"></div> -->

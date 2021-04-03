@@ -18,17 +18,19 @@ class CreateProgramSchoolTable extends Migration
             $table->unsignedBigInteger('program_id');
             $table->unsignedBigInteger('school_id');
             $table->integer('program_price');
-            $table->float('program_day_price',7,2)->default(0);
+            $table->integer('program_day_price')->default(0);
             $table->date('start_at');
             $table->date('end_at');
 
             $table->foreign('school_id')
                 ->references('id')
-                ->on('schools');
+                ->on('schools')
+                ->onDelete('cascade');
 
             $table->foreign('program_id')
                 ->references('id')
-                ->on('programs');
+                ->on('programs')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -88,6 +88,7 @@ class SittingController extends Controller
      */
     public function destroy(Sitting $sitting)
     {
-        //
+        $sitting->delete();
+        return back()->with('success','تم إزالة الحصة بنجاح');
     }
 }

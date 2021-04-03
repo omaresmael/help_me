@@ -24,7 +24,7 @@ class UpdateSchoolRequest extends FormRequest
             'email'=>'required|unique:schools,id',
             'type'=>'required',
             'license_type'=> 'required',
-            'nullable' => 'nullable',
+            'country' => 'nullable',
             'city' => 'nullable',
             'area' => 'nullable',
             'part' => 'nullable',

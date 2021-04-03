@@ -22,7 +22,9 @@ class Student extends Model
         'disability_type',
         'disability_power',
         'attendance_end',
-        'attendance_begin'
+        'attendance_begin',
+        'section',
+        'report_type'
     ];
     protected $appends = ['working_days'];
 
@@ -39,19 +41,26 @@ class Student extends Model
 
     public function school()
     {
-        return School::find($this->data->school_id);
+
+        if($this->data){
+            return School::find($this->data->school_id);
+        }
+        return false;
     }
 
     public function program()
     {
+        if($this->data) {
+            $program = Program::find($this->data->program_id);
 
-        $program = Program::find($this->data->program_id);
-        $working_days = $program->working_days;
+            $working_days = $program->working_days;
 
-        $financeData = $program->schools()->where('program_id', $program->id)->first();
+            $financeData = $program->schools()->where('program_id', $program->id)->first();
 
 
-        return [$financeData, $program];
+            return [$financeData, $program];
+        }
+        return false;
     }
 
     public function sittings()
@@ -77,7 +86,8 @@ class Student extends Model
 
     public function absenceDays($period)
     {
-        return $this->absence()->where('period_id', $period->id)->first();
+
+        return $this->absence()->where('period_id', $period->id)->first()->absence_days;
     }
 
     public function getCurrentPeriod()

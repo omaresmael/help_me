@@ -107,8 +107,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">تحديد الوقت</label>
-                                    <input type="text" onclick="timepicker(this,'a')"  class="form-control">
+                                    <label class="bmd-label-floating">تبدأ من</label>
+                                    <input type="text" name="start_at" onclick="timepicker(this,'a')"  class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">تنتهي عند</label>
+                                    <input type="text" name="end_at" onclick="timepicker(this,'a')"  class="form-control">
                                 </div>
                             </div>
                             <div class="timepicker_wrapper" >

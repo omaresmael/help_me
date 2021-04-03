@@ -33,8 +33,9 @@
                                     <td>{{$period->name}}</td>
                                     <td>%{{$period->financial_ratio}}</td>
                                     <td>{{$period->schools->count()}}</td>
-
+                                    @if(auth()->user->can('update'))
                                     <td><a href="/periods/{{$period->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a></td>
+                                    @endif
 
 
                                 </tr>

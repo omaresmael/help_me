@@ -18,9 +18,15 @@
         <li class="nav-item " id='students'>
             <a class="nav-link" href="{{route('students.index')}}">
             <i class="fas fa-users"></i>
-            <p>جميع طلاب</p>
+            <p>الطلاب</p>
             </a>
         </li>
+            <li class="nav-item " id='users'>
+                <a class="nav-link" href="{{route('users.index')}}">
+                    <i class="fas fa-users"></i>
+                    <p>المختصين</p>
+                </a>
+            </li>
         <li class="nav-item " id='schools'>
             <a class="nav-link" href="{{route('schools.index')}}">
             <i class="fas fa-school"></i>
