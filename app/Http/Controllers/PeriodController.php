@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PeriodRequest;
+use App\Models\FinancialYear;
 use App\Models\Period;
 use App\Models\School;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class PeriodController extends Controller
 {
     public function index()
     {
-        $periods = Period::all();
+        $periods = Period::whereHas('financialYear',function (Builder $query){
+            $query->where('status','=','current');
+        })->get();
 
         return view('period.index', compact('periods'));
     }
@@ -26,14 +30,21 @@ class PeriodController extends Controller
 
     public function store(PeriodRequest $request)
     {
-        $period = Period::create($request->all());
+        $finantialYear = FinancialYear::where('status','current')->first();
+        if (!$finantialYear)
+            return view('financial_year.create')->with(['success'=>'قم بإنشاء سنة مالية اولا ثم إنشئ الدفعات']);
+
+        $data = $request->all();
+        $data = array_merge($data,['financial_year_id'=>$finantialYear->id]);
+
+        $period = Period::create($data);
         $schoolsIds = $request->schools; //the schools that been assigned to this period
         $schools = School::whereIn('id', $schoolsIds)->get();
         foreach ($schools as $school)
         {
             $initialValue = $school->getSchoolRowMoney($period);
             $studentsId = $school->studentsId();
-            $period->absence()->attach($studentsId, ['absence_days' => 0]);
+            $period->absence()->sync($studentsId, ['absence_days' => 0]);
             $school->periods()->attach($period->id, ['initial_value' => $initialValue, 'deserved_value' => $initialValue]);
         }
 

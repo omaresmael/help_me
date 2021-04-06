@@ -6,7 +6,9 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">هيئات تعليمة</h4>
                   <p class="card-category">جميع بيانات هيئات تعليمة</p>
+                    @if(auth()->user()->can('create',\App\Models\School::class))
                   <a href="{{route('schools.create')}}" style="top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة هيئة تعليمة</button></a>
+                    @endif
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">

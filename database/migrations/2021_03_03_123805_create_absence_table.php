@@ -15,7 +15,7 @@ class CreateAbsenceTable extends Migration
     {
         Schema::create('absence', function (Blueprint $table) {
             $table->id();
-            $table->integer('absence_days');
+            $table->integer('absence_days')->default(0);
 
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('period_id');

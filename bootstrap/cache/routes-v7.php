@@ -18,66 +18,6 @@ app('router')->setCompiledRoutes(
     0 => false,
     1 => 
     array (
-      '/_debugbar/open' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'debugbar.openhandler',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/_debugbar/assets/stylesheets' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'debugbar.assets.css',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/_debugbar/assets/javascript' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'debugbar.assets.js',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
       '/' => 
       array (
         0 => 
@@ -325,6 +265,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/financial_years' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'financial_years.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'financial_years.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/financial_years/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'financial_years.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/students/search' => 
       array (
         0 => 
@@ -414,6 +410,22 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'absence.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -688,81 +700,11 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/_debugbar/(?|c(?|lockwork/([^/]++)(*:42)|ache/([^/]++)(?:/([^/]++))?(*:76))|telescope/([^/]++)(*:102))|/s(?|chools/([^/]++)(?|(*:134)|/edit(*:147)|(*:155))|tudents(?|/([^/]++)(?|(*:186)|/edit(*:199)|(*:207))|_report/([^/]++)(*:232))|ittings(?|/([^/]++)(?|(*:263)|/edit(*:276)|(*:284))|_report/([^/]++)(*:309)))|/city/([^/]++)(*:333)|/a(?|ssociated/([^/]++)(*:364)|bsence/([^/]++)(*:387))|/p(?|rograms(?|/([^/]++)(?|(*:423)|/edit(*:436)|(*:444))|_report/([^/]++)(*:469))|eriods(?|/([^/]++)(?|(*:499)|/edit(*:512)|(*:520))|_report/([^/]++)(*:545)))|/teachers(?|/([^/]++)(?|(*:579)|/edit(*:592)|(*:600))|_report/([^/]++)(*:625))|/users/([^/]++)(?|(*:652)|/edit(*:665)|(*:673))|/fin(?|es/([^/]++)(?|(*:703)|/edit(*:716)|(*:724))|ancial_report/([^/]++)(*:755))|/([^/]++)(*:773)|/index/([^/]++)(*:796))/?$}sDu',
+      0 => '{^(?|/s(?|chools/([^/]++)(?|(*:30)|/edit(*:42)|(*:49))|tudents(?|/([^/]++)(?|(*:79)|/edit(*:91)|(*:98))|_report/([^/]++)(*:122))|ittings(?|/([^/]++)(?|(*:153)|/edit(*:166)|(*:174))|_report/([^/]++)(*:199)))|/city/([^/]++)(*:223)|/associated/([^/]++)(*:251)|/p(?|rograms(?|/([^/]++)(?|(*:286)|/edit(*:299)|(*:307))|_report/([^/]++)(*:332))|eriods(?|/([^/]++)(?|(*:362)|/edit(*:375)|(*:383))|_report/([^/]++)(*:408)))|/fin(?|ancial_(?|years/(?|([^/]++)(?|(*:455)|/edit(*:468)|(*:476))|budget/([^/]++)(*:500))|report/([^/]++)(*:524))|es/([^/]++)(?|(*:547)|/edit(*:560)|(*:568)))|/teachers(?|/([^/]++)(?|(*:602)|/edit(*:615)|(*:623))|_report/([^/]++)(*:648))|/users/([^/]++)(?|(*:675)|/edit(*:688)|(*:696))|/([^/]++)(*:714)|/index/([^/]++)(*:737))/?$}sDu',
     ),
     3 => 
     array (
-      42 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'debugbar.clockwork',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      76 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'debugbar.cache.delete',
-            'tags' => NULL,
-          ),
-          1 => 
-          array (
-            0 => 'key',
-            1 => 'tags',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      102 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'debugbar.telescope',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      134 => 
+      30 => 
       array (
         0 => 
         array (
@@ -785,7 +727,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      147 => 
+      42 => 
       array (
         0 => 
         array (
@@ -808,7 +750,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      155 => 
+      49 => 
       array (
         0 => 
         array (
@@ -850,7 +792,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      186 => 
+      79 => 
       array (
         0 => 
         array (
@@ -873,7 +815,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      199 => 
+      91 => 
       array (
         0 => 
         array (
@@ -896,7 +838,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      207 => 
+      98 => 
       array (
         0 => 
         array (
@@ -938,7 +880,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      232 => 
+      122 => 
       array (
         0 => 
         array (
@@ -961,7 +903,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      263 => 
+      153 => 
       array (
         0 => 
         array (
@@ -984,7 +926,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      276 => 
+      166 => 
       array (
         0 => 
         array (
@@ -1007,7 +949,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      284 => 
+      174 => 
       array (
         0 => 
         array (
@@ -1049,7 +991,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      309 => 
+      199 => 
       array (
         0 => 
         array (
@@ -1072,7 +1014,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      333 => 
+      223 => 
       array (
         0 => 
         array (
@@ -1095,7 +1037,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      364 => 
+      251 => 
       array (
         0 => 
         array (
@@ -1117,29 +1059,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      387 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'absence.update',
-          ),
-          1 => 
-          array (
-            0 => 'student',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      423 => 
+      286 => 
       array (
         0 => 
         array (
@@ -1162,7 +1082,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      436 => 
+      299 => 
       array (
         0 => 
         array (
@@ -1185,7 +1105,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      444 => 
+      307 => 
       array (
         0 => 
         array (
@@ -1227,7 +1147,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      469 => 
+      332 => 
       array (
         0 => 
         array (
@@ -1250,7 +1170,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      499 => 
+      362 => 
       array (
         0 => 
         array (
@@ -1273,7 +1193,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      512 => 
+      375 => 
       array (
         0 => 
         array (
@@ -1296,7 +1216,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      520 => 
+      383 => 
       array (
         0 => 
         array (
@@ -1338,7 +1258,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      545 => 
+      408 => 
       array (
         0 => 
         array (
@@ -1361,17 +1281,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      579 => 
+      455 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'teachers.show',
+            '_route' => 'financial_years.show',
           ),
           1 => 
           array (
-            0 => 'teacher',
+            0 => 'financial_year',
           ),
           2 => 
           array (
@@ -1384,17 +1304,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      592 => 
+      468 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'teachers.edit',
+            '_route' => 'financial_years.edit',
           ),
           1 => 
           array (
-            0 => 'teacher',
+            0 => 'financial_year',
           ),
           2 => 
           array (
@@ -1407,17 +1327,17 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      600 => 
+      476 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'teachers.update',
+            '_route' => 'financial_years.update',
           ),
           1 => 
           array (
-            0 => 'teacher',
+            0 => 'financial_year',
           ),
           2 => 
           array (
@@ -1433,11 +1353,11 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'teachers.destroy',
+            '_route' => 'financial_years.destroy',
           ),
           1 => 
           array (
-            0 => 'teacher',
+            0 => 'financial_year',
           ),
           2 => 
           array (
@@ -1449,13 +1369,35 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      625 => 
+      500 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'school.teachers.report',
+            '_route' => 'financial_years.budget',
+          ),
+          1 => 
+          array (
+            0 => 'financial_year',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      524 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::1pzmC6ZOmeanfKUf',
           ),
           1 => 
           array (
@@ -1472,95 +1414,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      652 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'users.show',
-          ),
-          1 => 
-          array (
-            0 => 'user',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      665 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'users.edit',
-          ),
-          1 => 
-          array (
-            0 => 'user',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      673 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'users.update',
-          ),
-          1 => 
-          array (
-            0 => 'user',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'users.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'user',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      703 => 
+      547 => 
       array (
         0 => 
         array (
@@ -1583,7 +1437,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      716 => 
+      560 => 
       array (
         0 => 
         array (
@@ -1606,7 +1460,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      724 => 
+      568 => 
       array (
         0 => 
         array (
@@ -1648,13 +1502,101 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      755 => 
+      602 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::S3yUrxa1S39GZtpH',
+            '_route' => 'teachers.show',
+          ),
+          1 => 
+          array (
+            0 => 'teacher',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      615 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'teachers.edit',
+          ),
+          1 => 
+          array (
+            0 => 'teacher',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      623 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'teachers.update',
+          ),
+          1 => 
+          array (
+            0 => 'teacher',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'teachers.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'teacher',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      648 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'school.teachers.report',
           ),
           1 => 
           array (
@@ -1671,13 +1613,101 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      773 => 
+      675 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::kcuYJFSqOrqYDnTS',
+            '_route' => 'users.show',
+          ),
+          1 => 
+          array (
+            0 => 'user',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      688 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'users.edit',
+          ),
+          1 => 
+          array (
+            0 => 'user',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      696 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'users.update',
+          ),
+          1 => 
+          array (
+            0 => 'user',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'users.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'user',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      714 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::LtLlYfxp4bc45POA',
           ),
           1 => 
           array (
@@ -1694,13 +1724,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      796 => 
+      737 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::o85WUZ9ypVc0PnCK',
+            '_route' => 'generated::KTTZd5yRpniqcFrf',
           ),
           1 => 
           array (
@@ -1732,227 +1762,6 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'debugbar.openhandler' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '_debugbar/open',
-      'action' => 
-      array (
-        'domain' => NULL,
-        'middleware' => 
-        array (
-          0 => 'Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled',
-        ),
-        'uses' => 'Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@handle',
-        'as' => 'debugbar.openhandler',
-        'controller' => 'Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@handle',
-        'namespace' => 'Barryvdh\\Debugbar\\Controllers',
-        'prefix' => '_debugbar',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'debugbar.clockwork' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '_debugbar/clockwork/{id}',
-      'action' => 
-      array (
-        'domain' => NULL,
-        'middleware' => 
-        array (
-          0 => 'Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled',
-        ),
-        'uses' => 'Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@clockwork',
-        'as' => 'debugbar.clockwork',
-        'controller' => 'Barryvdh\\Debugbar\\Controllers\\OpenHandlerController@clockwork',
-        'namespace' => 'Barryvdh\\Debugbar\\Controllers',
-        'prefix' => '_debugbar',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'debugbar.telescope' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '_debugbar/telescope/{id}',
-      'action' => 
-      array (
-        'domain' => NULL,
-        'middleware' => 
-        array (
-          0 => 'Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled',
-        ),
-        'uses' => 'Barryvdh\\Debugbar\\Controllers\\TelescopeController@show',
-        'as' => 'debugbar.telescope',
-        'controller' => 'Barryvdh\\Debugbar\\Controllers\\TelescopeController@show',
-        'namespace' => 'Barryvdh\\Debugbar\\Controllers',
-        'prefix' => '_debugbar',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'debugbar.assets.css' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '_debugbar/assets/stylesheets',
-      'action' => 
-      array (
-        'domain' => NULL,
-        'middleware' => 
-        array (
-          0 => 'Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled',
-        ),
-        'uses' => 'Barryvdh\\Debugbar\\Controllers\\AssetController@css',
-        'as' => 'debugbar.assets.css',
-        'controller' => 'Barryvdh\\Debugbar\\Controllers\\AssetController@css',
-        'namespace' => 'Barryvdh\\Debugbar\\Controllers',
-        'prefix' => '_debugbar',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'debugbar.assets.js' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '_debugbar/assets/javascript',
-      'action' => 
-      array (
-        'domain' => NULL,
-        'middleware' => 
-        array (
-          0 => 'Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled',
-        ),
-        'uses' => 'Barryvdh\\Debugbar\\Controllers\\AssetController@js',
-        'as' => 'debugbar.assets.js',
-        'controller' => 'Barryvdh\\Debugbar\\Controllers\\AssetController@js',
-        'namespace' => 'Barryvdh\\Debugbar\\Controllers',
-        'prefix' => '_debugbar',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
-    'debugbar.cache.delete' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'DELETE',
-      ),
-      'uri' => '_debugbar/cache/{key}/{tags?}',
-      'action' => 
-      array (
-        'domain' => NULL,
-        'middleware' => 
-        array (
-          0 => 'Barryvdh\\Debugbar\\Middleware\\DebugbarEnabled',
-        ),
-        'uses' => 'Barryvdh\\Debugbar\\Controllers\\CacheController@delete',
-        'as' => 'debugbar.cache.delete',
-        'controller' => 'Barryvdh\\Debugbar\\Controllers\\CacheController@delete',
-        'namespace' => 'Barryvdh\\Debugbar\\Controllers',
-        'prefix' => '_debugbar',
-        'where' => 
-        array (
-        ),
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-    ),
     'login' => 
     array (
       'methods' => 
@@ -2970,6 +2779,307 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
+    'financial_years.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'financial_years',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.index',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@index',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@index',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'financial_years/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.create',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@create',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@create',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'financial_years',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.store',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@store',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@store',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'financial_years/{financial_year}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.show',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@show',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@show',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'financial_years/{financial_year}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.edit',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@edit',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@edit',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'financial_years/{financial_year}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.update',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@update',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@update',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'financial_years/{financial_year}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'as' => 'financial_years.destroy',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@destroy',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@destroy',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
+    'financial_years.budget' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'financial_years/budget/{financial_year}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'perfix' => '/',
+        'uses' => 'App\\Http\\Controllers\\FinancialYearController@budget',
+        'controller' => 'App\\Http\\Controllers\\FinancialYearController@budget',
+        'namespace' => 'App\\Http\\Controllers',
+        'prefix' => NULL,
+        'where' => 
+        array (
+        ),
+        'as' => 'financial_years.budget',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+    ),
     'students.search' => 
     array (
       'methods' => 
@@ -3316,7 +3426,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'POST',
       ),
-      'uri' => 'absence/{student}',
+      'uri' => 'absence',
       'action' => 
       array (
         'middleware' => 
@@ -4403,7 +4513,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::S3yUrxa1S39GZtpH' => 
+    'generated::1pzmC6ZOmeanfKUf' => 
     array (
       'methods' => 
       array (
@@ -4428,7 +4538,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::S3yUrxa1S39GZtpH',
+        'as' => 'generated::1pzmC6ZOmeanfKUf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4709,7 +4819,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::kcuYJFSqOrqYDnTS' => 
+    'generated::LtLlYfxp4bc45POA' => 
     array (
       'methods' => 
       array (
@@ -4732,7 +4842,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::kcuYJFSqOrqYDnTS',
+        'as' => 'generated::LtLlYfxp4bc45POA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4747,7 +4857,7 @@ app('router')->setCompiledRoutes(
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
     ),
-    'generated::o85WUZ9ypVc0PnCK' => 
+    'generated::KTTZd5yRpniqcFrf' => 
     array (
       'methods' => 
       array (
@@ -4770,7 +4880,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::o85WUZ9ypVc0PnCK',
+        'as' => 'generated::KTTZd5yRpniqcFrf',
       ),
       'fallback' => false,
       'defaults' => 

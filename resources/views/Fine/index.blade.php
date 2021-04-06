@@ -7,7 +7,7 @@
                     <h4 class="card-title "> الجزاءات</h4>
                     <div style="position: relative">
                         <p class="card-category" >إحصائية الجزاءات</p>
-                        @if(auth()->user->can('create'))
+                        @if(auth()->user()->can('create',\App\Models\Fine::class))
                             <a href="{{route('fines.create')}}" style=" position: absolute; top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة جزاء جديد</button></a>
                         @endif
 

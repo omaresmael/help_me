@@ -7,7 +7,9 @@
                   <h4 class="card-title "> المعلمين</h4>
                     <div style="position: relative">
                         <p class="card-category" >احصائية المعلمين والهيئات التعليمية العاملين بها</p>
+                        @if(auth()->user()->can('create',\App\Models\Teacher::class))
                         <a href="{{route('teachers.create')}}" style=" top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة معلم</button></a>
+                        @endif
                     </div>
 
                 </div>

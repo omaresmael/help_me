@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class StudentPolicy
+class ProgramPolicy
 {
     use HandlesAuthorization;
 
@@ -18,22 +18,13 @@ class StudentPolicy
     {
         //
     }
+
     public function create(User $user)
     {
         $abilities = $user->abilities;
         foreach ($abilities as $ability)
         {
-            if($ability->name == 'إضافة طالب')
-                return true;
-        }
-        return false;
-    }
-    public function show(User $user)
-    {
-        $abilities = $user->abilities;
-        foreach ($abilities as $ability)
-        {
-            if($ability->name == 'عرض طالب')
+            if($ability->name == 'إضافة برنامج')
                 return true;
         }
         return false;
@@ -43,7 +34,7 @@ class StudentPolicy
         $abilities = $user->abilities;
         foreach ($abilities as $ability)
         {
-            if($ability->name == 'تعديل طالب')
+            if($ability->name == 'تعديل برنامج')
                 return true;
         }
         return false;
@@ -53,7 +44,7 @@ class StudentPolicy
         $abilities = $user->abilities;
         foreach ($abilities as $ability)
         {
-            if($ability->name == 'حذف طالب')
+            if($ability->name == 'حذف برنامج')
                 return true;
         }
         return false;

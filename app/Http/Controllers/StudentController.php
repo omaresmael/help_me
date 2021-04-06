@@ -25,7 +25,12 @@ class StudentController extends Controller
     public function store(StudentRequest $request)
     {
 
-        Student::create($request->all());
+        $student = Student::create($request->all());
+        if($period = $student->getCurrentPeriod())
+        {
+            $student->absence()->sync($period->id,['absence_days' => 0]);
+        }
+
         return redirect('students')->with(['message' => 'تم إضافة الطالب بنجاح']);
     }
 
@@ -52,11 +57,11 @@ class StudentController extends Controller
         return view('student.absence',compact('students'));
     }
 
-    public function updateAbsenceDays($studentId, Request $request)
+    public function updateAbsenceDays( Request $request)
     {
 
 
-        $student = Student::find($studentId);
+        $student = Student::find($request->student_id);
 
         $validatedData = $request->validate(['days' => ['required']]);
         $days = $validatedData['days'];
@@ -67,7 +72,7 @@ class StudentController extends Controller
 
         $school = $student->school();
 
-        $program = $student->program();
+        $program = $student->program()[1];
         $program =  $school->programs()->where('program_id', $program->id)->first();
 
         $programDayPrice = $program->pivot->program_day_price;
@@ -77,7 +82,7 @@ class StudentController extends Controller
         $school->absenceEntitlements($totalAbsentDays, $period, $programDayPrice);
 
 
-        return view('student.index')->with(['message' => $student->name.'تم إضافة الغياب بنجاح للطالب']);
+        return back()->with(['message' => $student->name.'تم إضافة الغياب بنجاح للطالب']);
     }
     /**
      * get edit view for updating student

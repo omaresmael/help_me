@@ -150,13 +150,13 @@
                   @endif
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="class-12" style="margin-top:20px;">
-                  <input type="text" class="form-control" name='general_manager' value="{{old('general_manager')}}" >
-
+              <div class="form-group">
+                  <label class="bmd-label-floating">مدير الإدارة</label>
+                  <input type="text" class="form-control" value="{{old('general_manager')}}" name='general_manager'>
+                  @if($errors->has("general_manager"))
+                      <small style="color: red">{{$errors->first('general_manager')}}</small>
+                  @endif
               </div>
-
-            </div>
           </div>
           <hr>
           <div class="row">

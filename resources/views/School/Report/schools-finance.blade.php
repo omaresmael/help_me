@@ -18,6 +18,7 @@
                                 <th class="text-center">رقم الهيئة التعليمية</th>
                                 <th class="text-center">اسم الهيئة التعليمية</th>
                                 <th class="text-center">رسوم الهيئة التعليمية</th>
+                                <th class="text-center">الرسوم الفعلية</th>
                                 @foreach($periods as $period)
                                     <th class="text-center">{{$period->name}}</th>
                                 @endforeach
@@ -28,7 +29,7 @@
                             <tbody>
 
                             @foreach($schools as $school)
-                                @foreach($school->students as $student)
+
                                     <tr>
 
                                         <td>1</td>
@@ -40,11 +41,20 @@
                                             $totalPeriodMoney = 0;
                                             $totalMoney = 0;
                                         @endphp
+                                        @foreach($students as $student)
+                                            @php
+                                             $totalMoney += ($student->working_days - $student->totalAbsenceDays()) * $student->program()[0]->pivot->program_day_price;
+                                            @endphp
+
+                                        @endforeach
+
+                                        <td>{{$totalMoney}}</td>
                                         @foreach($periods as $period)
                                             @foreach($students as $student)
                                                 @php
-                                                    $actualPeriods += ($student->working_days -$student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
-                                                $totalPeriodMoney += ($student->working_days - $student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+                                                    $actualPeriods += ($student->working_days -$student->absenceDays($period)->pivot->absence_days) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+                                                $totalPeriodMoney += ($student->working_days - $student->absenceDays($period)->pivot->absence_days) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+
                                                 @endphp
 
                                             @endforeach
@@ -52,18 +62,14 @@
                                             @php
                                             $totalPeriodMoney = 0;
                                             @endphp
+
                                         @endforeach
                                         <td>{{$actualPeriods}}</td>
-                                        @foreach($students as $student)
-                                            @php
-                                            $totalMoney += ($student->working_days - $student->totalAbsenceDays()) * $student->program()[0]->pivot->program_day_price;
-                                            @endphp
-                                        @endforeach
                                         <td>{{$totalMoney - $actualPeriods}}</td>
 
 
                                     </tr>
-                                @endforeach
+
                             @endforeach
                             </tbody>
                         </table>
