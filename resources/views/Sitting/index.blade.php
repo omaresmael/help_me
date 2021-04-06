@@ -7,7 +7,9 @@
                   <h4 class="card-title "> الحصص</h4>
                     <div style="position: relative">
                         <p class="card-category" >احضائية الحصص المتاحة والعلمين وعدد الطلاب المنتسبين لكل حصةا</p>
+                        @if(auth()->user()->can('create',\App\Models\Sitting::class))
                         <a href="{{route('sittings.create')}}" style=" position: absolute; top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة حصة</button></a>
+                        @endif
                     </div>
 
                 </div>

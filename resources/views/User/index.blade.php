@@ -6,7 +6,9 @@
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">المختصين</h4>
                     <p class="card-category">جميع بيانات المختصين</p>
+                    @if(auth()->user()->can('create',\App\User::class))
                     <a href="{{route('users.create')}}" style="top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة مختص</button></a>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

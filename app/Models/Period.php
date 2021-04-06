@@ -11,7 +11,8 @@ class Period extends Model
 
 
 
-protected $fillable = ['start_at','end_at','financial_ratio','name'];
+protected $fillable = ['start_at','end_at','financial_ratio','name','financial_year_id'];
+protected $with = ['financialYear'];
 
     protected static function boot()
     {
@@ -30,5 +31,10 @@ protected $fillable = ['start_at','end_at','financial_ratio','name'];
     public function absence()
     {
         return $this->belongsToMany(Student::class,'absence')->withPivot('absence_days');
+    }
+
+    public function financialYear()
+    {
+        return $this->belongsTo(FinancialYear::class);
     }
 }

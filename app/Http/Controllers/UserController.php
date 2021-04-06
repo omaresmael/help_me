@@ -18,6 +18,7 @@ class UserController extends Controller
     public function create()
     {
         $abilities = Ability::all();
+
         return view('user.create',compact('abilities'));
     }
 

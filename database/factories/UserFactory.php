@@ -23,7 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => 'admin',
         'email' => 'admin@help.com',
         'position' =>'admin',
-        'password' => bcrypt('123456789')
+        'password' => 123456789,
     ];
 });
 

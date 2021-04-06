@@ -87,7 +87,7 @@ class Student extends Model
     public function absenceDays($period)
     {
 
-        return $this->absence()->where('period_id', $period->id)->first()->absence_days;
+        return $this->absence()->where('period_id', $period->id)->first();
     }
 
     public function getCurrentPeriod()

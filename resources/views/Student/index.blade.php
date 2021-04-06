@@ -6,7 +6,9 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">الطلاب</h4>
                   <p class="card-category">جميع بيانات طلاب</p>
+                    @if(auth()->user()->can('create',\App\Models\Student::class))
                   <a href="{{route('students.create')}}" style="top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة طالب </button></a>
+                    @endif
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">

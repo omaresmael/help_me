@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <form action="{{route('absence.update',1)}}" method="post">
+                        <form action="{{route('absence.update')}}" method="post">
                         <table class="table">
                             <thead>
                             <tr>
@@ -39,6 +39,7 @@
 
                                         @csrf
                                         <td><input  class="form-control" type="text" name="days"></td>
+                                            <input type="hidden" name="student_id" value="{{$student->id}}">
                                         <td><input class="btn btn-primary" type="submit" value="إضافة أيام الغياب"></td>
 
                                 </tr>

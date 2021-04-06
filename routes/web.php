@@ -31,12 +31,15 @@ Route::group(['perfix'=>'/'],function(){
         Route::resource('programs', 'ProgramController');
 
         Route::resource('periods', 'PeriodController');
+        //financial_years
+        Route::resource('financial_years','FinancialYearController');
+        Route::post('/financial_years/budget/{financial_year}','FinancialYearController@budget')->name('financial_years.budget');
 
         //students
         Route::get('/students/search/','StudentController@show')->name('students.search');
         Route::resource('students', 'StudentController');
         Route::get('/absence','StudentController@AddAbsenceDays')->name('absence.create');
-        Route::post('/absence/{student}','StudentController@updateAbsenceDays')->name('absence.update');
+        Route::post('/absence/','StudentController@updateAbsenceDays')->name('absence.update');
 
 
         //teachers

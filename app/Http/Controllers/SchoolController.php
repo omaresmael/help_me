@@ -10,6 +10,7 @@ use App\Models\Period;
 use App\Models\Program;
 use App\Models\School;
 use App\Models\Student;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
 use DateTime;
 
@@ -99,7 +100,10 @@ class SchoolController extends Controller
 
         $studentsNumber = $school->studentsNumber();
         $rowMoney = $school->getSchoolTotalRowMoney();
-        $periods = $school->periods;
+        $periods = $school->periods()->whereHas('financialYear',function (Builder $query){
+            $query->where('status','=','current');
+        })->get();
+        dd($periods);
         $totalViolaion = $school->getSchoolTotalViolation();
 
         $totalDeservedValue = $school->periods()->sum('deserved_value');
@@ -120,7 +124,9 @@ class SchoolController extends Controller
         $deservedValue = 0;
         $students = Student::all();
         $schools = School::all();
-        $periods = Period::all();
+        $periods = $periods = Period::whereHas('financialYear',function (Builder $query){
+        $query->where('status','=','current');
+        })->get();
 
 
 
@@ -160,7 +166,15 @@ class SchoolController extends Controller
         /**
          * TODO:: Add The Real value for Absence days  cost
          */
-        $periods  = $school->periods;
+        $periods = $school->periods()->whereHas('financialYear',function (Builder $query){
+            $query->where('status','=','current');
+        })->get();
+
+        if (count($periods)== 0){
+
+            return back()->with(['error'=>'لا يوجد دفعات']);
+        }
+
         $fines = [];
         $absenceCost = 0;
         foreach ($periods as $period)

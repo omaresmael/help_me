@@ -23,7 +23,7 @@ class UserPolicy
         $abilities = $user->abilities;
         foreach ($abilities as $ability)
         {
-            if($ability == 'إضافة مختص')
+            if($ability->name == 'إضافة مختص')
                 return true;
         }
         return false;

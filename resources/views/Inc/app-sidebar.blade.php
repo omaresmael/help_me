@@ -15,6 +15,12 @@
             <p>الصفحه الرئيسية</p>
             </a>
         </li>
+            <li class="nav-item " id='financial_years'>
+                <a class="nav-link" href="{{route('financial_years.index')}}">
+                    <i class="material-icons">library_books</i>
+                    <p>السنوات المالية</p>
+                </a>
+            </li>
         <li class="nav-item " id='students'>
             <a class="nav-link" href="{{route('students.index')}}">
             <i class="fas fa-users"></i>
@@ -69,12 +75,7 @@
             <p>التقرير المالي المجمع</p>
             </a>
         </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
-            <i class="material-icons">library_books</i>
-            <p>الترشيحات</p>
-            </a>
-        </li>
+
         <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
             <i class="material-icons">bubble_chart</i>

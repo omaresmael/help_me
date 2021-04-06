@@ -53,18 +53,19 @@
                                     <td>{{$school->code}}</td>
                                     <td>{{$school->name}}</td>
                                     <td>{{$student->program()[0]->pivot->program_price}}</td>
-                                    <td>{{$student->working_days * $student->program()[0]->pivot->program_day_price}}</td>
+                                    <td>{{($student->working_days- $student->absenceDays($period)->pivot->absence_days) * $student->program()[0]->pivot->program_day_price}}</td>
                                     <td>{{$student->attendance_begin}}</td>
                                     <td>{{$student->attendance_end}}</td>
-                                    <td>{{$student->working_days}}</td>
+                                    <td>{{$student->working_days - $student->absenceDays($period)->pivot->absence_days}}</td>
                                     @php
                                         $actualPeriods = 0;
                                     @endphp
                                     @foreach($periods as $period)
                                         @php
-                                            $actualPeriods += ($student->working_days - $student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
+
+                                            $actualPeriods += ($student->working_days - $student->absenceDays($period)->pivot->absence_days) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100;
                                         @endphp
-                                        <td>{{($student->working_days - $student->absenceDays($period)) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
+                                        <td>{{($student->working_days - $student->absenceDays($period)->pivot->absence_days) * $student->program()[0]->pivot->program_day_price * $period->financial_ratio / 100}}</td>
                                     @endforeach
 {{--                                    <td>{{$school->fines()->sum('amount') / $school->students()->count()}}</td>--}}
                                     <td class="total">{{$actualPeriods}}</td>
@@ -78,6 +79,7 @@
                             @endforeach
                                 <tr>
                                     <td>المجموع</td>
+
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -85,7 +87,10 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    @foreach($periods as $period)
+                                        <td></td>
+                                    @endforeach
+
 
                                     <td></td>
                                     <td></td>
@@ -128,11 +133,11 @@
             var total = 0;
             var remainder = 0;
             $('.total').each(function(key,item){
-                 total +=  parseInt(item.innerText);
+                 total +=  parseFloat(item.innerText);
             })
             $('.remainder').each(function(key,item){
-                console.log(item)
-                remainder +=  parseInt(item.innerText);
+
+                remainder +=  parseFloat(item.innerText);
             })
             console.log(remainder)
 

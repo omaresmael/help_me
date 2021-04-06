@@ -23,14 +23,14 @@ class User extends Authenticatable
         'password',
     ];
 
-//    public function setPasswordAttribute($password)
-//    {
-//        $this->attributes['password'] = bcrypt($password);
-//    }
-//
-//    public function abilities()
-//    {
-//        return $this->belongsToMany(Ability::class);
-//    }
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function abilities()
+    {
+        return $this->belongsToMany(Ability::class);
+    }
 
 }

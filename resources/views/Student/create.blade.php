@@ -62,7 +62,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">بداية الدوام</label>
-                        <input type="text" class="form-control datepicker" value="{{old('attendance_begin')}}" name="attendance_begin" required>
+                        <input type="text" class="form-control datepicker" value="{{old('attendance_begin')}}" autocomplete="off" name="attendance_begin" required>
                         @if($errors->has("attendance_begin"))
                             <small style="color: red">{{$errors->first('attendance_begin')}}</small>
                         @endif
@@ -72,7 +72,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">نهاية الدوام</label>
-                        <input type="text" class="form-control datepicker" value="{{old('attendance_end')}}" name="attendance_end" required>
+                        <input type="text" class="form-control datepicker" value="{{old('attendance_end')}}" autocomplete="off" name="attendance_end" required>
                         @if($errors->has("attendance_end"))
                             <small style="color: red">{{$errors->first('attendance_end')}}</small>
                         @endif
