@@ -128,6 +128,12 @@ class SchoolController extends Controller
         $query->where('status','=','current');
         })->get();
 
+        if(empty($periods['items']) ||empty($periods['items']) || empty($periods['items']))
+        {
+
+            return back()->with(['error'=>'من فضلك أضف طلاب ومدارس ودفعات في السنة المالية الحالية']);
+        }
+
 
 
 
