@@ -19,7 +19,7 @@ class SchoolController extends Controller
     public function index()
     {
         $schools = School::all();
-        return view('school.index', compact('schools'));
+        return view('School.index', compact('schools'));
     }
 
     public function create()
@@ -27,7 +27,7 @@ class SchoolController extends Controller
         $programs = Program::all();
 		$countries = new Country();
 		$countries = $countries->listOfCountries();
-        return view('school.create', compact('programs','countries'));
+        return view('School.create', compact('programs','countries'));
     }
 	/**
 	* get all countries of selected country
@@ -75,14 +75,14 @@ class SchoolController extends Controller
     }
     public function show(School $school)
     {
-        return view('school.show', compact('school'));
+        return view('School.show', compact('school'));
     }
     public function edit(School $school)
     {
         $programsList = Program::all();
         $countries = new Country();
         $countries = $countries->listOfCountries();
-        return view('school.edit', compact('programsList', 'school','countries'));
+        return view('School.edit', compact('programsList', 'school','countries'));
     }
 
     public function getAssociatedPrograms(School $school)
@@ -113,7 +113,7 @@ class SchoolController extends Controller
         $residual = $rowMoney - $totalInitialValue - $totalViolaion;
 
         $programsNumber = $school->programs()->count();
-        return view('report.financial', compact('school', 'periods', 'programsNumber', 'residual', 'rowMoney', 'totalDeservedValue', 'studentsNumber'));
+        return view('Report.financial', compact('school', 'periods', 'programsNumber', 'residual', 'rowMoney', 'totalDeservedValue', 'studentsNumber'));
     }
     /**
      *   get the schools finance reports
@@ -124,11 +124,11 @@ class SchoolController extends Controller
         $deservedValue = 0;
         $students = Student::all();
         $schools = School::all();
-        $periods = $periods = Period::whereHas('financialYear',function (Builder $query){
+        $periods = Period::whereHas('financialYear',function (Builder $query){
         $query->where('status','=','current');
         })->get();
 
-        if(empty($periods['items']) ||empty($periods['items']) || empty($periods['items']))
+        if(!$schools || !$schools || !$periods)
         {
 
             return back()->with(['error'=>'من فضلك أضف طلاب ومدارس ودفعات في السنة المالية الحالية']);
@@ -137,7 +137,7 @@ class SchoolController extends Controller
 
 
 
-        return view('school.report.schools-finance', compact('schools','students','periods'));
+        return view('School.Report.schools-finance', compact('schools','students','periods'));
     }
 
     public function studentsReport(School $school)
@@ -150,21 +150,21 @@ class SchoolController extends Controller
     {
         $programs  = $school->programs;
 
-        return view('school.report.programs-report',compact('programs','school'));
+        return view('School.report.programs-report',compact('programs','school'));
     }
     public function teachersReport(School $school)
     {
         $teachers  = $school->teachers;
 
 
-        return view('school.report.teachers-report',compact('teachers','school'));
+        return view('School.report.teachers-report',compact('teachers','school'));
     }
     public function sittingsReport(School $school)
     {
         $sittings  = $school->sittings;
 
 
-        return view('school.report.sittings-report',compact('sittings','school'));
+        return view('School.report.sittings-report',compact('sittings','school'));
     }
 
     public function periodsReport(School $school)
@@ -192,7 +192,7 @@ class SchoolController extends Controller
 
 
 
-        return view('school.report.periods-report',compact('periods','school','fines'));
+        return view('School.report.periods-report',compact('periods','school','fines'));
     }
 
 

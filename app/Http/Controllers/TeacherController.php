@@ -18,7 +18,7 @@ class TeacherController extends Controller
     {
         $teachers = Teacher::with('school')->get();
 
-        return view('teacher.index', compact('teachers'));
+        return view('Teacher.index', compact('teachers'));
     }
 
     /**
@@ -29,7 +29,7 @@ class TeacherController extends Controller
     public function create()
     {
         $schools = School::all();
-        return view('teacher.create', compact('schools'));
+        return view('Teacher.create', compact('schools'));
     }
 
     /**

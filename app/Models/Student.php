@@ -49,7 +49,7 @@ class Student extends Model
     }
 
     public function program()
-    {
+    { 
         if($this->data) {
             $program = Program::find($this->data->program_id);
 
@@ -87,7 +87,7 @@ class Student extends Model
     public function absenceDays($period)
     {
 
-        return $this->absence()->where('period_id', $period->id)->first();
+        return $this->absence()->first();
     }
 
     public function getCurrentPeriod()

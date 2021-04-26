@@ -34,7 +34,11 @@
                                 <tr>
                                     <td class="text-center">{{$loop->iteration}}</td>
                                     <td>{{$student->name}}</td>
+                                    @if($student->school())
                                     <td>{{$student->school()->name}}</td>
+                                    @else
+                                    <td></td>
+                                    @endif	
                                     <td>{{$student->totalAbsenceDays()}}</td>
 
                                         @csrf

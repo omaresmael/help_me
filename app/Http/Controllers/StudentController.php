@@ -13,13 +13,13 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('student.index', compact('students'));
+        return view('Student.index', compact('students'));
     }
 
     public function create()
     {
         $schools = School::all();
-        return view('student.create', compact('schools'));
+        return view('Student.create', compact('schools'));
     }
 
     public function store(StudentRequest $request)
@@ -54,7 +54,7 @@ class StudentController extends Controller
     {
         $students = Student::all();
 
-        return view('student.absence',compact('students'));
+        return view('Student.absence',compact('students'));
     }
 
     public function updateAbsenceDays( Request $request)
@@ -93,7 +93,7 @@ class StudentController extends Controller
     {
 
         $schools = School::all();
-        return view('student.edit', compact('student', 'schools'));
+        return view('Student.edit', compact('student', 'schools'));
     }
     /**
      * updating student

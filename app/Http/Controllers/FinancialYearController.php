@@ -17,7 +17,7 @@ class FinancialYearController extends Controller
     }
     public function create()
     {
-        return view('financial-year.create');
+        return view('Financial-Year.create');
     }
 
     public function store(FinancialYearRequest $request)
@@ -63,6 +63,6 @@ class FinancialYearController extends Controller
     public function budget(FinancialYear $financialYear)
     {
         $budgets = $financialYear->budgets;
-        return view('financial-year.budget',compact('budgets'));
+        return view('Financial-Year.budget',compact('budgets'));
     }
 }

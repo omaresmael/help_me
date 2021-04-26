@@ -10,12 +10,12 @@ class ProgramController extends Controller
     public function index()
     {
         $programs = Program::all();
-        return view('program.index', compact('programs'));
+        return view('Program.index', compact('programs'));
     }
 
     public function create()
     {
-        return view('program.create');
+        return view('Program.create');
     }
 
     public function store(programRequest $request)

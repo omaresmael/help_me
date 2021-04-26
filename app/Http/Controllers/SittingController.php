@@ -18,7 +18,7 @@ class SittingController extends Controller
     public function index()
     {
         $sittings =Sitting::with('teacher')->get();
-        return view('sitting.index',compact('sittings'));
+        return view('Sitting.index',compact('sittings'));
     }
 
     /**
@@ -30,7 +30,7 @@ class SittingController extends Controller
     {
         $students = Student::all();
         $teachers = Teacher::all();
-        return view('sitting.create',compact('students','teachers'));
+        return view('Sitting.create',compact('students','teachers'));
     }
 
     /**

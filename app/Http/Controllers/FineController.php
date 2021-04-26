@@ -28,7 +28,7 @@ class FineController extends Controller
     public function create()
     {
         $schools = School::all();
-        return view('fine.create', compact('schools'));
+        return view('Fine.create', compact('schools'));
     }
 
     /**

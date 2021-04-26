@@ -15,7 +15,7 @@ class Program extends Model
 
     public function schools()
     {
-        return $this->belongsToMany(school::class)->withPivot('program_price','program_day_price','start_at','end_at','id');
+        return $this->belongsToMany(School::class)->withPivot('program_price','program_day_price','start_at','end_at','id');
     }
 
     public function studentsNumber()

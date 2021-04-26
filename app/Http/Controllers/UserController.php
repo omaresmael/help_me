@@ -12,14 +12,14 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('user.index',compact('users'));
+        return view('User.index',compact('users'));
     }
 
     public function create()
     {
         $abilities = Ability::all();
 
-        return view('user.create',compact('abilities'));
+        return view('User.create',compact('abilities'));
     }
 
     public function store(UserRequest $request)
