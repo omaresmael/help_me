@@ -7,9 +7,8 @@
                     <h4 class="card-title "> الدفعات</h4>
                     <div style="position: relative">
                         <p class="card-category" >احصائية بالدفعات المتاحة</p>
-                        @if(auth()->user()->can('create',\App\Models\Period::class))
+                        
                         <a href="{{route('periods.create')}}" style=" top: -107%; left: 0; position: absolute;" class="float-left"><button class="btn btn-warning btn-sm">إضافة دفعة جديدة</button></a>
-                        @endif
                     </div>
 
                 </div>
@@ -35,9 +34,7 @@
                                     <td>{{$period->name}}</td>
                                     <td>%{{$period->financial_ratio}}</td>
                                     <td>{{$period->schools->count()}}</td>
-                                    @if(auth()->user()->can('update'))
                                     <td><a href="/periods/{{$period->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a></td>
-                                    @endif
 
 
                                 </tr>

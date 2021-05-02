@@ -6,9 +6,8 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">الطلاب</h4>
                   <p class="card-category">جميع بيانات طلاب</p>
-                    @if(auth()->user()->can('create',\App\Models\Student::class))
+                    
                   <a href="{{route('students.create')}}" style="top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة طالب </button></a>
-                    @endif
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -34,12 +33,11 @@
                             <td>{{$student->school()?$student->school()->name:'لم يتم إسناده إلى هيئة تعليمية حتى الآن'}}</td>
                             <td>{{$student->program()?$student->program()[1]->name:'لم يتم إساناده إلى برنامج حتى الآن'}}</td>
                             <td>
-                                @if(auth()->user()->can('show',\App\Models\Student::class))
+                                
                                 <a href="{{route('students.show',$student->id)}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-user"></i></a>
-                                @endif
-                                    @if(auth()->user()->can('update',\App\Models\Student::class))
+                                
                                 <a href="/students/{{$student->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
-                                    @endif
+                                    
 {{--                                <a href="/students/{{$student->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>--}}
 {{--                                <a href="/financial_report/{{$student->id}}" id="financial_button" class='btn btn-info btn-sm'>التقرير المالي</a>--}}
                                     @if(auth()->user()->can('delete',\App\Models\Student::class))

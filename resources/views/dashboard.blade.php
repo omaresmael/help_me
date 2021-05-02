@@ -151,7 +151,7 @@
         <div class="card card-chart">
         <div class="card-header card-header-danger">
             <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-            <img src="../assets/img/taxes.png">
+            <img src="../assets/img/sitting.png" height="130px">
         </div>
         <div class="card-body">
             <h3 class="card-title"> اضافة جلسات </h3>
@@ -165,7 +165,7 @@
         <div class="card card-chart">
         <div class="card-header card-header-warning">
             <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-            <img src="../assets/img/classroom.png">
+            <img src="../assets/img/attendance.png" height="130px">
         </div>
         <div class="card-body">
 
@@ -179,7 +179,7 @@
             <div class="card card-chart">
             <div class="card-header card-header-success">
                 <!-- <div class="ct-chart" id="dailySalesChart"></div> -->
-                <img src="../assets/img/payment-method.png">
+                <img src="../assets/img/user.png" height="130px">
             </div>
             <div class="card-body">
                 <h3 class="card-title"> اضافة مختص</h3>

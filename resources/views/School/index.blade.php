@@ -6,9 +6,8 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">هيئات تعليمة</h4>
                   <p class="card-category">جميع بيانات هيئات تعليمة</p>
-                    @if(auth()->user()->can('create',\App\Models\School::class))
+                    
                   <a href="{{route('schools.create')}}" style="top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة هيئة تعليمة</button></a>
-                    @endif
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -36,21 +35,19 @@
                             <td>{{$school->email}}</td>
                             <td>{{$school->studentsNumber()}}</td>
                             <td>
-                                @if(auth()->user()->can('show',\App\Models\School::class))
+                            
                                 <a href="/schools/{{$school->id}}" class='btn btn-info btn-round  btn-sm'> <i class="fas fa-school"></i></a>
-                                @endif
-                                @if(auth()->user()->can('update',\App\Models\School::class))
+                     
                                 <a href="/schools/{{$school->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
-                                @endif
+                               
 {{--                                <a href="/schools/{{$school->id}}/edit" class='btn btn-danger btn-round btn-sm'> <i class="fas fa-trash"></i></a>--}}
-                                @if(auth()->user()->can('delete',\App\Models\School::class))
+                           
                                 <form action="{{route('schools.destroy',$school->id)}}" method="post"> <button type="submit" rel="tooltip" class="btn btn-danger btn-round">
                                         @csrf
                                         @method('DELETE')
                                         <i class="material-icons">close</i>
                                     </button>
                                 </form>
-                                @endif
                             </td>
                         </tr>
                         @empty
