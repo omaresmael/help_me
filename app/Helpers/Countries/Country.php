@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers;
+namespace App\Helpers\Countries;
 
 /**
  * Countery data containers
@@ -60,7 +60,7 @@ class Country
         return $this->cities = $this->cities[$key];
     }
     /**
-     * destroy data from the memory after useing it.
+     * destroy data from the memory after using it.
      */
     public function __destruct()
     {

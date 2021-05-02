@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
-use App\Helpers\Country;
+use App\Helpers\Countries\Country;
 use App\Models\Fine;
 use App\Models\Period;
 use App\Models\Program;
@@ -127,16 +127,10 @@ class SchoolController extends Controller
         $periods = Period::whereHas('financialYear',function (Builder $query){
         $query->where('status','=','current');
         })->get();
-
-        if(!$schools || !$schools || !$periods)
+        if( count($schools) === 0  || count($schools) === 0 || count($periods) === 0)
         {
-
-            return back()->with(['error'=>'من فضلك أضف طلاب ومدارس ودفعات في السنة المالية الحالية']);
+            return back()->with(['error'=>'من فضلك قم بإضافة مدارس ودفعات دراسية تعيين الطلاب الي مدارس وبرامج في السنة المالية الحالية']);
         }
-
-
-
-
         return view('School.Report.schools-finance', compact('schools','students','periods'));
     }
 

@@ -99,7 +99,12 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">نوع الإعاقة</label>
-                        <input type="text" class="form-control" value="{{old('disability_type')}}" name="disability_type" required>
+                        <select name="disability_type" class="form-control" required>
+                          <option>اختر نوع الإعاقة</option>
+                            @foreach($disabilities as $disability)
+                              <option value="{{$disability}}">{{$disability}}</option>
+                            @endforeach
+                          </select>
                         @if($errors->has("disability_type"))
                             <small style="color: red">{{$errors->first('disability_type')}}</small>
                         @endif

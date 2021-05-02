@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\YearValidation;
 
 class FinancialYearRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class FinancialYearRequest extends FormRequest
     public function rules()
     {
         return [
-            'year' => 'required|numeric|digits:4',
+            'year' => new YearValidation,
             'start_at' => 'required|date',
             'end_at' => 'required|date|after:start_at',
         ];

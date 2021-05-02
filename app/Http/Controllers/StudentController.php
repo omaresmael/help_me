@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateStudentRequest;
 use App\Models\School;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Helpers\Disabilities\Disability;
 
 class StudentController extends Controller
 {
@@ -19,7 +20,9 @@ class StudentController extends Controller
     public function create()
     {
         $schools = School::all();
-        return view('Student.create', compact('schools'));
+        $disabilities = new Disability;
+        $disabilities = $disabilities->listOfDisabilities();
+        return view('Student.create', compact('schools', 'disabilities'));
     }
 
     public function store(StudentRequest $request)

@@ -6,7 +6,6 @@ use App\Http\Requests\FinancialYearRequest;
 use App\Models\Budget;
 use App\Models\FinancialYear;
 use App\Models\School;
-use Illuminate\Http\Request;
 
 class FinancialYearController extends Controller
 {

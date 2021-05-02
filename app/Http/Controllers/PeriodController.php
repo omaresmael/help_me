@@ -7,7 +7,6 @@ use App\Models\FinancialYear;
 use App\Models\Period;
 use App\Models\School;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
 
 class PeriodController extends Controller
 {

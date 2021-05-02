@@ -43,7 +43,7 @@ class TeacherController extends Controller
 
         $validatedData = $request->validated();
 
-        Teacher::create($request->all());
+        Teacher::create($validatedData);
 
         return back()->with(['success' => 'تم إضافة المعلم بنجاح']);
     }

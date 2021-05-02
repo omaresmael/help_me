@@ -10,9 +10,9 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="{{ URL::asset('assets/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{ URL::asset('assets/css/daterangepicker.min.css')}}">
   <!-- CSS Files -->
   <link href="{{ URL::asset('assets/css/material-dashboard-arabic.css')}}" rel="stylesheet" />
   @yield('css_includes')
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <link href="{{ URL::asset('assets/css/jquery-ui.css')}}" rel="stylesheet" />
 </head>

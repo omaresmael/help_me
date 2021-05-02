@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title "></h4>
-                    <p class="card-category">جميع بيانات المعلمين</p>
+                    <p class="card-category">جميع البيانات </p>
                     <button class="btn btn-warning btn-sm" id="print">طباعة</button>
                 </div>
                 <div class="card-body">
@@ -13,7 +13,6 @@
                         <table class="table">
                             <thead>
                             <tr>
-
                                 <th class="text-center">#</th>
                                 <th class="text-center">رقم الهيئة التعليمية</th>
                                 <th class="text-center">اسم الهيئة التعليمية</th>
@@ -27,11 +26,8 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             @foreach($schools as $school)
-
                                     <tr>
-
                                         <td>1</td>
                                         <td>{{$school->code}}</td>
                                         <td>{{$school->name}}</td>

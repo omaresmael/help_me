@@ -167,12 +167,14 @@ $(document).ready(function() {
         });
       });
  
-    // Javascript method's body can be found in assets/js/demos.js
-    md.initDashboardPageCharts();
-
     // enable select2 lib
-    $('.select2').select2();
+    // $('.select2').select2();
 
     //enable datepicker
-    $('.datepicker').datepicker();
+    $('.datepicker').daterangepicker({
+      autoClose:true,
+      singleDatePicker: true,
+      locale: {format: 'YYYY-MM-DD'},
+      singleDate: true
+      }); 
 });
