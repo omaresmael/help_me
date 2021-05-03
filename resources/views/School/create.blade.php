@@ -61,6 +61,7 @@
               <div class="form-group">
                 <label class="bmd-label-floating">التليفون</label>
                 <input type="number" class="form-control" value="{{old('phone_number')}}" name='phone_number' >
+                <small>برحاء كتابه الرقم بدون كتابة البداية برقم صفر</small>
                   @if($errors->has("phone_number"))
                       <small style="color: red">{{$errors->first('phone_number')}}</small>
                   @endif
@@ -70,6 +71,7 @@
               <div class="form-group">
                 <label class="bmd-label-floating">الفاكس</label>
                 <input type="number" class="form-control" value="{{old('fax_number')}}" name='fax_number' >
+                <small>برحاء كتابه الرقم بدون كتابة البداية برقم صفر</small>
                   @if($errors->has("fax_number"))
                       <small style="color: red">{{$errors->first('fax_number')}}</small>
                   @endif
@@ -101,7 +103,8 @@
               </div>
             </div>
             <div class="col-md-4">
-              <select  name='country' data-style="btn btn-link" id="exampleFormControlSelect1" class="form-control select2 country" tabindex="-98">
+            <label class="bmd-label-floating">البلد</label>
+              <select  name='country'  class="form-control select2 country" >
                 <option >اختر البلد</option>
                 @foreach($countries as $key => $country)
 					        <option data-country="{{$key}}" value="{{$country}}">{{$country}}</option>
@@ -109,7 +112,8 @@
               </select>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2 cities" name='city' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
+            <label class="bmd-label-floating">محافظة</label>
+              <select  name='city'  class="form-control select2 cities">
                 <option disabled>اختر البلد</option>
 
               </select>
@@ -239,6 +243,7 @@ $(function() {
       });
     });
   $('#addProgram').click(function() {
+    event.preventDefault();
     //fix the select search method
     let html = `<div class="form-group col-md-3 ">
                       <label class="control-label">اختر برنامج</label>
@@ -276,17 +281,17 @@ $(function() {
                       </div>
                     </div>`;
     $('#programContainer').append(html).ready(()=>{
-      $('.datepicker').datepicker({
-          dateFormat: 'yy-mm-dd',
-      });
       $('.select2').select2();
+      $('.datepicker').daterangepicker({
+        autoClose:true,
+        singleDatePicker: true,
+        locale: {format: 'YYYY-MM-DD'},
+        singleDate: true
+      });
     });
   });
 
 });
 
-$('.datepicker').datepicker({
-    dateFormat: 'yy-mm-dd',
-});
 </script>
 @endsection

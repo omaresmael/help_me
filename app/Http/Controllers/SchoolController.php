@@ -13,6 +13,7 @@ use App\Models\Student;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
 use DateTime;
+use Hamcrest\Type\IsNumeric;
 
 class SchoolController extends Controller
 {
@@ -48,7 +49,8 @@ class SchoolController extends Controller
     public function store(SchoolRequest $request)
     {
         $school = School::create($request->validated());
-        if ($request->has('programs') && $request->has('programs_price')) {
+        if($request->programs[0] === 'Select' || !is_numeric($request->programs_price[0]) || $request->programs_price[0] === 0)
+            return redirect('schools')->with(['message' => 'تم إضافة الهيئه التعليمة بنجاح']);
             $programs = $request->programs;
             $programs_price = $request->programs_price;
             $start_at = $request->start_at;
@@ -70,7 +72,6 @@ class SchoolController extends Controller
                 $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => $program_day_price]);
 
             }
-        }
         return redirect('schools')->with(['message' => 'تم إضافة الهيئه التعليمة بنجاح']);
     }
     public function show(School $school)
@@ -138,27 +139,22 @@ class SchoolController extends Controller
     {
         $students  = $school->students;
 
-        return view('school.report.students-report',compact('students','school'));
+        return view('School.Report.students-report',compact('students','school'));
     }
     public function programsReport(School $school)
     {
         $programs  = $school->programs;
-
-        return view('School.report.programs-report',compact('programs','school'));
+        return view('School.Report.programs-report',compact('programs','school'));
     }
     public function teachersReport(School $school)
     {
         $teachers  = $school->teachers;
-
-
-        return view('School.report.teachers-report',compact('teachers','school'));
+        return view('School.Report.teachers-report',compact('teachers','school'));
     }
     public function sittingsReport(School $school)
     {
         $sittings  = $school->sittings;
-
-
-        return view('School.report.sittings-report',compact('sittings','school'));
+        return view('School.Report.sittings-report',compact('sittings','school'));
     }
 
     public function periodsReport(School $school)
@@ -181,12 +177,7 @@ class SchoolController extends Controller
         {
             $fines [$period->id] = Fine::period($period)->sum('amount');
         }
-
-
-
-
-
-        return view('School.report.periods-report',compact('periods','school','fines'));
+        return view('School.Report.periods-report',compact('periods','school','fines'));
     }
 
 
@@ -207,7 +198,9 @@ class SchoolController extends Controller
     {
 
         $school->update($request->validated());
-        if ($request->has('programs') && $request->has('programs_price')) {
+        if($request->programs[0] === 'Select' || !is_numeric($request->programs_price[0]))
+            return redirect('schools')->with(['message' => 'تم تعديل الهئية التعليميه بنجاح']);
+        
             $oldprogramids = [];
             foreach ($school->programs as $i => $program) {
                 if($request->programs[$i] == $program->id) {
@@ -238,7 +231,6 @@ class SchoolController extends Controller
                 };
                 $school->programs()->attach($program, ['program_price' => $programs_price[$i], 'start_at' => $start_at[$i], 'end_at' => $end_at[$i], 'program_day_price' => $program_day_price]);
             }
-        }
         return redirect('schools')->with(['message' => 'تم تعديل الهئية التعليميه بنجاح']);
     }
 

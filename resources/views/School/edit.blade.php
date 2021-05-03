@@ -103,7 +103,8 @@
               </div>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2 country" name='country'  data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
+            <label class="bmd-label-floating">البلد</label>
+              <select class="form-control select2 country" name='country' >
                 <option value={{$school->country}}>{{$school->country}}</option>
                   @foreach($countries as $key => $country)
                       <option data-country="{{$key}}" value="{{$country}}">{{$country}}</option>
@@ -111,9 +112,9 @@
               </select>
             </div>
             <div class="col-md-4">
-              <select class="form-control select2 cities" name='city' data-style="btn btn-link" id="exampleFormControlSelect1" tabindex="-98">
+            <label class="bmd-label-floating">محافظة</label>
+              <select class="form-control select2 cities" name='city' >
                 <option value={{$school->city}}>{{$school->city}}</option>
-
               </select>
             </div>
             <div class="col-md-4">
@@ -153,16 +154,13 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="class-12" style="margin-top:20px;">
-                <select class="form-control select2" data-style="btn btn-link" name='general_manager' id="exampleFormControlSelect1" required>
-                  <option value="0">اختر مدير الادارة</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+              <div class="form-group">
+                  <label class="bmd-label-floating">مدير الإدارة</label>
+                  <input type="text" class="form-control" value="{{old('general_manager')}}" name='general_manager'>
+                  @if($errors->has("general_manager"))
+                      <small style="color: red">{{$errors->first('general_manager')}}</small>
+                  @endif
               </div>
-
             </div>
           </div>
           <hr>
@@ -289,6 +287,7 @@ $(function() {
         });
     });
   $('#addProgram').click(function() {
+    event.preventDefault();
     //fix the select search method
     let html = `<div class="form-group col-md-3 ">
                       <label class="control-label">اختر برنامج</label>
@@ -326,19 +325,16 @@ $(function() {
                       </div>
                     </div>`;
     $('#programContainer').append(html).ready(()=>{
-        $('.datepicker').datepicker({
-            dateFormat: 'yy-mm-dd',
-
-        });
+      $('.select2').select2();
+      $('.datepicker').daterangepicker({
+        autoClose:true,
+        singleDatePicker: true,
+        locale: {format: 'YYYY-MM-DD'},
+        singleDate: true
+      }); 
     });
   });
-
-    $('.select2').select2();
 });
 
-$('.datepicker').datepicker({
-    dateFormat: 'yy-mm-dd',
-
-});
 </script>
 @endsection

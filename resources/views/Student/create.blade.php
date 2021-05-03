@@ -205,6 +205,12 @@
           url = "/associated/" + selected;
 
       $.post(url, function(data) {
+        if(data.length === 0){
+          $('#program').html('');
+          alert('برجاء اختيار مدرسة لها برامج تعليمية');
+          return console.log('خظاء ادخال من المستخدم');
+        }
+        $('#program').html('');
         $.each(data, function(key, valueObj) {
             $('#program').append(' <option value="' + key + '">' + valueObj + '</option>');
         });
@@ -212,8 +218,6 @@
     });
 
   });
-  $('.datepicker').datepicker({
-      dateFormat: 'yy-mm-dd',
-  });
+
 </script>
 @endsection

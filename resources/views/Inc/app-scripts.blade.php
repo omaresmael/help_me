@@ -8,6 +8,9 @@
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
 <script src="{{ URL::asset('assets/js/plugins/bootstrap-selectpicker.js')}}"></script>
 <script src="{{ URL::asset('assets/js/plugins/moment.min.js')}}"></script>
+<!-- data range picker -->
 <script src="{{ URL::asset('assets/js/plugins/jquery.daterangepicker.js')}}"></script>
+<!-- select2 -->
+<script src="{{ URL::asset('assets/js/plugins/select2.js')}}"></script>
 <script src="{{ URL::asset('assets/js/design.js')}}"></script>
 @yield('inc-scripts')
