@@ -39,8 +39,30 @@
                     @endif
                 </div>
               </div>
+              <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">تاريخ الميلاد</label>
+                        <input type="text" class="form-control datepicker" value="{{old('dateOfBirth')}}" autocomplete="off" name="dateOfBirth" required>
+                        @if($errors->has("dateOfBirth"))
+                            <small style="color: red">{{$errors->first('dateOfBirth')}}</small>
+                        @endif
+                    </div>
+              </div>
             </div>
             <div class="row">
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label class="bmd-label-floating">النوع</label>
+                  <select name="gender" class="form-control" required>
+                      <option>اختر نوع </option>
+                      <option value="ذكر">ذكر</option>
+                      <option value="انثى">انثى</option>
+                  </select> 
+                  @if($errors->has("gender"))
+                      <small style="color: red">{{$errors->first('gender')}}</small>
+                  @endif
+                </div>
+              </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">اسم ولي الامر </label>

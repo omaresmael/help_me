@@ -28,7 +28,7 @@ class StudentController extends Controller
     public function store(StudentRequest $request)
     {
 
-        $student = Student::create($request->all());
+        $student = Student::create($request->validated());
         if($period = $student->getCurrentPeriod())
         {
             $student->absence()->sync($period->id,['absence_days' => 0]);
@@ -44,13 +44,13 @@ class StudentController extends Controller
             $student = Student::where('national_number','like',$request->national_number)->first();
             if ($student)
             {
-                return view('student.show',compact('student'));
+                return view('Student.show',compact('student'));
             }
             return back()->with('search_error','لا يوجد طالب بهذا الرقم المدني');
         }
 
 
-        return view('student.show',compact('student'));
+        return view('Student.show',compact('student'));
     }
 
     public function addAbsenceDays()
@@ -96,7 +96,9 @@ class StudentController extends Controller
     {
 
         $schools = School::all();
-        return view('Student.edit', compact('student', 'schools'));
+        $disabilities = new Disability;
+        $disabilities = $disabilities->listOfDisabilities();
+        return view('Student.edit', compact('student', 'schools', 'disabilities'));
     }
     /**
      * updating student

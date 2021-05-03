@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
-          <h4 class="card-title">اضافة طالب</h4>
+          <h4 class="card-title">تعديل اطلب</h4>
           <p class="card-category">ادخال البيانات المطلوبة</p>
         </div>
         <div class="card-body">
@@ -40,8 +40,30 @@
                     @endif
                 </div>
               </div>
+              <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">تاريخ الميلاد</label>
+                        <input type="text" class="form-control datepicker" value="{{$student->dateOfBirth}}" autocomplete="off" name="dateOfBirth" required>
+                        @if($errors->has("dateOfBirth"))
+                            <small style="color: red">{{$errors->first('dateOfBirth')}}</small>
+                        @endif
+                    </div>
+              </div>
             </div>
             <div class="row">
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label class="bmd-label-floating">النوع</label>
+                  <select name="gender" class="form-control" required>
+                      <option value="{{$student->gender}}">{{$student->gender}}</option>
+                      <option value="ذكر">ذكر</option>
+                      <option value="انثى">انثى</option>
+                  </select> 
+                  @if($errors->has("gender"))
+                      <small style="color: red">{{$errors->first('gender')}}</small>
+                  @endif
+                </div>
+              </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="bmd-label-floating">اسم ولي الامر </label>
@@ -99,7 +121,12 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label class="bmd-label-floating">نوع الإعاقة</label>
-                        <input type="text" class="form-control" name="disability_type" value='{{$student->disability_type}}' required>
+                        <select name="disability_type" class="form-control"  required>
+                          <option value="{{$student->disability_type}}">{{$student->disability_type}}</option>
+                            @foreach($disabilities as $disability)
+                              <option value="{{$disability}}">{{$disability}}</option>
+                            @endforeach
+                          </select>
                         @if($errors->has("disability_type"))
                             <small style="color: red">{{$errors->first('disability_type')}}</small>
                         @endif

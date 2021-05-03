@@ -36,6 +36,18 @@
                                         <h4 class="card-title"><strong> 	{{$student->national_number}} </strong></h4>
                                     </div>
                                 </div>
+                                <div class="col-md-2 text-right boxiing-shado">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">تاريخ الميلاد</label>
+                                        <h4 class="card-title"><strong> 	{{$student->dateOfBirth}} </strong></h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-right boxiing-shado">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">النوع</label>
+                                        <h4 class="card-title"><strong> 	{{$student->gender}} </strong></h4>
+                                    </div>
+                                </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">اسم ولي الأمر</label>

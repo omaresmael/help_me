@@ -10,22 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = [
-        'name',
-        'national_number',
-        'guardian_name',
-        'guardian_national_number',
-        'email',
-        'ministry_nomination',
-        'school_nomination',
-        'program_school_id',
-        'disability_type',
-        'disability_power',
-        'attendance_end',
-        'attendance_begin',
-        'section',
-        'report_type'
-    ];
+    protected $guarded = [];
     protected $appends = ['working_days'];
 
     // this represents the relation between student and the his school and program

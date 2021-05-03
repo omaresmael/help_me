@@ -17,6 +17,8 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('national_number');
+            $table->date('dateOfBirth');
+            $table->enum('gender',['ذكر', 'انثى']);
             $table->string('guardian_name');
             $table->string('guardian_national_number');
             $table->string('email');
