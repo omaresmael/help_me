@@ -207,8 +207,11 @@
       $.post(url, function(data) {
         if(data.length === 0){
           $('#program').html('');
-          alert('برجاء اختيار مدرسة لها برامج تعليمية');
-          return console.log('خظاء ادخال من المستخدم');
+          return Swal({
+            type: 'error',
+            title: 'خطاء...',
+            text: 'برجاء اختيار مدرسة لها برامج تعليمية',
+          });
         }
         $('#program').html('');
         $.each(data, function(key, valueObj) {

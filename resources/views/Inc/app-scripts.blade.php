@@ -12,5 +12,6 @@
 <script src="{{ URL::asset('assets/js/plugins/jquery.daterangepicker.js')}}"></script>
 <!-- select2 -->
 <script src="{{ URL::asset('assets/js/plugins/select2.js')}}"></script>
+<script src="{{ URL::asset('assets/js/plugins/sweetalert2.js')}}"></script>
 <script src="{{ URL::asset('assets/js/design.js')}}"></script>
 @yield('inc-scripts')
