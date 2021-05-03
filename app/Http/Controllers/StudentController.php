@@ -27,7 +27,6 @@ class StudentController extends Controller
 
     public function store(StudentRequest $request)
     {
-
         $student = Student::create($request->validated());
         if($period = $student->getCurrentPeriod())
         {
@@ -94,7 +93,6 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-
         $schools = School::all();
         $disabilities = new Disability;
         $disabilities = $disabilities->listOfDisabilities();
