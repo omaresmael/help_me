@@ -28,6 +28,7 @@ class StoreTeacherRequest extends FormRequest
             'school_id'=>'required|numeric',
             'national_number' => 'required|digits_between:12,14|unique:students',
             'speciality' => 'required',
+            'birth_day' => 'required',
             'qualification' => 'required',
             'entity_acceptance_date' => 'required|date',
             'entity_acceptance_number' => 'required|numeric',

@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header card-header-primary">
-                    <h4 class="card-title">اضافة معلم</h4>
+                    <h4 class="card-title">تعديل معلم</h4>
                     <p class="card-category">ادخال البيانات المطلوبة</p>
                 </div>
                 <div class="card-body">
@@ -103,12 +103,13 @@
                                         اختر هيئة تعليمية
                                     </label>
                                     <select class="select2 form-control" id="id_label_single" name="school_id" required>
-                                        @isset($schools)
-                                            <option>اختر هيئة تعليمية</option>
-                                        @endisset
+                                        @if($teacher->school)
+                                            <option value="{{$teacher->school->id}}">{{$teacher->school->name}}</option>
+                                        @endif
                                         @foreach($schools as $school)
-
-                                        <option value="{{$school->id}}">{{$school->name}}</option>
+                                            @if($school->id !== $teacher->school->id)
+                                            <option value="{{$school->id}}">{{$school->name}}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>

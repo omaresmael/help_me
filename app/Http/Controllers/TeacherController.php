@@ -67,7 +67,8 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        $schools = School::all();
+        return view('Teacher.edit', compact('teacher', 'schools'));
     }
 
     /**
