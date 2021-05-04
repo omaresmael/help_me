@@ -6,6 +6,7 @@ use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\School;
 use App\Models\Student;
+use App\Models\StudentLog;
 use Illuminate\Http\Request;
 use App\Helpers\Disabilities\Disability;
 
@@ -32,7 +33,10 @@ class StudentController extends Controller
         {
             $student->absence()->sync($period->id,['absence_days' => 0]);
         }
-
+        StudentLog::create([
+            'student_id' => $student->id,
+            'school_id' => $student->school()->id
+        ]);
         return redirect('students')->with(['message' => 'تم إضافة الطالب بنجاح']);
     }
 
@@ -107,6 +111,12 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         $student->update($request->validated());
+        if($student->load('Logs')->orderBy('created_at', 'desc')->first()->school_id !== $student->school()->id){
+            StudentLog::create([
+                'student_id' => $student->id,
+                'school_id' => $student->school()->id
+            ]);
+        }
         return redirect('students')->with(['message' => 'تم تعديل الطالب بنجاح']);
     }
 

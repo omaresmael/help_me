@@ -99,7 +99,16 @@
                                     <label class="bmd-label-floating">شدة الإعاقة</label>
                                     <h4 class="card-title"><strong>{{$student->disability_power}}</strong></h4>
                                 </div>
-
+                                <div class="col-md-4 text-right boxiing-shado">
+                                    <label class="bmd-label-floating">سجل الهيئات التعليمية</label>
+                                    <h4 class="card-title">
+                                        <strong>
+                                        @foreach($student->logs as $log)
+                                            {{$log->school->name}} -- {{$log->school->created_at->toFormattedDateString()}}  <br>
+                                        @endforeach
+                                        </strong>
+                                    </h4>
+                                </div>
                             </div>
                         </div>
                     </div>

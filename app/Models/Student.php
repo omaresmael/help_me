@@ -24,6 +24,10 @@ class Student extends Model
         return $this->belongsToMany(Period::class, 'absence')->withPivot('absence_days');
     }
 
+    public function Logs(){
+        return $this->hasMany(StudentLog::class, 'student_id');
+    }
+
     public function school()
     {
 

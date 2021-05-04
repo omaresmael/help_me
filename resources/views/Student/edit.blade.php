@@ -169,9 +169,8 @@
                           <option value="{{$student->school()->id}}">{{$student->school()->name}}</option>
                         @endif
                         @foreach($schools as $school)
-                            @if($school->id !== $student->school()->id)
                               <option value="{{$school->id}}">{{$school->name}}</option>
-                            @endif
+
                         @endforeach
                         </select>
                       </div>

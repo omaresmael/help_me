@@ -20,6 +20,9 @@ class School extends Model
         return $this->belongsToMany(Period::class)->withPivot('initial_value','deserved_value');
     }
 
+    public function Logs(){
+        return $this->hasMany(StudentLog::class);
+    }
     public function programs()
     {
         return $this->belongsToMany(Program::class)->withPivot('program_price','program_day_price','start_at','end_at','id');
