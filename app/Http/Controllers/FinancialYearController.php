@@ -6,6 +6,7 @@ use App\Http\Requests\FinancialYearRequest;
 use App\Models\Budget;
 use App\Models\FinancialYear;
 use App\Models\School;
+use finfo;
 
 class FinancialYearController extends Controller
 {
@@ -18,7 +19,10 @@ class FinancialYearController extends Controller
     {
         return view('Financial-Year.create');
     }
-
+    public function show(FinancialYear $financialYear)
+    {
+        return $financialYear->load('periods')->only('periods');
+    }
     public function store(FinancialYearRequest $request)
     {
         FinancialYear::create($request->validated());

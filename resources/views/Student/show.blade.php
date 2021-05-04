@@ -14,7 +14,7 @@
                             <div class="row" style="justify-content: center;
             margin-bottom: 12px;">
                                 @if($student->school())
-                                <a href="{{route('school.show',$student->school()->id)}}"><button class="btn btn-primary">
+                                <a href="{{route('schools.show',$student->school()->id)}}"><button class="btn btn-primary">
                                         <i class="fa fa-child"></i>الهيئة التعليمية
                                     </button></a>
                                 @endif

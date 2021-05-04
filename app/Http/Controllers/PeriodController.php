@@ -21,21 +21,17 @@ class PeriodController extends Controller
 
     public function create()
     {
-
         $schools = School::all();
-
-        return view('Period.create', compact('schools'));
+        $finantialYears = FinancialYear::where('status', 'current')->select('year', 'id')->get();
+        if (count($finantialYears) === 0)
+            return redirect('financial_years/create')->with(['error'=>'قم بإنشاء سنة مالية اولا ثم إنشاء الدفعات']);
+        return view('Period.create', compact('schools', 'finantialYears'));
     }
 
     public function store(PeriodRequest $request)
     {
-        $finantialYear = FinancialYear::where('status','current')->first();
-        if (!$finantialYear)
-            return view('Financial-Year.create')->with(['success'=>'قم بإنشاء سنة مالية اولا ثم إنشئ الدفعات']);
-
-        $data = $request->all();
-        $data = array_merge($data,['financial_year_id'=>$finantialYear->id]);
-
+        $data = $request->validated();
+       
         $period = Period::create($data);
         $schoolsIds = $request->schools; //the schools that been assigned to this period
         $schools = School::whereIn('id', $schoolsIds)->get();
@@ -54,7 +50,9 @@ class PeriodController extends Controller
     public function edit(Period $period)
     {
         $schools = School::all();
-        return view('Period.edit',compact('period','schools'));
+        $finantialYears = FinancialYear::where('status', 'current')->select('year', 'id')->get();
+        
+        return view('Period.edit',compact('period','schools','finantialYears'));
     }
     public function update(PeriodRequest $request, Period $period)
     {

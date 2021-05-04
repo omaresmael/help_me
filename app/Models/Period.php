@@ -35,6 +35,6 @@ protected $with = ['financialYear'];
 
     public function financialYear()
     {
-        return $this->belongsTo(FinancialYear::class);
+        return $this->belongsTo(FinancialYear::class, 'financial_year_id');
     }
 }

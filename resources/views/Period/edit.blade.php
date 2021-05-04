@@ -12,7 +12,25 @@
                         @csrf
                         @method('put')
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">سنة المالية</label>
+                                    <select class="form-control select2 financialYear" name="financial_year_id" >
+                                        <option value="{{$period->financialYear->id}}">{{$period->financialYear->year}}</option>
+                                    @foreach($finantialYears as $finantialYear)
+                                        @if($finantialYear->id !== $period->financialYear->id)
+                                        <option value="{{$finantialYear->id}}">{{$finantialYear->name}}</option>
+                                        @endif
+                                    @endforeach
+                                        
+                                    </select>
+                                    <small id='periods' style="color: green"></small>
+                                    @if($errors->has("name"))
+                                        <small style="color: red">{{$errors->first('name')}}</small>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">اسم الدفعة</label>
                                     <input type="text" name="name" value="{{$period->name}}" class="form-control" required>

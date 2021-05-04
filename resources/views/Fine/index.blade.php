@@ -7,10 +7,7 @@
                     <h4 class="card-title "> الجزاءات</h4>
                     <div style="position: relative">
                         <p class="card-category" >إحصائية الجزاءات</p>
-                        @if(auth()->user()->can('create',\App\Models\Fine::class))
                             <a href="{{route('fines.create')}}" style=" position: absolute; top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة جزاء جديد</button></a>
-                        @endif
-
                     </div>
 
                 </div>
@@ -23,7 +20,7 @@
                                 <th>اسم المُصدر</th>
                                 <th>اسم الهيئة التعليمية</th>
                                 <th>قيمة الجزاء</th>
-{{--                                <th class="text-left">العمليات</th>--}}
+                                <th >العمليات</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -34,24 +31,23 @@
                                     <td>{{$fine->school->name}}</td>
                                     <td>{{$fine->amount}}</td>
 
-{{--                                    <td class="td-actions text-left">--}}
+                                    <td >
 {{--                                        <button type="button" rel="tooltip" class="btn btn-info btn-round">--}}
 {{--                                            <i class="material-icons">person</i>--}}
 {{--                                        </button>--}}
-{{--                                        <button type="button" rel="tooltip" class="btn btn-success btn-round">--}}
-{{--                                            <i class="material-icons">edit</i>--}}
-{{--                                        </button>--}}
-{{--                                        <button type="button" rel="tooltip" class="btn btn-danger btn-round">--}}
-{{--                                            <i class="material-icons">close</i>--}}
-{{--                                        </button>--}}
-{{--                                    </td>--}}
+                                            <a href="/fines/{{$fine->id}}/edit" class='btn btn-success btn-round btn-sm'> <i class="fas fa-edit"></i></a>
+                                
+                                            <form action="{{route('fines.destroy',$fine->id)}}" method="post"> <button type="submit" rel="tooltip" class="btn btn-danger btn-round btn-sm">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </form>
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <h3>لا يوجد جزاءات </h3>
-                                    <p>يمكنك إضافة جزاءات من  </p>
-                                    <a href="{{route('fines.create')}}"><strong style="font-weight: bold">هنا</strong></a>
-                                </tr>
+                                    <h3>لا يوجد جزاءات </h3></tr>
                             @endforelse
 
                             </tbody>

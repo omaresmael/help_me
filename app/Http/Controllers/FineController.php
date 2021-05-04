@@ -68,19 +68,21 @@ class FineController extends Controller
      */
     public function edit(Fine $fine)
     {
-        //
+        $schools = School::all();
+        return view('Fine.edit', compact('fine', 'schools'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\FineRequest  $request
      * @param  \App\Fine  $fine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fine $fine)
+    public function update(FineRequest $request, Fine $fine)
     {
-        //
+        $fine->update($request->validated());
+        return redirect('fines')->with(['success' => 'تم تعديل الجزاء بنجاح']);
     }
 
     /**
@@ -91,6 +93,7 @@ class FineController extends Controller
      */
     public function destroy(Fine $fine)
     {
-        //
+        $fine->delete();
+        return back()->with(['success' => 'تم حذف الجزاء بنجاح']);
     }
 }
