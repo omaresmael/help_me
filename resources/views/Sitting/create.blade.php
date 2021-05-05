@@ -185,14 +185,9 @@
 @endsection
 @section('inc-scripts')
     <script>
-        $('.datepicker').datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
         var c_t = "";
         function timepicker(el,S){
+            event.preventDefault();
             var div = document.querySelector('.timepicker_wrapper')
             function pad(n) {
                 var len = 2 - (''+n).length;
