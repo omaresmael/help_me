@@ -25,10 +25,11 @@ class SittingRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'date'=>'required|date',
             'price' => 'required|integer',
             'teacher_id'=>'required|numeric',
-            'student_id'=>'required|numeric'
+            'student_id'=>'required|numeric',
+            'start_at' => 'required',
+            'end_at' => 'required'
         ];
     }
 }

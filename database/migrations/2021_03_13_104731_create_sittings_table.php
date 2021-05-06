@@ -16,7 +16,6 @@ class CreateSittingsTable extends Migration
         Schema::create('sittings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('date');
 
             $table->integer('price');
             $table->unsignedBigInteger('teacher_id');
@@ -30,7 +29,8 @@ class CreateSittingsTable extends Migration
                 ->references('id')
                 ->on('students')
                 ->onDelete('cascade');
-
+	    $table->string('start_at');
+	    $table->string('end_at');
             $table->timestamps();
         });
     }

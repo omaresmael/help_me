@@ -125,7 +125,7 @@ class SchoolController extends Controller
         $deservedValue = 0;
         $students = Student::all();
         $schools = School::all();
-        $periods = Period::whereHas('financialYear',function (Builder $query){
+         $periods = Period::whereHas('financialYear',function (Builder $query){
         $query->where('status','=','current');
         })->get();
         if( count($schools) === 0  || count($schools) === 0 || count($periods) === 0)

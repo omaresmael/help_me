@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sitting extends Model
 {
-    protected $fillable = ['name','date','student_id','teacher_id','price'];
-    protected $appends = ['working_days'];
+    protected $guarded = [];
 
     /**
      *

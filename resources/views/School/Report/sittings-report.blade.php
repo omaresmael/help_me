@@ -33,7 +33,7 @@
                                     <td>{{$i+1}}</td>
                                     <td>{{$sitting->name}}</td>
                                     <td>{{$sitting->teacher->name}}</td>
-                                    <td>{{$sitting->students()->count()}}</td>
+                                    <td>{{$sitting->student->count()}}</td>
                                     <td>{{$sitting->price}}</td>
                                     <td>{{$sitting->start_at}}</td>
                                     <td>{{$sitting->end_at}}</td>

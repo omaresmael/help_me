@@ -42,7 +42,7 @@ class SittingController extends Controller
     public function store(SittingRequest $request)
     {
 
-        Sitting::create($request->all());
+        Sitting::create($request->validated());
         return back()->with(['success' =>'تم إضافة جلسة بنجاح']);
     }
 
