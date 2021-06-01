@@ -1,4 +1,12 @@
 @extends('layouts.app-layout')
+@section('style')
+    <style>
+        form textarea{
+            text-align: right;
+            padding: 5px!important;
+        }
+    </style>
+@append
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -29,7 +37,12 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">اسم الدفعة</label>
-                                    <input type="text" name="name" value="{{old('name')}}" class="form-control" autocomplete="false" required>
+                                    <select class="custom-select" name="name" >
+                                        @for($i=1;$i<=10;$i++)
+                                            <option {{old('name')=='دفعة '.$i?'selected':''}} value="{{'دفعة '.$i}}">{{'دفعة '.$i}}</option>
+                                            @endfor
+                                    </select>
+{{--                                    <input type="text" name="name" value="{{old('name')}}" class="form-control" autocomplete="false" required>--}}
                                     @if($errors->has("name"))
                                         <small style="color: red">{{$errors->first('name')}}</small>
                                     @endif
@@ -69,7 +82,7 @@
                             <div class="col-md-3">
                                 <div class="form-group ">
                                     <label class="control-label">أضف الهيئات التعليمية</label>
-                                    <select class="select2 form-control select2-multiple" name="schools[]" multiple="multiple" data-placeholder="اختر الهيئات التعليمية">
+                                    <select class="select2 form-control  select2-multiple" name="schools[]" multiple="multiple" data-placeholder="اختر الهيئات التعليمية">
                                         @foreach($schools as $i => $school)
                                             <option value="{{$school->id}}">{{$school->name}}</option>
                                         @endforeach
@@ -96,7 +109,7 @@
             $('#periods').html('الدفعات المضافة الي هذه السنه: <br>');
             $.each(data.periods, function(key, valueObj) {
                 $('#periods').append( `${valueObj.name} - `);
-            });   
+            });
       });
     });
 </script>

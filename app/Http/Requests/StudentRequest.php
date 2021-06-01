@@ -28,6 +28,7 @@ class StudentRequest extends FormRequest
             'disability_power' => 'required',
             'attendance_begin' => 'required|date',
             'attendance_end' => 'required|date|after:attendance_begin',
+            'date_send' => 'required|date',
             'report_type' =>'required',
             'section' =>'required'
         ];

@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SittingExport;
+use App\Exports\StudentExport;
 use App\Http\Requests\SittingRequest;
+use App\Imports\SittingImport;
+use App\Imports\StudentImport;
 use App\Models\Sitting;
 use App\Models\Student;
 use App\Models\Teacher;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SittingController extends Controller
 {
@@ -90,5 +97,19 @@ class SittingController extends Controller
     {
         $sitting->delete();
         return back()->with('success','تم إزالة الحصة بنجاح');
+    }
+
+    public function export()
+    {
+        return Excel::download(new SittingExport, "الحصص ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('sittings')->truncate();
+        Excel::import(new SittingImport(),request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

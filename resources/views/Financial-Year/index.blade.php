@@ -10,6 +10,21 @@
                         <a href="{{route('financial_years.create')}}" class="btn btn-warning btn-sm">اضافة سنة مالية</a>
 {{--                    @endif--}}
                 </div>
+                <div class="ml-auto mr-3">
+                    <a href="{{route('financial_years.exportToExcel')}}" download=""  class="btn btn-info">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        Export To Excel
+                    </a>
+                    <form action="{{ route('financial_years.importFromExcel') }}" class="d-inline-block" method="POST"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="file" onchange="$(this).parent().submit();" class="d-none">
+                        <button type="button" onclick="$(this).prev().trigger('click');" class="btn btn-success">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Import From Excel
+                        </button>
+                    </form>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">

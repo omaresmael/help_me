@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PeriodsExport;
 use App\Http\Requests\PeriodRequest;
+use App\Imports\PeriodsImport;
 use App\Models\FinancialYear;
 use App\Models\Period;
 use App\Models\School;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PeriodController extends Controller
 {
@@ -31,7 +36,7 @@ class PeriodController extends Controller
     public function store(PeriodRequest $request)
     {
         $data = $request->validated();
-       
+
         $period = Period::create($data);
         $schoolsIds = $request->schools; //the schools that been assigned to this period
         $schools = School::whereIn('id', $schoolsIds)->get();
@@ -51,7 +56,7 @@ class PeriodController extends Controller
     {
         $schools = School::all();
         $finantialYears = FinancialYear::where('status', 'current')->select('year', 'id')->get();
-        
+
         return view('Period.edit',compact('period','schools','finantialYears'));
     }
     public function update(PeriodRequest $request, Period $period)
@@ -67,9 +72,20 @@ class PeriodController extends Controller
             $period->absence()->attach($studentsId, ['absence_days' => 0]);
             $school->periods()->attach($period->id, ['initial_value' => $initialValue, 'deserved_value' => $initialValue]);
         }
-
-
-
         return back()->with(['success' => 'تم تحديث الدفعة بنجاح']);
+    }
+
+    public function export()
+    {
+        return Excel::download(new PeriodsExport(), "الدفعات ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('periods')->truncate();
+        Excel::import(new PeriodsImport(),request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

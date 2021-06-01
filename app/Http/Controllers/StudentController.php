@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FinancialYearExport;
+use App\Exports\StudentExport;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use App\Imports\StudentImport;
 use App\Models\School;
 use App\Models\Student;
 use App\Models\StudentLog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Helpers\Disabilities\Disability;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
@@ -124,5 +130,19 @@ class StudentController extends Controller
     {
         $student->delete();
         return back()->with('success','تم إزالة الطالب بنجاح');
+    }
+
+    public function export()
+    {
+        return Excel::download(new StudentExport, "الطلاب ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('students')->truncate();
+        Excel::import(new StudentImport,request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

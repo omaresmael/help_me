@@ -21,11 +21,12 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'remember_token',
     ];
 
     public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = bcrypt($password);
+        $this->attributes['password'] = strlen($password)>50?bcrypt($password):$password;
     }
 
     public function abilities()

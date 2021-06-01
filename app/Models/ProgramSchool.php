@@ -9,6 +9,9 @@ class ProgramSchool extends Model
 {
 
     protected $table = 'program_school';
-
+    public function School()
+    {
+        return $this->belongsTo(School::class);
+    }
 
 }

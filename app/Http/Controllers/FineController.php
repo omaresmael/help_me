@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FinesExport;
 use App\Http\Requests\FineRequest;
+use App\Imports\FinesImport;
 use App\Models\Fine;
 use App\Models\School;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FineController extends Controller
 {
@@ -95,5 +100,19 @@ class FineController extends Controller
     {
         $fine->delete();
         return back()->with(['success' => 'تم حذف الجزاء بنجاح']);
+    }
+
+    public function export()
+    {
+        return Excel::download(new FinesExport(), "الجزاءات ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('fines')->truncate();
+        Excel::import(new FinesImport(),request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

@@ -8,6 +8,21 @@
                 <p class="card-category">إحصائية البرامج المتاحة وعدد المدارس والطلاب المشتركين في كل برنامج </p>
                 <a href="{{route('programs.create')}}"  style="top: -107%; left: 0 " class="float-left"><button class="btn btn-warning btn-sm">إضافة برنامج</button></a>
             </div>
+            <div class="ml-auto mr-3">
+                <a href="{{route('programs.exportToExcel')}}" download="" class="btn btn-info">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    Export To Excel
+                </a>
+                <form action="{{ route('programs.importFromExcel') }}" class="d-inline-block" method="POST"
+                      enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" onchange="$(this).parent().submit();" class="d-none">
+                    <button type="button" onclick="$(this).prev().trigger('click');" class="btn btn-success">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Import From Excel
+                    </button>
+                </form>
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table">
@@ -29,9 +44,9 @@
                                 <td>{{$program->studentsNumber()}}</td>
                                 <td>
 
-                                    
+
                                     <a href="/programs/{{$program->id}}/edit" class="btn btn-success btn-round btn-sm"><i class="material-icons">edit</i></a>
-                                       
+
                                 </td>
                             </tr>
                             @empty

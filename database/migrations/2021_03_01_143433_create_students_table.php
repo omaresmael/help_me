@@ -28,6 +28,7 @@ class CreateStudentsTable extends Migration
             $table->string('section');
             $table->date('attendance_begin');
             $table->date('attendance_end');
+            $table->date('date_send')->nullable()->comment('تاريخ الإسناد');
             $table->boolean('ministry_nomination')->default(false);
             $table->boolean('school_nomination')->default(false);
             $table->unsignedBigInteger('program_school_id')->nullable();

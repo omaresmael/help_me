@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentExport;
+use App\Exports\TeacherExport;
 use App\Http\Requests\StoreTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
+use App\Imports\StudentImport;
+use App\Imports\TeacherImport;
 use App\Models\School;
 use App\Models\Teacher;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TeacherController extends Controller
 {
@@ -94,5 +101,18 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher)
     {
         //
+    }
+    public function export()
+    {
+        return Excel::download(new TeacherExport(), "المعلمين ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('teachers')->truncate();
+        Excel::import(new TeacherImport(),request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

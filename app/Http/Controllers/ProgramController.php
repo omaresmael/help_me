@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProgramExport;
+use App\Exports\StudentExport;
 use App\Http\Requests\ProgramRequest;
+use App\Imports\ProgramImport;
+use App\Imports\StudentImport;
 use App\Models\Program;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProgramController extends Controller
 {
@@ -42,5 +49,19 @@ class ProgramController extends Controller
     {
         $program->update($request->validated());
         return redirect('programs')->with(['message' => 'تم تعديل البرنامج التعليميه بنجاح']);
+    }
+
+    public function export()
+    {
+        return Excel::download(new ProgramExport(), "البرامج ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('programs')->truncate();
+        Excel::import(new ProgramImport(),request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

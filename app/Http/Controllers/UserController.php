@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentExport;
+use App\Exports\UserExport;
 use App\Http\Requests\UserRequest;
+use App\Imports\UserImport;
 use App\Models\Ability;
 use App\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -52,5 +58,19 @@ class UserController extends Controller
     {
         $user->delete();
         return back()->with(['success' => 'تم حذف المختص بنجاح']);
+    }
+
+    public function export()
+    {
+        return Excel::download(new UserExport, "المختصين ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('users')->truncate();
+        Excel::import(new UserImport,request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

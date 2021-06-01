@@ -11,7 +11,23 @@
                     </div>
 
                 </div>
-                <div class="card-body">
+                  <div class="ml-auto mr-3">
+                      <a href="{{route('sittings.exportToExcel')}}" download=""  class="btn btn-info">
+                          <i class="fas fa-cloud-download-alt"></i>
+                          Export To Excel
+                      </a>
+                      <form action="{{ route('sittings.importFromExcel') }}" class="d-inline-block" method="POST"
+                            enctype="multipart/form-data">
+                          @csrf
+                          <input type="file" name="file" onchange="$(this).parent().submit();" class="d-none">
+                          <button type="button" onclick="$(this).prev().trigger('click');" class="btn btn-success">
+                              <i class="fas fa-cloud-upload-alt"></i>
+                              Import From Excel
+                          </button>
+                      </form>
+                  </div>
+
+                  <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -41,7 +57,7 @@
 {{--                                <button type="button" rel="tooltip" class="btn btn-success btn-round">--}}
 {{--                                    <i class="material-icons">edit</i>--}}
 {{--                                </button>--}}
-                                  
+
                                <form action="{{route('sittings.destroy',$sitting->id)}}" method="post"> <button type="submit" rel="tooltip" class="btn btn-danger btn-round">
                                        @csrf
                                        @method('DELETE')

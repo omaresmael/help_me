@@ -55,6 +55,12 @@ Login To Help Me
                                                     </span>
                                                 @enderror
                                             </div>
+                                            <div>
+                                                <label>
+                                                    Remember Me
+                                                    <input type="checkbox" name="remember">
+                                                </label>
+                                            </div>
                                             <div class="mt-4 text-center">
                                                 <button class="form-control btn btn-primary w-md waves-effect waves-light" type="submit">{{ __('Log In') }}</button>
                                             </div>

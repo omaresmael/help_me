@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FinancialYearExport;
 use App\Http\Requests\FinancialYearRequest;
+use App\Imports\FinancialYearImport;
 use App\Models\Budget;
 use App\Models\FinancialYear;
 use App\Models\School;
+use Carbon\Carbon;
 use finfo;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FinancialYearController extends Controller
 {
@@ -67,5 +72,19 @@ class FinancialYearController extends Controller
     {
         $budgets = $financialYear->budgets;
         return view('Financial-Year.budget',compact('budgets'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new FinancialYearExport, "السنوات المالية ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('financial_years')->truncate();
+        Excel::import(new FinancialYearImport,request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

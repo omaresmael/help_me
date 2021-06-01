@@ -1,3 +1,4 @@
+@include('base.select')
 @extends('layouts.app-layout')
 @section('css_includes')
     <style>
@@ -5,6 +6,12 @@
             margin: 9em auto;
             width: fit-content;
             background-color: white;
+        }
+        .filter-option-inner-inner{
+            text-align: right!important;
+        }
+        button[data-id="student_id"]{
+            background: white!important;
         }
 
         .timepicker_wrapper{
@@ -157,17 +164,17 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group bg-white">
                                     <label for="id_label_single">
                                         اختر الطلبة المشتركين في الجلسة
                                     </label>
-                                    <select class="js-example-basic-single js-states form-control" id="" name="student_id">
+                                    <select  data-live-search="true" class="text-right bg-white selectpicker form-control"
+                                             id="student_id" name="student_id">
                                         @isset($students)
                                             <option>اختر الطلبة</option>
                                         @endisset
                                         @foreach($students as $student)
-
-                                            <option value="{{$student->id}}">{{$student->name}}</option>
+                                            <option {{request('selected_student') && request('selected_student')==$student->id?'selected':''}} data-subtext=" ({{$student->national_number}}) " value="{{$student->id}}">{{$student->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -247,5 +254,8 @@
             }
         }
 
+        @if(request('selected_student'))
+        $('#student_id').selectpicker('val', "{{request('selected_student')}}");
+            @endif
     </script>
 @endsection

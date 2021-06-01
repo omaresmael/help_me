@@ -14,14 +14,22 @@
                             <div class="row" style="justify-content: center;
             margin-bottom: 12px;">
                                 @if($student->school())
-                                <a href="{{route('schools.show',$student->school()->id)}}"><button class="btn btn-primary">
-                                        <i class="fa fa-child"></i>الهيئة التعليمية
-                                    </button></a>
+                                    <a href="{{route('schools.show',$student->school()->id)}}">
+                                        <button class="btn h5 btn-primary">
+                                            <i class="fa fa-child"></i>الهيئة التعليمية
+                                        </button>
+                                    </a>
                                 @endif
-{{--                                add the relation in the model / add the view --}}
-                                <a href="{{route('school.sittings.report',$student->id)}}"><button class="btn  btn-default">
+                                {{--                                add the relation in the model / add the view --}}
+                                <a href="{{route('school.sittings.report',$student->id)}}">
+                                    <button class="btn h5 btn-default">
                                         <i class="fa fa-tasks"></i> الحصص
-                                    </button></a>
+                                    </button>
+                                </a>
+                                <a href="{{route('sittings.create',['selected_student'=>$student->id])}}">
+                                    <button class="btn btn-primary"><span class="h5">إضافة حصة</span></button>
+                                </a>
+
                             </div>
                             <div class="row">
                                 <div class="col-md-4 text-right boxiing-shado">
@@ -33,49 +41,54 @@
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">الرقم المدني</label>
-                                        <h4 class="card-title"><strong> 	{{$student->national_number}} </strong></h4>
+                                        <h4 class="card-title"><strong>    {{$student->national_number}} </strong></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-2 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">تاريخ الميلاد</label>
-                                        <h4 class="card-title"><strong> 	{{$student->dateOfBirth}} </strong></h4>
+                                        <h4 class="card-title"><strong>    {{$student->dateOfBirth}} </strong></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-2 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">النوع</label>
-                                        <h4 class="card-title"><strong> 	{{$student->gender}} </strong></h4>
+                                        <h4 class="card-title"><strong>    {{$student->gender}} </strong></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">اسم ولي الأمر</label>
-                                        <h4 class="card-title"><strong> 	{{$student->guardian_name}} </strong></h4>
+                                        <h4 class="card-title"><strong>    {{$student->guardian_name}} </strong></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">الرقم المدني لولي الأمر</label>
-                                        <h4 class="card-title"><strong> {{$student->guardian_national_number}} </strong></h4>
+                                        <h4 class="card-title"><strong> {{$student->guardian_national_number}} </strong>
+                                        </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">الإميل</label>
-                                        <h4 class="card-title"><strong> 	{{$student->email}}</strong></h4>
+                                        <h4 class="card-title"><strong>    {{$student->email}}</strong></h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">اسم الهيئة التعليمية</label>
-                                        <h4 class="card-title"><strong> {{$student->school()?$student->school()->name:'لم يتم إسناده إلى هيئة تعليمية حتى الآن'}} </strong></h4>
+                                        <h4 class="card-title">
+                                            <strong> {{$student->school()?$student->school()->name:'لم يتم إسناده إلى هيئة تعليمية حتى الآن'}} </strong>
+                                        </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">البرنامج</label>
-                                        <h4 class="card-title"><strong> {{$student->school()?$student->program()[1]->name:'لم يتم إسناده إلى برنامج حتى الآن'}} </strong></h4>
+                                        <h4 class="card-title">
+                                            <strong> {{$student->school()?$student->program()[1]->name:'لم يتم إسناده إلى برنامج حتى الآن'}} </strong>
+                                        </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-right boxiing-shado">
@@ -103,9 +116,10 @@
                                     <label class="bmd-label-floating">سجل الهيئات التعليمية</label>
                                     <h4 class="card-title">
                                         <strong>
-                                        @foreach($student->logs as $log)
-                                            {{$log->school->name}} -- {{$log->school->created_at->toFormattedDateString()}}  <br>
-                                        @endforeach
+                                            @foreach($student->logs as $log)
+                                                {{$log->school->name}}
+                                                -- {{$log->school->created_at->toFormattedDateString()}}  <br>
+                                            @endforeach
                                         </strong>
                                     </h4>
                                 </div>
@@ -120,7 +134,7 @@
 @endsection
 @section('inc-scripts')
     <script>
-        $(function() {
+        $(function () {
             $('#students').addClass('active');
         });
     </script>

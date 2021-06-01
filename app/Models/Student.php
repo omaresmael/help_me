@@ -30,7 +30,6 @@ class Student extends Model
 
     public function school()
     {
-
         if($this->data){
             return School::find($this->data->school_id);
         }
@@ -38,7 +37,7 @@ class Student extends Model
     }
 
     public function program()
-    { 
+    {
         if($this->data) {
             $program = Program::find($this->data->program_id);
 

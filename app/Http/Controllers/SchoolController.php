@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SchoolExport;
+use App\Exports\StudentExport;
 use App\Http\Requests\SchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
 use App\Helpers\Countries\Country;
+use App\Imports\SchoolImport;
 use App\Models\Fine;
 use App\Models\Period;
 use App\Models\Program;
 use App\Models\School;
 use App\Models\Student;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
 use DateTime;
 use Hamcrest\Type\IsNumeric;
+use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SchoolController extends Controller
 {
@@ -132,7 +138,7 @@ class SchoolController extends Controller
         {
             return back()->with(['error'=>'من فضلك قم بإضافة مدارس ودفعات دراسية تعيين الطلاب الي مدارس وبرامج في السنة المالية الحالية']);
         }
-        return view('School.Report.schools-finance', compact('schools','students','periods'));
+        return view('School.Report.schools-finance-new', compact('schools','students','periods'));
     }
 
     public function studentsReport(School $school)
@@ -200,7 +206,7 @@ class SchoolController extends Controller
         $school->update($request->validated());
         if($request->programs[0] === 'Select' || !is_numeric($request->programs_price[0]))
             return redirect('schools')->with(['message' => 'تم تعديل الهئية التعليميه بنجاح']);
-        
+
             $oldprogramids = [];
             foreach ($school->programs as $i => $program) {
                 if($request->programs[$i] == $program->id) {
@@ -238,5 +244,19 @@ class SchoolController extends Controller
     {
         $school->delete();
         return back()->with('success','تم إزالة الهيئة التعليمية  بنجاح');
+    }
+
+    public function export()
+    {
+        return Excel::download(new SchoolExport(), "الهيئات التعليمية ".Carbon::now()->toDateString().'.xlsx');
+    }
+
+    public function import()
+    {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        DB::table('schools')->truncate();
+        Excel::import(new SchoolImport(),request()->file('file'));
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        return back()->with(['success' => 'تم العملية بنجاح']);
     }
 }

@@ -23,8 +23,7 @@ class AuthController extends Controller
      */
     public function loginAction(LoginRequest $request)
     {
-
-        return Auth::attempt($request->validated()) ?
+        return Auth::attempt($request->validated(),request('remember')??false) ?
             redirect('/dashboard')->with('success', 'لقد تم تسجيل الدخول بنجاح') :
             redirect('/')->with('error', 'برجاء التاكد من اسم المستخدم وكلمة المرور');
     }
